@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>[% IF title %][% title | html %] · [% END %]Perl Community Conference</title>
+<title>[% IF title AND title != 'Perl Community Conference' %][% title | html %] · [% END %]Perl Community Conference</title>
 [% IF openid %]<link rel="openid.server" href="[% global.request.base_url %][% make_uri('openid') %]">[% END %]
 <link rel="alternate" type="application/atom+xml" title="Conference news" href="[% global.request.base_url %][% make_uri_info('atom', global.request.language) %].xml">
 <link rel="stylesheet" href="/css/act-base.css">
@@ -17,7 +17,7 @@
 <a class="brand" href="[% make_uri('index.html') %]"><span class="brand-oyster" aria-hidden="true"><img src="[% make_uri_info('images', 'pcc-official-artwork.jpg') %]" alt=""></span><span><strong>Perl Community Conference</strong><small>Development · Community · Science</small></span></a>
 <a class="journal-link" href="/spj">Science Perl Journal ↗</a>
 </div></header>
-<div class="demo-banner">Demo site · Explore the conference tools. Event details are provisional.</div>
+<div class="demo-banner">Conference tools preview · For current event registration and submissions, follow the official PCC announcements.</div>
 <div class="site-layout">
 <nav id="menu" aria-label="Conference navigation"><a class="nav-home" href="[% make_uri('index.html') %]">Conference home</a>[% PROCESS menu %]</nav>
 <main id="content" tabindex="-1">[% IF title %]<h1 class="page-title">[% title | html %]</h1>[% END %][% content %]</main>

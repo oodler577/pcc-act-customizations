@@ -2,7 +2,7 @@
 
 Conference-local Science Perl / Perl Community Conference theme for Act PSGI.
 SPJ blue (#1e6292), blue links (#006798), white background, and a responsive layout; native organizer menus retained. General Perl conference wording includes a prominent science track.
-The visible demo notice and provisional event wording are intentional.
+The conference-tools preview notice is intentional; current event registration and submission details remain with the official announcements.
 
 ## Install on an existing deployment
 

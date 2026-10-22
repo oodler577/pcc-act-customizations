@@ -1,15 +1,81 @@
-[% WRAPPER ui title = 'Welcome' %]
-<section class="hero"><p class="eyebrow">THE PERL COMMUNITY</p>
-<h2>Good ideas.<br>Shared in good company.</h2>
-<p class="hero-description">A place for people building with Perl to share their work, exchange ideas, and make new connections — across software development, tools, education, industry, and science.</p>
-<div class="hero-actions"><a class="button" href="[% make_uri('register') %]">Join the conference</a><a class="button button-outline" href="[% make_uri('talks') %]">Explore the talks</a></div>
-<p class="hero-note">You’re viewing our working demo. Dates, venue, and program will be announced.</p></section>
-<section class="welcome-section"><p class="eyebrow">GET INVOLVED</p><h2>A conference shaped by its community.</h2>
-<div class="feature-grid">
-<article class="feature-card"><span class="card-number">01 / PARTICIPATE</span><h3>Find your people</h3><p>Create a profile, meet other attendees, and become part of the conversation.</p><a href="[% make_uri('search') %]">Meet the community →</a></article>
-<article class="feature-card"><span class="card-number">02 / CONTRIBUTE</span><h3>Share what you’re building</h3><p>Bring a project, a discovery, a useful technique, or a question worth exploring.</p><a href="[% make_uri('newtalk') %]">Propose a talk →</a></article>
-<article class="feature-card"><span class="card-number">03 / STAY CONNECTED</span><h3>Follow the latest</h3><p>Watch for announcements as the conference takes shape.</p><a href="[% make_uri('news') %]">Conference news →</a></article>
-</div><div class="science-track"><h3>Science is a big part of the conversation.</h3><p>The Science Perl track brings research, scientific computing, and practical applications into the broader Perl program. Explore the <a href="/spj">Science Perl Journal</a> for papers and publications.</p></div></section>
-[% news = global.news(3) %][% IF news.size %]<section class="welcome-section"><p class="eyebrow">FROM THE ORGANIZERS</p><h2>Latest announcements</h2>
-[% FOREACH item = news %]<article class="news-entry"><p class="news-date">[% date_format(item.datetime, 'date_short') %]</p><h3>[% item.title | html %]</h3><div>[% item.content %]</div></article>[% END %]</section>[% END %]
+[% WRAPPER ui title = 'Perl Community Conference' %]
+<section class="hero">
+  <p class="eyebrow">PERL COMMUNITY CONFERENCE · PCC</p>
+  <h2>Perl 5 talks, projects,<br>and scientific research.</h2>
+  <p class="hero-description">The Perl Community Conference brings Perl programmers,
+  project maintainers, and researchers together in Austin, Texas and online.
+  PCC combines general Perl talks and lightning talks with the Science Perl track.</p>
+  <div class="hero-actions">
+    <a class="button" href="https://perlcommunity.org/conference/">PCC programs &amp; event information</a>
+    <a class="button button-outline" href="/spj">Science Perl Journal</a>
+  </div>
+</section>
+
+<section class="welcome-section">
+  <p class="eyebrow">PCC · PERL COMMUNITY · SCIENCE PERL</p>
+  <h2>Advancing Perl through conferences, projects, and publications.</h2>
+  <div class="feature-grid">
+    <article class="feature-card">
+      <span class="card-number">THE CONFERENCE</span>
+      <h3>Perl Community Conference</h3>
+      <p>PCC programs include web applications, developer tools, systems programming,
+      AI, algorithms, and scientific computing. Speakers and attendees participate
+      in person and remotely.</p>
+      <a href="[% make_uri('talks') %]">Browse talks on this site →</a>
+    </article>
+    <article class="feature-card">
+      <span class="card-number">THE ORGANIZATION</span>
+      <h3>The Perl Community</h3>
+      <p>The Perl Community supports the advancement of Perl 5 through its conferences,
+      publications, and committees, including AI Perl, Perl::Types, and Science Perl.</p>
+      <a href="https://perlcommunity.org/">Explore Perl Community projects →</a>
+    </article>
+    <article class="feature-card">
+      <span class="card-number">RESEARCH &amp; PUBLICATION</span>
+      <h3>Science Perl</h3>
+      <p>The Science Perl track connects conference presentations with the Science
+      Perl Journal. Calls for papers have included full papers, short papers,
+      and extended abstracts alongside general Perl talks that require no paper.</p>
+      <a href="/spj">Read the Science Perl Journal →</a>
+    </article>
+  </div>
+</section>
+
+<section class="welcome-section">
+  <p class="eyebrow">PCC TALKS &amp; RECORDINGS</p>
+  <h2>What the Perl community is working on.</h2>
+  <p>Past PCC programs have covered Catalyst and Valiant, PAGI and ASGI,
+  wxPerl on Windows, Perl data types, DevOps, Beowulf clusters, and scientific
+  algorithms. Conference recordings are published on The Perl Community YouTube channel.</p>
+  <div class="hero-actions">
+    <a class="button" href="https://www.youtube.com/@PerlCommunity">Watch PCC recordings</a>
+    <a class="button button-outline" href="https://www.reddit.com/r/perlcommunity/comments/1uq3r3k/pcc_keynote_the_ai_revolution_is_validating_40/">PCC keynote discussion →</a>
+  </div>
+</section>
+
+<section class="welcome-section">
+  <p class="eyebrow">ANNOUNCEMENTS &amp; DISCUSSION</p>
+  <h2>Keep up with PCC and Science Perl.</h2>
+  <p>Find conference announcements, calls for participation, and recording releases
+  on blogs.perl.org. Join the discussion on r/perlcommunity, or subscribe to the
+  low-volume Science Perl mailing list for news and early access to recordings.</p>
+  <div class="resource-links">
+    <a href="https://blogs.perl.org/users/oodler_577/">PCC &amp; Science Perl announcements →</a>
+    <a href="https://www.reddit.com/r/perlcommunity/">r/perlcommunity →</a>
+    <a href="https://perlcommunity.org/science/#mailing_list">Science Perl mailing list →</a>
+  </div>
+</section>
+
+[% news = global.news(3) %]
+[% IF news.size %]
+<section class="welcome-section">
+  <p class="eyebrow">CONFERENCE SITE NEWS</p><h2>Organizer updates</h2>
+  [% FOREACH item = news %]
+  <article class="news-entry">
+    <p class="news-date">[% date_format(item.datetime, 'date_short') %]</p>
+    <h3>[% item.title | html %]</h3><div>[% item.content %]</div>
+  </article>
+  [% END %]
+</section>
+[% END %]
 [% END %]
