@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="[% global.request.language | html %]">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[% IF title %][% title | html %] · [% END %]Perl Community Conference</title>
+[% IF openid %]<link rel="openid.server" href="[% global.request.base_url %][% make_uri('openid') %]">[% END %]
+<link rel="alternate" type="application/atom+xml" title="Conference news" href="[% global.request.base_url %][% make_uri_info('atom', global.request.language) %].xml">
+<link rel="stylesheet" href="/css/act-base.css">
+<link rel="stylesheet" href="/css/schedule.css">
+<link rel="stylesheet" href="[% make_uri_info('css', 'style.css') %]?v=3">
+<script src="/js/jquery.js"></script><script src="/js/act.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="site-header"><div class="header-inner">
+<a class="brand" href="[% make_uri('index.html') %]"><span class="brand-mark" aria-hidden="true">P;</span><span><strong>Perl Community Conference</strong><small>Science Perl · Ideas into practice</small></span></a>
+<a class="journal-link" href="/">Science Perl Journal ↗</a>
+</div></header>
+<div class="demo-banner">Demo site · Explore the conference tools. Event details are provisional.</div>
+<div class="site-layout">
+<nav id="menu" aria-label="Conference navigation"><a class="nav-home" href="[% make_uri('index.html') %]">Conference home</a>[% PROCESS menu %]</nav>
+<main id="content" tabindex="-1">[% IF title %]<h1 class="page-title">[% title | html %]</h1>[% END %][% content %]</main>
+</div>
+<footer class="site-footer"><span>Science Perl · Perl Community Conference</span><span>Powered by <a href="https://github.com/book/Act">Act</a></span></footer>
+</body></html>

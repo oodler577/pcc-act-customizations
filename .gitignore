@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+local/
+backups/
+data/
+*.key
+*.pem
+*.cer
+*.dump
+*.sql
+__pycache__/
