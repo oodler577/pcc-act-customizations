@@ -151,3 +151,24 @@ References:
 - https://docs.aws.amazon.com/ses/latest/dg/smtp-credentials.html
 - https://docs.aws.amazon.com/ses/latest/dg/smtp-connect.html
 - https://metacpan.org/pod/Email::Sender::Transport::SMTP
+
+## Conference and sender display names
+
+The email subject and confirmation body use the conference name_en setting in
+conferences/ID/actdocs/conf/act.ini under [general]. The SMTP From display
+name uses ACT_SMTP_FROM_NAME in the generated Compose override. Neither setting
+changes the approved sender address or SMTP credentials. Existing emails are
+unchanged; the new branding applies to subsequent messages.
+
+For an existing deployment:
+
+```bash
+python3 scripts/set-conference-branding.py /path/to/act/deploy
+./scripts/apply-theme.sh /path/to/act/deploy conference
+docker compose --project-directory /path/to/act/deploy build act
+docker compose --project-directory /path/to/act/deploy up -d --no-deps --force-recreate act
+```
+
+The default name is Perl Community Conference. Use --name to customize it.
+The helper backs up the conference config and Compose override and refreshes
+the SMTP adapter source. The theme no longer displays the demo/preview banner.
