@@ -43,3 +43,5 @@ input,select,textarea,button{font:inherit;max-width:100%}input:not([type=checkbo
 @media(max-width:650px){.conduct-toc ul{grid-template-columns:1fr}.conduct-toc{padding:14px 16px}.conduct-page .guild-law li{grid-template-columns:1.6rem minmax(0,1fr);row-gap:2px;padding:8px 0}.guild-law li::before{grid-column:1;grid-row:1 / span 2}.guild-law strong,.guild-law span{grid-column:2}.guild-law strong{grid-row:1}.guild-law span{grid-row:2}}
 
 .guild-law .virtue-root{display:block;margin-top:4px;color:var(--muted);font-size:12px;line-height:1.45}.guild-law .virtue-root b{font-weight:700}
+
+#menu .conduct-subnav{display:block;padding-left:14px;margin:0 0 4px;border-left:1px solid var(--line)}#menu .conduct-subnav a{font-size:12px;padding:2px 0}
