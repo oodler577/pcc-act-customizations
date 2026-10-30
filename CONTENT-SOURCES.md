@@ -30,3 +30,10 @@ The plain-language conduct page adapts the concepts, with original examples, fro
 
 Read 2026-10-30. PCC’s preference for virtue-led self-moderation over an exhaustive
 rulebook is stated as its approach, not an empirical claim that all rule systems fail.
+
+## Twelve-point Perl Guilds Law
+
+PCC’s proposed formulation, developed for this page; not represented as a previously
+adopted Perl Guilds policy. Scout Law wording and comparison checked against
+https://www.scouting.org/about/faq/question10/ on 2026-10-30. The flourishing
+application expresses PCC’s aims and draws on the Perl Guilds sources above.
