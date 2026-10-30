@@ -80,6 +80,7 @@ services:
       SMTP_HOST: """+json.dumps(host)+"""
       SMTP_PORT: "587"
       ACT_SMTP_FROM: """+json.dumps(a.sender)+"""
+      ACT_SMTP_FROM_NAME: "Perl Community Conference"
       ACT_SMTP_CONFIG: /run/secrets/ses_smtp
     secrets:
       - ses_smtp

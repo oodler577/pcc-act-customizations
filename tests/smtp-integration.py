@@ -2,6 +2,8 @@
 """Synthetic SMTP integration check; requires Docker, openssl, and aiosmtpd."""
 import argparse,json,os,subprocess as sp,sys,tempfile,time
 from pathlib import Path
+from email import message_from_string
+from email.utils import parseaddr
 p=argparse.ArgumentParser(description=__doc__)
 p.add_argument("--image",default="pcc-act-smtp-integration")
 a=p.parse_args()
@@ -16,6 +18,8 @@ with tempfile.TemporaryDirectory(prefix="pcc-direct-smtp-test-") as tmp:
     (d/"server.py").write_text("""
 import ssl,time,sys,json
 from pathlib import Path
+from email import message_from_string
+from email.utils import parseaddr
 from aiosmtpd.controller import Controller
 from aiosmtpd.smtp import AuthResult,LoginPassword
 d=Path(sys.argv[1])
@@ -54,7 +58,7 @@ print "SMTP submission accepted\\n";
         secret.chmod(0o600);os.chown(secret,10001,10001)
     def send(trust=False):
         args=["docker","run","--rm","--user","10001:10001","--add-host","smtp.integration.test:host-gateway",
-              "-e","SMTP_HOST=smtp.integration.test","-e","SMTP_PORT=587","-e","ACT_SMTP_FROM=sender@example.invalid",
+              "-e","SMTP_HOST=smtp.integration.test","-e","SMTP_PORT=587","-e","ACT_SMTP_FROM=sender@example.invalid","-e","ACT_SMTP_FROM_NAME=Perl Community Conference",
               "-v",str(secret)+":/run/secrets/ses_smtp:ro","-v",str(d/"send.pl")+":/tmp/send.pl:ro"]
         if trust:args+=["-v",str(d/"ca.pem")+":/etc/ssl/certs/ca-certificates.crt:ro"]
         args+=[a.image,"perl","-I/opt/act/lib","/tmp/send.pl"]
@@ -79,6 +83,7 @@ print "SMTP submission accepted\\n";
         message=(d/"delivered.eml").read_text()
         assert "\nBcc:" not in message
         assert "Synthetic direct SMTP body." in message
+        assert parseaddr(message_from_string(message)["From"]) == ("Perl Community Conference", "sender@example.invalid")
         print("PASS verified STARTTLS and AUTH; To/Cc/Bcc recipients preserved, Bcc hidden",flush=True)
         (d/"delivered.eml").unlink()
         credentials("wrong-password-for-negative-test")

@@ -17,7 +17,6 @@
 <a class="brand" href="[% make_uri('index.html') %]"><span class="brand-oyster" aria-hidden="true"><img src="[% make_uri_info('images', 'pcc-official-artwork.jpg') %]" alt=""></span><span><strong>Perl Community Conference</strong><small>Development · Community · Science</small></span></a>
 <a class="journal-link" href="/spj">Science Perl Journal ↗</a>
 </div></header>
-<div class="demo-banner">Conference tools preview · For current event registration and submissions, follow the official PCC announcements.</div>
 <div class="site-layout">
 <nav id="menu" aria-label="Conference navigation"><a class="nav-home" href="[% make_uri('index.html') %]">Conference home</a>[% PROCESS menu %]</nav>
 <main id="content" tabindex="-1">[% IF title %]<h1 class="page-title">[% title | html %]</h1>[% END %][% content %]</main>

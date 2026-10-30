@@ -27,6 +27,8 @@ sub new {
     my $host = $ENV{SMTP_HOST} // '';
     my $port = $ENV{SMTP_PORT} // 587;
     my $from = $ENV{ACT_SMTP_FROM} // '';
+    my $name = $ENV{ACT_SMTP_FROM_NAME} // '';
+    die "Invalid SMTP sender name\n" if $name =~ /[\r\n\x00]/;
     die "Invalid SMTP host\n" unless $host =~ /\A[A-Za-z0-9.-]+\z/;
     die "Invalid SMTP port\n" unless $port =~ /\A[0-9]+\z/ && $port > 0 && $port < 65536;
     die "Invalid SMTP envelope sender\n" unless $from =~ /\A[A-Za-z0-9._%+-]+\@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\z/;
@@ -44,13 +46,16 @@ sub new {
             SSL_ca_file => '/etc/ssl/certs/ca-certificates.crt',
         },
     );
-    return bless { transport => $transport, from => $from }, $class;
+    return bless { transport => $transport, from => $from, name => $name }, $class;
 }
 
 sub send {
     my ($self, $email) = @_;
     # Work on a copy; preserve Act's original MIME headers/body.
     my $message = Email::Simple->new($email->as_string);
+    if (length $self->{name}) {
+        $message->header_set('From', Email::Address->new($self->{name}, $self->{from})->format);
+    }
     my (@to, %seen);
     for my $header (qw(To Cc Bcc)) {
         for my $value ($message->header($header)) {
