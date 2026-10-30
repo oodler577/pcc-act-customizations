@@ -4,6 +4,27 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>[% IF title AND title != 'Perl Community Conference' %][% title | html %] · [% END %]Perl Community Conference</title>
+[% SET pcc_description = 'Perl Community Conference brings together Perl developers, community members, and Science Perl contributors to share talks, projects, and ideas.' %]
+<meta name="description" content="[% pcc_description | html %]">
+[% IF NOT title OR title == 'Perl Community Conference' %]
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://science.perlcommunity.org/conference/">
+[% ELSE %]<meta name="robots" content="noindex,follow">[% END %]
+<meta property="og:site_name" content="Perl Community Conference">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="[% IF title AND title != 'Perl Community Conference' %][% title | html %] · [% END %]Perl Community Conference">
+<meta property="og:description" content="[% pcc_description | html %]">
+[% IF NOT title OR title == 'Perl Community Conference' %]<meta property="og:url" content="https://science.perlcommunity.org/conference/">[% END %]
+<meta property="og:image" content="https://science.perlcommunity.org/conference/images/pcc-social.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Perl Community Conference — Development, Community, Science; official oyster logo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="[% IF title AND title != 'Perl Community Conference' %][% title | html %] · [% END %]Perl Community Conference">
+<meta name="twitter:description" content="[% pcc_description | html %]">
+<meta name="twitter:image" content="https://science.perlcommunity.org/conference/images/pcc-social.jpg">
+<meta name="twitter:image:alt" content="Perl Community Conference — Development, Community, Science; official oyster logo">
 [% IF openid %]<link rel="openid.server" href="[% global.request.base_url %][% make_uri('openid') %]">[% END %]
 <link rel="alternate" type="application/atom+xml" title="Conference news" href="[% global.request.base_url %][% make_uri_info('atom', global.request.language) %].xml">
 <link rel="stylesheet" href="/css/act-base.css">
