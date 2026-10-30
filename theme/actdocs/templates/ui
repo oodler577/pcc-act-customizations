@@ -30,7 +30,7 @@
 <link rel="alternate" type="application/atom+xml" title="Conference news" href="[% global.request.base_url %][% make_uri_info('atom', global.request.language) %].xml">
 <link rel="stylesheet" href="/css/act-base.css">
 <link rel="stylesheet" href="/css/schedule.css">
-<link rel="stylesheet" href="[% make_uri_info('css', 'style.css') %]?v=5">
+<link rel="stylesheet" href="[% make_uri_info('css', 'style.css') %]?v=6">
 <script src="/js/jquery.js"></script><script src="/js/act.js"></script>
 </head>
 <body>
