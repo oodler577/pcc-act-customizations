@@ -95,3 +95,8 @@ outside this checkout. No browser control is implemented in Node or Python.
 The theme was rendered with Template Toolkit and inspected through this
 Perl client using representative navigation. This does not replace testing
 logged-in Act organizer pages on the deployment after installation.
+
+## Transactional email
+
+See [MAIL.md](MAIL.md) for direct SES SMTP with required STARTTLS and authentication,
+hidden credential entry, deployment steps, and delivery verification.
