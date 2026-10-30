@@ -37,3 +37,15 @@ PCC’s proposed formulation, developed for this page; not represented as a prev
 adopted Perl Guilds policy. Scout Law wording and comparison checked against
 https://www.scouting.org/about/faq/question10/ on 2026-10-30. The flourishing
 application expresses PCC’s aims and draws on the Perl Guilds sources above.
+
+## Human dignity, work, and technology
+
+Short original applications on the conduct page draw on principles checked against:
+- Rerum Novarum: https://www.vatican.va/content/leo-xiii/en/encyclicals/documents/hf_l-xiii_enc_15051891_rerum-novarum.html
+- Magnifica Humanitas: https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260515-magnifica-humanitas.html
+
+Read 2026-10-30. Themes: inherent dignity; decent livelihoods and rest; respect
+for labor and ownership; voluntary mutual aid and association; technology ordered
+toward human good and human responsibility. These are PCC applications in plain
+language, not quotations or claims that the documents address Perl specifically.
+The public page intentionally contains no additional formal citations for these additions.
