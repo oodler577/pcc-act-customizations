@@ -9,4 +9,5 @@
 
 [% WRAPPER menus/item %]
 <a href="[% make_uri('conduct.html') %]">CONDUCT</a>
+<ul class="conduct-subnav"><li><a href="[% make_uri('conduct.html') %]#perl-scout-law">Perl Scout Law</a></li></ul>
 [% END %]
