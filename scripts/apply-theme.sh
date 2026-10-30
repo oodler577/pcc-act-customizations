@@ -14,10 +14,11 @@ backup=$(mktemp "$deploy/backups/theme-XXXXXXXX.tar.gz")
 tar -C "$deploy" -czf "$backup" "conferences/$conf"
 mkdir -p "$target/actdocs/templates/menus"
 cp "$repo/theme/actdocs/templates/menu" "$target/actdocs/templates/menu"
-cp "$repo/theme/actdocs/templates/menus/user" "$target/actdocs/templates/menus/user"
-chmod 644 "$target/actdocs/templates/menu" "$target/actdocs/templates/menus/user"
+cp "$repo"/theme/actdocs/templates/menus/* "$target/actdocs/templates/menus/"
+chmod 644 "$target/actdocs/templates/menu" "$target"/actdocs/templates/menus/*
 cp "$repo/theme/actdocs/templates/ui" "$target/actdocs/templates/ui"
-cp "$repo/theme/actdocs/static/index.html" "$target/actdocs/static/index.html"
+cp "$repo"/theme/actdocs/static/*.html "$target/actdocs/static/"
+chmod 644 "$target"/actdocs/static/*.html
 mkdir -p "$target/wwwdocs/css"
 cp "$repo/theme/wwwdocs/css/style.css" "$target/wwwdocs/css/style.css"
 chmod 644 "$target/actdocs/templates/ui" "$target/actdocs/static/index.html" "$target/wwwdocs/css/style.css"

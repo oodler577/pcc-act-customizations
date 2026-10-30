@@ -20,3 +20,13 @@ as current. The Act account and submission tools remain a preview.
 Keep links to /spj, the official PCC programs, organizer blog, subreddit,
 mailing list, and YouTube channel. Do not insert unverified future dates,
 registration prices, submission deadlines, or acceptance guarantees.
+
+
+## Code of Virtues
+
+The plain-language conduct page adapts the concepts, with original examples, from:
+- https://wiki.perl-guilds.net/index.php?title=The_Real_3_Virtues_of_Perl
+- https://wiki.perl-guilds.net/index.php?title=Open_Sourcing_the_Virtues_of_a_Perl_Programmer
+
+Read 2026-10-30. PCC’s preference for virtue-led self-moderation over an exhaustive
+rulebook is stated as its approach, not an empirical claim that all rule systems fail.

@@ -5,17 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>[% IF title AND title != 'Perl Community Conference' %][% title | html %] · [% END %]Perl Community Conference</title>
 [% SET pcc_description = 'Perl Community Conference meets twice a year, around Perl’s birthday on December 18 and around July 4, in Austin, Texas and online. Perl talks, community, and science.' %]
+[% IF meta_description %][% SET pcc_description = meta_description %][% END %]
 <meta name="description" content="[% pcc_description | html %]">
-[% IF NOT title OR title == 'Perl Community Conference' %]
+[% IF canonical_path OR NOT title OR title == 'Perl Community Conference' %]
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="canonical" href="https://science.perlcommunity.org/conference/">
+<link rel="canonical" href="https://science.perlcommunity.org/conference/[% canonical_path | html %]">
 [% ELSE %]<meta name="robots" content="noindex,follow">[% END %]
 <meta property="og:site_name" content="Perl Community Conference">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="[% IF title AND title != 'Perl Community Conference' %][% title | html %] · [% END %]Perl Community Conference">
 <meta property="og:description" content="[% pcc_description | html %]">
-[% IF NOT title OR title == 'Perl Community Conference' %]<meta property="og:url" content="https://science.perlcommunity.org/conference/">[% END %]
+[% IF canonical_path OR NOT title OR title == 'Perl Community Conference' %]<meta property="og:url" content="https://science.perlcommunity.org/conference/[% canonical_path | html %]">[% END %]
 <meta property="og:image" content="https://science.perlcommunity.org/conference/images/pcc-social.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
