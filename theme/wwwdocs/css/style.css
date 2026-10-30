@@ -25,3 +25,19 @@ input,select,textarea,button{font:inherit;max-width:100%}input:not([type=checkbo
 @media(max-width:650px){.brand-oyster{flex-basis:58px;width:58px;height:58px}.brand strong{font-size:20px}.brand small{font-size:11px}}
 
 .resource-links{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:18px}.resource-links a{font-weight:700;font-size:13px}
+
+/* Conduct: short navigation and aligned, compact twelve-point law. */
+.conduct-page{max-width:76ch}
+.conduct-page h2{color:var(--navy);line-height:1.3;margin:1.8em 0 .65em;scroll-margin-top:20px}
+.conduct-page h3{margin:1.2em 0 .4em}
+.conduct-page p{margin:.65em 0 1em}
+.conduct-toc{margin:22px 0 30px;padding:16px 20px;border-left:3px solid var(--navy);background:#f5f7f9}
+.conduct-toc>strong{display:block;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:1px}
+.conduct-toc-feature{display:inline-block;font-weight:700;margin:6px 0 8px}
+.conduct-toc ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px 22px;list-style:none;padding:0;margin:0;font-size:13px}
+.conduct-toc li{margin:0}
+.conduct-page .guild-law{list-style:none;counter-reset:guild-law;padding:0;margin:14px 0 20px;line-height:1.45}
+.conduct-page .guild-law li{counter-increment:guild-law;display:grid;grid-template-columns:1.7rem 7.2rem minmax(0,1fr);column-gap:10px;margin:0;padding:9px 0;border-bottom:1px solid #e8edf1}
+.guild-law li::before{content:counter(guild-law) ".";color:var(--muted);font-variant-numeric:tabular-nums;text-align:right}
+.guild-law strong{color:var(--navy)}
+@media(max-width:650px){.conduct-toc ul{grid-template-columns:1fr}.conduct-toc{padding:14px 16px}.conduct-page .guild-law li{grid-template-columns:1.6rem minmax(0,1fr);row-gap:2px;padding:8px 0}.guild-law li::before{grid-column:1;grid-row:1 / span 2}.guild-law strong,.guild-law span{grid-column:2}.guild-law strong{grid-row:1}.guild-law span{grid-row:2}}
