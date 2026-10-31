@@ -115,3 +115,10 @@ and matter-of-fact AI contribution disclosure. Recording quality targets are
 guidance, not a professional-equipment requirement. No dates, acceptance promises,
 or payment waivers invented. Existing proposal form remains unchanged; additional
 preferences can be supplied in its description pending the planned form update.
+
+## External research links
+
+Verified HTTP 200 on 2026-10-31: https://joss.theoj.org/,
+https://joss.theoj.org/papers/in/Perl (JOSS’s Perl language listings, including
+mixed-language software), and https://arxiv.org/ (general archive).
+Added to the sidebar and homepage research/publication card.

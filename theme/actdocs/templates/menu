@@ -3,6 +3,7 @@
 [% PROCESS menus/users %]
 [% PROCESS menus/news %]
 [% PROCESS menus/support %]
+[% PROCESS menus/research %]
 [% PROCESS menus/talks %]
 [% PROCESS menus/events %]
 [% PROCESS menus/treasurer %]

@@ -1,0 +1,13 @@
+[% WRAPPER menus/section %]
+Research &amp; publications
+[% END %]
+[% WRAPPER menus/item %]
+<a href="/spj">Science Perl Journal</a>
+[% END %]
+[% WRAPPER menus/item %]
+<a href="https://joss.theoj.org/" target="_blank" rel="noopener noreferrer">JOSS ↗</a>
+<ul class="conduct-subnav"><li><a href="https://joss.theoj.org/papers/in/Perl" target="_blank" rel="noopener noreferrer">Perl listings ↗</a></li></ul>
+[% END %]
+[% WRAPPER menus/item %]
+<a href="https://arxiv.org/" target="_blank" rel="noopener noreferrer">arXiv ↗</a>
+[% END %]
