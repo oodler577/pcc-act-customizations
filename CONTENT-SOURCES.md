@@ -106,3 +106,12 @@ is simplified to the one named intern and the presentation with Will Braswell.
 The 156×156 WebP uses the same existing oyster crop from the official artwork.
 Sized for the 78px header at 2× pixel density. Only crop/resize/compression; no
 redrawing. The original remains available for source attribution and social art.
+
+## Speak at PCC
+
+Public speaker guidance approved by the user, including 5–8, 25–30, and 50–55+
+minute formats (longer by arrangement), live/in-person/prerecorded participation,
+and matter-of-fact AI contribution disclosure. Recording quality targets are
+guidance, not a professional-equipment requirement. No dates, acceptance promises,
+or payment waivers invented. Existing proposal form remains unchanged; additional
+preferences can be supplied in its description pending the planned form update.
