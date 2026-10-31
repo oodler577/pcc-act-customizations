@@ -45,3 +45,5 @@ input,select,textarea,button{font:inherit;max-width:100%}input:not([type=checkbo
 .guild-law .virtue-root{display:block;margin-top:4px;color:var(--muted);font-size:12px;line-height:1.45}.guild-law .virtue-root b{font-weight:700}
 
 #menu .conduct-subnav{display:block;padding-left:14px;margin:0 0 4px;border-left:1px solid var(--line)}#menu .conduct-subnav a{font-size:12px;padding:2px 0}
+
+.past-talks>h2{color:var(--navy);font-size:30px;line-height:1.2;margin:0 0 16px}.talks-speakers{display:flex;flex-wrap:wrap;gap:7px 18px;padding:16px 0;margin:18px 0;border-block:1px solid var(--line);font-size:13px}.speaker-talks{margin:24px 0}.speaker-talks h3{color:var(--navy);margin:0 0 8px;scroll-margin-top:20px}.speaker-talks ul{list-style:none;margin:0;padding:0}.speaker-talks li{padding:9px 0;border-bottom:1px solid #e8edf1}.speaker-talks li>a{font-weight:700}.talk-meta{display:block;color:var(--muted);font-size:12px;margin-top:3px}.past-talks-invite{margin-top:28px;padding-top:16px;border-top:1px solid var(--line)}

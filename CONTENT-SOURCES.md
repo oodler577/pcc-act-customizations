@@ -49,3 +49,18 @@ for labor and ownership; voluntary mutual aid and association; technology ordere
 toward human good and human responsibility. These are PCC applications in plain
 language, not quotations or claims that the documents address Perl specifically.
 The public page intentionally contains no additional formal citations for these additions.
+
+## Past Talks
+
+Selected titles, duration and speaker attribution checked against metadata from the
+three user-provided PCC playlists, retrieved 2026-10-30. Selected metadata is saved
+in research/speakers/past-talks.json. Titles are lightly normalized for readability;
+topic tags are editorial. Channel ID: UCFNJUa9F7fieXcRAvjveuKg.
+- https://www.youtube.com/playlist?list=PL_h_ssgrv9-rtMKJn5VguwcELcY05Ocqz
+- https://www.youtube.com/playlist?list=PL_h_ssgrv9-oeZUjgUnGDL48gpMCgsLST
+- User-provided Winter 2025 collection; selected recordings explicitly requested
+  for this page, including unlisted recordings. No publication settings changed.
+
+The Perl MCP presentation is included as a technical talk despite its committee
+prefix. Committee/nonprofit reports, introductions, closings, and the Las Vegas
+recordings are excluded. Only PCC channel recordings are linked.
