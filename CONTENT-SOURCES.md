@@ -100,3 +100,9 @@ Uncertain exact destinations for Perl MCP, Bits & Pieces, and Perl Supabase use
 explicitly labeled talk links; PerlGPT/Curator links to its SPJ paper. No unrelated
 MCP implementation or guessed repository is substituted. Public internship prose
 is simplified to the one named intern and the presentation with Will Braswell.
+
+## Header oyster optimization
+
+The 156×156 WebP uses the same existing oyster crop from the official artwork.
+Sized for the 78px header at 2× pixel density. Only crop/resize/compression; no
+redrawing. The original remains available for source attribution and social art.
