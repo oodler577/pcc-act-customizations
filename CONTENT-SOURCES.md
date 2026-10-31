@@ -78,3 +78,14 @@ six linked videos. The 31 named people include the documented externship present
 Unspecified “et al.” contributors are not estimated. The Summer 2025 schedule’s
 Vincent Zhou attribution is used; the differing video name is not counted again.
 Internship program totals await Will Braswell’s confirmation.
+
+## Donations and mailing list
+
+Donation copy, volunteer effort, expense scope, $1,000 minimum annual fundraising
+goal, parent-nonprofit relationship, and exact PayPal payment URL supplied by the
+user. Generalized from the user’s video-editing fundraising email; no prior campaign
+amounts or progress are carried forward. No tax outcome or processor features promised.
+RoboPerl’s public 501(c)(3) statement and support options read at
+https://roboperl.org/support-us.html on 2026-10-31. Mailing-list signup links to the
+existing consent-based form at https://perlcommunity.org/science/#mailing_list.
+No payment or subscription submitted during verification.
