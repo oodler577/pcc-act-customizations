@@ -11,3 +11,9 @@ Research &amp; publications
 [% WRAPPER menus/item %]
 <a href="https://arxiv.org/" target="_blank" rel="noopener noreferrer">arXiv ↗</a>
 [% END %]
+[% WRAPPER menus/item %]
+<a href="https://bioperl.org/" target="_blank" rel="noopener noreferrer">BioPerl ↗</a>
+[% END %]
+[% WRAPPER menus/item %]
+<a href="https://pdl.perl.org/" target="_blank" rel="noopener noreferrer">PDL ↗</a>
+[% END %]
