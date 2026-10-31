@@ -12,7 +12,7 @@
 [% END %]
 
 [% WRAPPER menus/item %]
-<a href="[% make_uri('speak.html') %]">Share your Perl work</a>
+<a href="[% make_uri('speak.html') %]">Thinking of speaking?</a>
 [% END %]
 [% IF global.config.talks_submissions_open OR global.request.user.is_talks_admin %]
    [% WRAPPER menus/item %]
