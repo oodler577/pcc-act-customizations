@@ -1,0 +1,170 @@
+[
+  {
+    "speaker": "Dr. Christos Argyropoulos",
+    "title": "Perl FFI, Native C Options",
+    "event": "Winter 2024",
+    "topic": "Native interfaces",
+    "video_id": "UUdjE3ZZ0P8",
+    "url": "https://www.youtube.com/watch?v=UUdjE3ZZ0P8"
+  },
+  {
+    "speaker": "Dr. Christos Argyropoulos",
+    "title": "Bits & Pieces: CPU & GPU Libraries",
+    "event": "Winter 2025",
+    "topic": "Scientific computing",
+    "video_id": "UlQILH9qQGQ",
+    "url": "https://www.youtube.com/watch?v=UlQILH9qQGQ"
+  },
+  {
+    "speaker": "Dr. Luis Mochán",
+    "title": "Photonic: Metamaterials & Photonic Crystals in Perl",
+    "event": "Winter 2024",
+    "topic": "Scientific computing",
+    "video_id": "3Ka2Zp2CM2k",
+    "url": "https://www.youtube.com/watch?v=3Ka2Zp2CM2k"
+  },
+  {
+    "speaker": "Dr. Adam Russell",
+    "title": "CPAN Ontologies",
+    "event": "Winter 2024",
+    "topic": "Software discovery",
+    "video_id": "v2-SaHAQ9iA",
+    "url": "https://www.youtube.com/watch?v=v2-SaHAQ9iA"
+  },
+  {
+    "speaker": "Dr. Andrew O’Neil",
+    "title": "Chemometrics",
+    "event": "Winter 2024",
+    "topic": "Scientific computing",
+    "video_id": "kgwZ5KoptO4",
+    "url": "https://www.youtube.com/watch?v=kgwZ5KoptO4"
+  },
+  {
+    "speaker": "Dr. David Condon",
+    "title": "SimpleFlow: Automating Computation",
+    "event": "Winter 2025",
+    "topic": "Scientific computing",
+    "video_id": "WUV4QcoB1mk",
+    "url": "https://www.youtube.com/watch?v=WUV4QcoB1mk"
+  },
+  {
+    "speaker": "Dr. David Condon",
+    "title": "Matplotlib::Simple: Plotting in Perl",
+    "event": "Winter 2025",
+    "topic": "Scientific computing",
+    "video_id": "VWUDSNe8uaM",
+    "url": "https://www.youtube.com/watch?v=VWUDSNe8uaM"
+  },
+  {
+    "speaker": "Dr. Joe Schaefer",
+    "title": "sealed.pm: Compile-Time Method Lookups",
+    "event": "Winter 2025",
+    "topic": "Language tooling",
+    "video_id": "EY6Iko-oAeg",
+    "url": "https://www.youtube.com/watch?v=EY6Iko-oAeg"
+  },
+  {
+    "speaker": "John Napiorkowski",
+    "title": "Valiant: Welcome to Agendum",
+    "event": "Winter 2024",
+    "topic": "Web development",
+    "video_id": "tZrtlTmfIso",
+    "url": "https://www.youtube.com/watch?v=tZrtlTmfIso"
+  },
+  {
+    "speaker": "John Napiorkowski",
+    "title": "Valiant Update",
+    "event": "Summer 2025",
+    "topic": "Web development",
+    "video_id": "gkgTLZMnoa8",
+    "url": "https://www.youtube.com/watch?v=gkgTLZMnoa8"
+  },
+  {
+    "speaker": "John Napiorkowski",
+    "title": "Porting ASGI from Python to Perl",
+    "event": "Summer 2025",
+    "topic": "Web development",
+    "video_id": "5TpkjJlKIg4",
+    "url": "https://www.youtube.com/watch?v=5TpkjJlKIg4"
+  },
+  {
+    "speaker": "John Napiorkowski",
+    "title": "PAGI: The Perl Asynchronous Gateway Interface",
+    "event": "Winter 2025",
+    "topic": "Web development",
+    "video_id": "FwHBZv8RnYA",
+    "url": "https://www.youtube.com/watch?v=FwHBZv8RnYA"
+  },
+  {
+    "speaker": "John Napiorkowski",
+    "title": "AI Perl Committee: Introduction to Perl MCP",
+    "event": "Winter 2025",
+    "topic": "AI tooling",
+    "video_id": "Se2BAEiDMh4",
+    "url": "https://www.youtube.com/watch?v=Se2BAEiDMh4"
+  },
+  {
+    "speaker": "Brett Estrade",
+    "title": "Limits of Thread Safety in the Perl C API",
+    "event": "Winter 2024",
+    "topic": "Native interfaces",
+    "video_id": "OeWgpp_zuR0",
+    "url": "https://www.youtube.com/watch?v=OeWgpp_zuR0"
+  },
+  {
+    "speaker": "Brett Estrade",
+    "title": "wxPerl on Windows",
+    "event": "Summer 2025",
+    "topic": "Desktop applications",
+    "video_id": "hBNo93xowAc",
+    "url": "https://www.youtube.com/watch?v=hBNo93xowAc"
+  },
+  {
+    "speaker": "Brett Estrade",
+    "title": "Building Beowulf Clusters with Perl",
+    "event": "Summer 2025",
+    "topic": "HPC & systems",
+    "video_id": "hI-ywpW7mqw",
+    "url": "https://www.youtube.com/watch?v=hI-ywpW7mqw"
+  },
+  {
+    "speaker": "Brett Estrade",
+    "title": "Review of John P. Linderman’s Quick Sort Paper",
+    "event": "Summer 2025",
+    "topic": "Algorithms",
+    "video_id": "9BQcpYV5f90",
+    "url": "https://www.youtube.com/watch?v=9BQcpYV5f90"
+  },
+  {
+    "speaker": "Brett Estrade",
+    "title": "Finding Missing Perl Keywords",
+    "event": "Winter 2025",
+    "topic": "Language tooling",
+    "video_id": "sZ2L-7BWXOE",
+    "url": "https://www.youtube.com/watch?v=sZ2L-7BWXOE"
+  },
+  {
+    "speaker": "Will Braswell",
+    "title": "Introduction to the Perl Data Type System",
+    "event": "Winter 2024",
+    "topic": "Language tooling",
+    "video_id": "vuShpuCGdbg",
+    "url": "https://www.youtube.com/watch?v=vuShpuCGdbg"
+  },
+  {
+    "speaker": "Will Braswell",
+    "title": "Perl Types",
+    "event": "Summer 2025",
+    "topic": "Language tooling",
+    "video_id": "NADhMHyn8lE",
+    "url": "https://www.youtube.com/watch?v=NADhMHyn8lE"
+  },
+  {
+    "speaker": "Will Braswell",
+    "title": "PerlGPT MetaCPAN Curator, Part II",
+    "event": "Winter 2025",
+    "topic": "AI tooling",
+    "video_id": "pA-M8has_ns",
+    "url": "https://www.youtube.com/watch?v=pA-M8has_ns"
+  }
+]
