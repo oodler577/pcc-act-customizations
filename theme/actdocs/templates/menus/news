@@ -38,7 +38,6 @@
 <ul class="conduct-subnav">
   <li><a href="[% make_uri('conduct.html') %]#conduct">Conduct</a></li>
   <li><a href="[% make_uri('conduct.html') %]#perl-scout-law">Perl Scout Law</a></li>
-  <li><a href="[% make_uri('conduct.html') %]#dignity-of-work">Dignity of Work</a></li>
-  <li><a href="[% make_uri('conduct.html') %]#self-determination">Self-Determination</a></li>
+  <li><a href="[% make_uri('conduct.html') %]#dignity-of-work">Dignity of Digital Work</a></li>
 </ul>
 [% END %]
