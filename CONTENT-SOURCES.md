@@ -122,3 +122,10 @@ Verified HTTP 200 on 2026-10-31: https://joss.theoj.org/,
 https://joss.theoj.org/papers/in/Perl (JOSS’s Perl language listings, including
 mixed-language software), and https://arxiv.org/ (general archive).
 Added to the sidebar and homepage research/publication card.
+
+## Sponsorship stub
+
+Levels and proposed annual prices approved for a stub by the user: $1,000, $500,
+$250, $100, and smaller gifts. Award names verified at https://perlcommunity.org/awards/
+on 2026-10-31. Recognition benefits remain proposals pending organizer agreement.
+Sponsorship does not grant an award. No actual sponsor names or commitments invented.
