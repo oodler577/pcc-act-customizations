@@ -129,3 +129,13 @@ Levels and proposed annual prices approved for a stub by the user: $1,000, $500,
 $250, $100, and smaller gifts. Award names verified at https://perlcommunity.org/awards/
 on 2026-10-31. Recognition benefits remain proposals pending organizer agreement.
 Sponsorship does not grant an award. No actual sponsor names or commitments invented.
+
+## Standard twelve-point Scout Law revision
+
+At the user’s and Will’s direction, the Perl Scout Law now uses the BSA’s exact
+twelve point names and standard order, with original PCC descriptions and explicit
+links to Practical Wisdom, Spiritedness, and Good Order. Reverent explicitly includes
+God, religious duties, gratitude, and respect for others’ religious convictions and
+freedom of conscience. Official source: https://www.scouting.org/about/faq/question10/;
+reverence cross-check: https://hovc.org/reverence-hub/. Checked 2026-10-31.
+This supersedes the earlier custom set of twelve names documented above.
