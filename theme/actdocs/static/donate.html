@@ -1,27 +1,72 @@
-[% WRAPPER ui title = 'Support PCC' meta_description = 'Help sustain PCC recordings, the Science Perl Journal, and web hosting. Our annual goal is at least $1,000, with donations accepted through RoboPerl, our parent 501(c)(3) nonprofit.' canonical_path = 'donate.html' %]
-<section class="donation-page">
+[% WRAPPER ui title = 'Support PCC: Donate or Sponsor' meta_description = 'Small gifts make a big difference to PCC. Donate $5, $10, $15 or another amount, or discuss sponsorship with public recognition. Support our $1,000 annual goal.' canonical_path = 'donate.html' %]
+<section class="donation-page sponsorship-page">
 <p class="eyebrow">SUPPORT PCC · THE PERL COMMUNITY · SCIENCE PERL</p>
-<h2>Help keep useful Perl knowledge within everyone’s reach.</h2>
-<p>Our volunteers contribute many hundreds of hours each year to organize the Perl
-Community Conference, prepare recordings, publish the Science Perl Journal, and keep
-our shared resources running. Your donation helps pay the bills that volunteer time
-alone cannot cover.</p>
-<aside class="donation-callout" aria-labelledby="donation-goal">
-<h3 id="donation-goal">Our annual fundraising goal: at least $1,000</h3>
-<p>Each conference costs hundreds of dollars to produce, and publishing the journal
-also costs hundreds. Raising at least $1,000 a year helps defray these expenses and
-sustain the work throughout the year.</p>
-<p><strong>Donations are accepted through RoboPerl, our parent 501(c)(3) nonprofit organization.</strong></p>
+<h2>Small gifts. Shared effort. Lasting Perl knowledge.</h2>
+<p>Our volunteers contribute many hundreds of hours each year to bring PCC together,
+prepare recordings, publish the Science Perl Journal, and maintain our online resources.
+Your support helps cover the expenses that volunteer time alone cannot pay.</p>
+<div class="hero-actions support-choices" aria-label="Choose how to support PCC">
+<a class="button support-donate" href="#donate">Donate</a>
+<a class="button support-sponsor" href="#sponsor">Sponsor</a>
+</div>
+<aside class="donation-callout">
+<h3>Our annual fundraising goal: at least $1,000</h3>
+<p>Each conference costs hundreds of dollars, and journal publication does too.
+Our $1,000 goal helps defray costs across two conferences, video services,
+Crossref DOI registration, publishing tools such as Overleaf, and OJS and web hosting.
+It is a baseline goal, rather than a claim that it covers every expense.</p>
+<p>Contributions are accepted through <strong>RoboPerl, our parent 501(c)(3) nonprofit organization</strong>.</p>
+</aside>
+<section class="support-section" aria-labelledby="donate">
+<h3 id="donate">Donate: friends and supporters make the biggest difference</h3>
+<p><strong>$5, $10, $15, or another gift below $100—small gifts add up.</strong>
+We expect the biggest collective impact to come from friends and supporters giving
+what they comfortably can. You do not need a business, a logo, or a large budget
+to help keep this work going.</p>
+<p>Donations are the simple way to help because you value the conferences, recordings,
+and journal. They do not require a sponsorship arrangement or a public promotional
+package. Larger donations are welcome too; choose the kind of support that suits you.</p>
 <div class="hero-actions">
-<a class="button" href="https://www.paypal.com/ncp/payment/WN938ETGJ9T3A" target="_blank" rel="noopener noreferrer">Donate with PayPal ↗</a>
+<a class="button support-donate" href="https://www.paypal.com/ncp/payment/WN938ETGJ9T3A" target="_blank" rel="noopener noreferrer">Donate with PayPal ↗</a>
 <a class="button button-outline" href="https://roboperl.org/support-us.html" target="_blank" rel="noopener noreferrer">Other ways to give ↗</a>
 </div>
-<p class="donation-note">If a donation note is available, please mention “PCC conferences,
-recordings, and Science Perl Journal” so the purpose of your gift is clear.
-Donation links open in a new tab.</p>
-</aside>
-<p>Giving as a business or organization? Explore our
-<a href="[% make_uri('sponsors.html') %]">proposed sponsorship levels</a>.</p>
+<p class="donation-note">If a note is available, please mention “PCC conferences,
+recordings, and Science Perl Journal.” Donation links open in a new tab.</p>
+</section>
+<section class="support-section" aria-labelledby="sponsor">
+<h3 id="sponsor">Sponsor: put your name behind the work</h3>
+<p><strong>Sponsorship is for supporters who want prominent public recognition.</strong>
+Associate your business, organization, or name with practical Perl work and the people
+sharing it. We want to thank sponsors visibly through names, logos, and acknowledgments
+on the site, at conferences, and alongside recordings and announcements.</p>
+<p>The proposed annual levels below start at $100. Specific recognition placements
+and benefits will be agreed with organizers before sponsorship is finalized.
+Individuals and independent consultants are welcome alongside companies.</p>
+<div class="sponsor-table-wrap"><table>
+<thead><tr><th scope="col">Level</th><th scope="col">Annual contribution</th><th scope="col">Contribution toward our $1,000 goal</th></tr></thead>
+<tbody>
+<tr><th scope="row">Diamond PERL Sponsor</th><td>$1,000</td><td>100%</td></tr>
+<tr><th scope="row">Platinum PERL Sponsor</th><td>$500</td><td>50%</td></tr>
+<tr><th scope="row">Golden PERL Sponsor</th><td>$250</td><td>25%</td></tr>
+<tr><th scope="row">Supporting Sponsor</th><td>$100</td><td>10%</td></tr>
+</tbody></table></div>
+<p>The PERL level names draw inspiration from our
+<a href="https://perlcommunity.org/awards/" target="_blank" rel="noopener noreferrer">Golden, Platinum, and Diamond PERL awards</a>.
+Sponsorship acknowledges financial support; it does not confer an award or influence
+award selection, talk acceptance, or journal peer review.</p>
+<h3>Recognizing our supporters</h3>
+<p>We want to thank sponsors visibly and generously. Possible recognition includes
+names and logos on the site, acknowledgments during conferences, and thanks alongside
+recordings and announcements. The recognition program is being developed; placements
+and benefits will be agreed with organizers before a sponsorship is finalized.</p>
+<p>No sponsor roster is listed yet. We would be glad to discuss a suitable arrangement
+and how you would like your support acknowledged, including whether you prefer anonymity.</p>
+<div class="hero-actions">
+<a class="button support-sponsor" href="mailto:science@perlcommunity.org?subject=PCC%20sponsorship">Discuss a sponsorship</a>
+<a class="button support-donate" href="#donate">Make a donation</a>
+</div>
+
+</section>
 <h3>What your support makes possible</h3>
 <ul class="donation-costs">
 <li><strong>Professional video services.</strong> We believe in high-quality recordings
@@ -34,22 +79,17 @@ and tools such as Overleaf that support our publishing workflow.</li>
 <li><strong>Web hosting.</strong> Keeping the conference site, journal, and supporting
 online services available takes dependable infrastructure and ongoing funding.</li>
 </ul>
-<h3>Small gifts make a practical difference</h3>
-<p>A gift of $10, $25, $50, or any amount you can comfortably give helps. Our $1,000
-annual goal is a starting point for defraying costs, not a claim that it covers every
-expense. Further support helps sustain and improve the conferences, recordings,
-journal, and infrastructure.</p>
-<p>Explore <a href="[% make_uri('past-talks.html') %]">Past Talks</a> to see the work our
-speakers share, or visit <a href="[% make_uri('impacts.html') %]">Impacts</a> for our
-documented programs, contributors, recordings, and publications.</p>
+
+<p>Explore <a href="[% make_uri('impacts.html') %]">Impacts</a> and
+<a href="[% make_uri('past-talks.html') %]">Past Talks</a> to see the people, projects,
+and research your support helps bring together.</p>
 <h3>Giving through our nonprofit</h3>
 <p>RoboPerl—Public Enrichment &amp; Robotics Laboratories—is our parent
-<strong>501(c)(3) nonprofit organization</strong>. Donations through RoboPerl support
-this nonprofit work. Its <a href="https://roboperl.org/support-us.html" target="_blank" rel="noopener noreferrer">support page</a>
-provides additional donation methods and information for your records.</p>
-<p>Thank you for supporting the people who share their work and for helping preserve
-useful Perl knowledge for the next person.</p>
-<p>Stay in touch: <a href="https://perlcommunity.org/science/#mailing_list" target="_blank" rel="noopener noreferrer">join the Science Perl mailing list</a>
-for PCC news, calls for participation, and recording releases.</p>
+<strong>501(c)(3) nonprofit organization</strong>. Its
+<a href="https://roboperl.org/support-us.html" target="_blank" rel="noopener noreferrer">support page</a>
+provides additional donation methods and information for your records.
+Contact <a href="mailto:science@perlcommunity.org">science@perlcommunity.org</a>
+to discuss sponsorship recognition.</p>
+<p>Thank you for helping preserve useful Perl knowledge for the next person.</p>
 </section>
 [% END %]
