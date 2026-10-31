@@ -166,5 +166,53 @@
     "topic": "AI tooling",
     "video_id": "pA-M8has_ns",
     "url": "https://www.youtube.com/watch?v=pA-M8has_ns"
+  },
+  {
+    "speaker": "Dr. Adam Russell",
+    "title": "Structure Based Structuring of Unstructured Data",
+    "event": "Las Vegas 2024 — Science Perl track",
+    "topic": "Data analysis",
+    "video_id": "dn9msFIED-8",
+    "url": "https://www.youtube.com/watch?v=dn9msFIED-8"
+  },
+  {
+    "speaker": "Dr. Andrew O’Neil",
+    "title": "Chemometrics with Perl & Pharmaceutical Applications",
+    "event": "Las Vegas 2024 — Science Perl track",
+    "topic": "Scientific computing",
+    "video_id": "BcFl4efLuuk",
+    "url": "https://www.youtube.com/watch?v=BcFl4efLuuk"
+  },
+  {
+    "speaker": "Will Braswell",
+    "title": "PerlGPT, A Code Llama LLM Fine-Tuned for Perl",
+    "event": "Las Vegas 2024 — Science Perl track",
+    "topic": "AI tooling",
+    "video_id": "Agw6E1omIvY",
+    "url": "https://www.youtube.com/watch?v=Agw6E1omIvY"
+  },
+  {
+    "speaker": "Brett Estrade",
+    "title": "ASGS: A Real-Time Operational Storm Surge Forecasting Framework",
+    "event": "Las Vegas 2024 — Science Perl track",
+    "topic": "Scientific computing",
+    "video_id": "jlnVfznTSOA",
+    "url": "https://www.youtube.com/watch?v=jlnVfznTSOA"
+  },
+  {
+    "speaker": "Dr. Jan Štěpánek",
+    "title": "Supporting Universal Dependencies in the Tree Editor TrEd",
+    "event": "Las Vegas 2024 — Science Perl track",
+    "topic": "Computational linguistics",
+    "video_id": "dUGVAQ6wafE",
+    "url": "https://www.youtube.com/watch?v=dUGVAQ6wafE"
+  },
+  {
+    "speaker": "George Baugh",
+    "title": "Reasoning About the Rigor of Perl Programs",
+    "event": "Las Vegas 2024 — Science Perl track",
+    "topic": "Software correctness",
+    "video_id": "EgpWWt1R11U",
+    "url": "https://www.youtube.com/watch?v=EgpWWt1R11U"
   }
 ]

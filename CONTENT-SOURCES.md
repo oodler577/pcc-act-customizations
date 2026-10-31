@@ -62,5 +62,7 @@ topic tags are editorial. Channel ID: UCFNJUa9F7fieXcRAvjveuKg.
   for this page, including unlisted recordings. No publication settings changed.
 
 The Perl MCP presentation is included as a technical talk despite its committee
-prefix. Committee/nonprofit reports, introductions, closings, and the Las Vegas
-recordings are excluded. Only PCC channel recordings are linked.
+prefix. Committee/nonprofit reports, introductions, closings, are excluded. Las Vegas recordings were subsequently added at the user’s request,
+using the six explicit video URLs supplied from the Science Perl track listing.
+No recording URL was supplied for the Christos Argyropoulos keynote or Manickam
+Thanneermalai talk; neither is presented as an available recording.
