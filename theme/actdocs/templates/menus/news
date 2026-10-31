@@ -9,6 +9,12 @@
 
 [% WRAPPER menus/item %]
 <a href="[% make_uri('past-talks.html') %]">Past Talks</a>
+<ul class="conduct-subnav" aria-label="Past conference schedules">
+  <li><a href="https://perlcommunity.org/conference/summer2026.html" target="_blank" rel="noopener noreferrer" aria-label="Summer 2026 schedule (opens in a new tab)">Summer 2026 schedule</a></li>
+  <li><a href="https://perlcommunity.org/conference/winter2025.html" target="_blank" rel="noopener noreferrer" aria-label="Winter 2025 schedule (opens in a new tab)">Winter 2025 schedule</a></li>
+  <li><a href="https://perlcommunity.org/conference/summer2025.html" target="_blank" rel="noopener noreferrer" aria-label="Summer 2025 schedule (opens in a new tab)">Summer 2025 schedule</a></li>
+  <li><a href="https://perlcommunity.org/conference/winter2024.html" target="_blank" rel="noopener noreferrer" aria-label="Winter 2024 schedule (opens in a new tab)">Winter 2024 schedule</a></li>
+</ul>
 [% END %]
 
 [% WRAPPER menus/item %]
