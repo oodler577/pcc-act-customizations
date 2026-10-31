@@ -30,14 +30,17 @@
 <link rel="alternate" type="application/atom+xml" title="Conference news" href="[% global.request.base_url %][% make_uri_info('atom', global.request.language) %].xml">
 <link rel="stylesheet" href="/css/act-base.css">
 <link rel="stylesheet" href="/css/schedule.css">
-<link rel="stylesheet" href="[% make_uri_info('css', 'style.css') %]?v=10">
+<link rel="stylesheet" href="[% make_uri_info('css', 'style.css') %]?v=11">
 <script src="/js/jquery.js"></script><script src="/js/act.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#content">Skip to content</a>
 <header class="site-header"><div class="header-inner">
 <a class="brand" href="[% make_uri('index.html') %]"><span class="brand-oyster" aria-hidden="true"><img src="[% make_uri_info('images', 'pcc-official-artwork.jpg') %]" alt=""></span><span><strong>Perl Community Conference</strong><small>Development · Community · Science</small></span></a>
+<div class="header-actions">
+<a class="header-donate" href="[% make_uri('donate.html') %]">Donate</a>
 <a class="journal-link" href="/spj">Science Perl Journal ↗</a>
+</div>
 </div></header>
 <div class="site-layout">
 <nav id="menu" aria-label="Conference navigation"><a class="nav-home" href="[% make_uri('index.html') %]">Conference home</a>[% PROCESS menu %]</nav>
