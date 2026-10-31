@@ -12,6 +12,18 @@
 [% END %]
 
 [% WRAPPER menus/item %]
+<a href="[% make_uri('speak.html') %]">Share your Perl work</a>
+[% END %]
+[% IF global.config.talks_submissions_open OR global.request.user.is_talks_admin %]
+   [% WRAPPER menus/item %]
+   <a href="[% make_uri('newtalk') %]">
+    {{Submit a talk proposal}}
+   </a>
+   [% END %]
+[% END %]
+
+
+[% WRAPPER menus/item %]
 <a href="[% make_uri('past-talks.html') %]">Past Talks</a>
 <ul class="conduct-subnav" aria-label="Past conference schedules">
   <li><a href="https://perlcommunity.org/conference/summer2026.html" target="_blank" rel="noopener noreferrer" aria-label="Summer 2026 schedule (opens in a new tab)">Summer 2026 schedule</a></li>

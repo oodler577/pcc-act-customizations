@@ -1,6 +1,3 @@
-[% WRAPPER menus/item %]
-<a href="[% make_uri('speak.html') %]">Speak at PCC</a>
-[% END %]
 [% IF global.config.talks_show_schedule OR global.request.user.is_talks_admin %]
    [% WRAPPER menus/item %]
    <a href="[% make_uri('schedule') %]">
@@ -34,13 +31,6 @@
    [% WRAPPER menus/item %]
    <a href="[% make_uri('export_talks') %]">
     {{CSV export}}
-   </a>
-   [% END %]
-[% END %]
-[% IF global.config.talks_submissions_open OR global.request.user.is_talks_admin %]
-   [% WRAPPER menus/item %]
-   <a href="[% make_uri('newtalk') %]">
-    {{Submit a talk proposal}}
    </a>
    [% END %]
 [% END %]
