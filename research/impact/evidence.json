@@ -927,5 +927,103 @@
     "Jan Štěpánek",
     "Brett Estrade",
     "Manickam Thanneermalai"
+  ],
+  "project_links": [
+    {
+      "label": "Catalyst",
+      "url": "https://metacpan.org/pod/Catalyst"
+    },
+    {
+      "label": "Valiant",
+      "url": "https://metacpan.org/pod/Valiant"
+    },
+    {
+      "label": "Agendum",
+      "url": "https://github.com/jjn1056/Agendum"
+    },
+    {
+      "label": "PAGI",
+      "url": "https://metacpan.org/pod/PAGI"
+    },
+    {
+      "label": "wxPerl",
+      "url": "https://metacpan.org/pod/Wx"
+    },
+    {
+      "label": "Rex",
+      "url": "https://metacpan.org/pod/Rex"
+    },
+    {
+      "label": "Photonic",
+      "url": "https://metacpan.org/pod/Photonic"
+    },
+    {
+      "label": "PerlGPT / MetaCPAN Curator — paper",
+      "url": "https://science.perlcommunity.org/spj/article/view/3"
+    },
+    {
+      "label": "ShinyCMS",
+      "url": "https://github.com/shinycms/ShinyCMS-perl"
+    },
+    {
+      "label": "Perl Supabase — talk",
+      "url": "https://www.youtube.com/watch?v=YgVajMRJN2Y"
+    },
+    {
+      "label": "SimpleFlow",
+      "url": "https://metacpan.org/pod/SimpleFlow"
+    },
+    {
+      "label": "Matplotlib::Simple",
+      "url": "https://metacpan.org/pod/Matplotlib::Simple"
+    },
+    {
+      "label": "Perl MCP — talk",
+      "url": "https://www.youtube.com/watch?v=Se2BAEiDMh4"
+    },
+    {
+      "label": "App::CPANtoFPM",
+      "url": "https://gitlab.com/perl-toolchain/app-cpantofpm"
+    },
+    {
+      "label": "sbozyp",
+      "url": "https://github.com/NicholasBHubbard/sbozyp"
+    },
+    {
+      "label": "sealed.pm",
+      "url": "https://metacpan.org/pod/sealed"
+    },
+    {
+      "label": "Bits & Pieces — talk",
+      "url": "https://www.youtube.com/watch?v=UlQILH9qQGQ"
+    },
+    {
+      "label": "Fortress",
+      "url": "https://github.com/hackman/Fortress"
+    },
+    {
+      "label": "Hawk",
+      "url": "https://github.com/hackman/Hawk-IDS-IPS"
+    },
+    {
+      "label": "Perl Lazarus / Martha",
+      "url": "https://wiki.perl-guilds.net/index.php?title=Developing_and_Distributing_wxPerl_Applications_on_Windows"
+    },
+    {
+      "label": "Picard",
+      "url": "https://github.com/hackman/picard"
+    },
+    {
+      "label": "Sort::DJB",
+      "url": "https://metacpan.org/pod/Sort::DJB"
+    },
+    {
+      "label": "Perl weather tools",
+      "url": "https://metacpan.org/pod/Weather::API::Base"
+    },
+    {
+      "label": "Net::BART",
+      "url": "https://github.com/hackman/net_bart"
+    }
   ]
 }

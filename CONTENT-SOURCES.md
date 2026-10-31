@@ -89,3 +89,14 @@ RoboPerl’s public 501(c)(3) statement and support options read at
 https://roboperl.org/support-us.html on 2026-10-31. Mailing-list signup links to the
 existing consent-based form at https://perlcommunity.org/science/#mailing_list.
 No payment or subscription submitted during verification.
+
+## Impact project destinations
+
+Project links checked 2026-10-31 against MetaCPAN module records, maintainers’
+GitHub repositories, the app-cpantofpm GitLab repository, and Perl Guilds docs.
+Net::Bart corrected to the published Net::BART capitalization. Weather presentation
+links to Dimitrios Kechagias’s Weather::API::Base overview, labeled weather tools.
+Uncertain exact destinations for Perl MCP, Bits & Pieces, and Perl Supabase use
+explicitly labeled talk links; PerlGPT/Curator links to its SPJ paper. No unrelated
+MCP implementation or guessed repository is substituted. Public internship prose
+is simplified to the one named intern and the presentation with Will Braswell.
