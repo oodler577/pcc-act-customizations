@@ -1,0 +1,9 @@
+[% WRAPPER menus/section %]
+Support &amp; stay connected
+[% END %]
+[% WRAPPER menus/item %]
+<a href="[% make_uri('donate.html') %]">Donate</a>
+[% END %]
+[% WRAPPER menus/item %]
+<a href="https://perlcommunity.org/science/#mailing_list" target="_blank" rel="noopener noreferrer" aria-label="Mailing list signup (opens in a new tab)">Mailing list signup ↗</a>
+[% END %]
