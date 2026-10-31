@@ -24,8 +24,8 @@ cp "$repo/theme/wwwdocs/css/style.css" "$target/wwwdocs/css/style.css"
 chmod 644 "$target/actdocs/templates/ui" "$target/actdocs/static/index.html" "$target/wwwdocs/css/style.css"
 mkdir -p "$target/wwwdocs/images"
 chmod 755 "$target/wwwdocs/images"
-cp "$repo"/theme/wwwdocs/images/*.jpg "$target/wwwdocs/images/"
-chmod 644 "$target"/wwwdocs/images/*.jpg
+cp "$repo"/theme/wwwdocs/images/*.jpg "$repo"/theme/wwwdocs/images/*.webp "$target/wwwdocs/images/"
+chmod 644 "$target"/wwwdocs/images/*.jpg "$target"/wwwdocs/images/*.webp
 mkdir -p "$target/wwwdocs/fonts"
 chmod 755 "$target/wwwdocs/fonts"
 cp "$repo"/theme/wwwdocs/fonts/*.woff2 "$repo/theme/wwwdocs/fonts/OFL.txt" "$target/wwwdocs/fonts/"

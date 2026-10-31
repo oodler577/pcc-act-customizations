@@ -12,7 +12,7 @@ input,select,textarea,button{font:inherit;max-width:100%}input:not([type=checkbo
 
 /* The original oyster is framed from official PCC artwork, never redrawn. */
 .brand-oyster{position:relative;display:block;flex:0 0 78px;width:78px;height:78px;border-radius:50%;overflow:hidden;background:#7776b5}
-.brand-oyster img{position:absolute;width:454.545%;max-width:none;height:auto;left:-348.485%;top:-199.394%}
+.brand-oyster img{display:block;width:100%;height:100%;object-fit:contain}
 .header-inner{padding-top:30px;padding-bottom:30px}
 .brand strong{font-size:26px;font-weight:400}
 .brand small{color:#fff;opacity:.9;font-size:13px}
