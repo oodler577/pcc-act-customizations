@@ -1,0 +1,931 @@
+{
+  "as_of": "2026-10-31",
+  "programs": [
+    {
+      "event": "Winter 2024",
+      "source": "https://perlcommunity.org/conference/winter2024.html",
+      "talks": [
+        {
+          "speaker": "Dr. Luis Mochán",
+          "title": "Photonic: Metamaterials & Photonic Crystals in Perl"
+        },
+        {
+          "speaker": "John Napiorkowski",
+          "title": "Welcome to Agendum: A Catalyst Valiant Web Application"
+        },
+        {
+          "speaker": "Will Braswell",
+          "title": "Introduction to the Perl Data Type System"
+        },
+        {
+          "speaker": "Dr. Adam Russell",
+          "title": "Ontologies for Organizing & Navigating Software Repositories; A CPAN Ontology"
+        },
+        {
+          "speaker": "Brett Estrade",
+          "title": "The Limits of Thread Safety in the Perl C API Using OpenMP"
+        },
+        {
+          "speaker": "Dr. Christos Argyropoulos",
+          "title": "Perl FFI, Native C Options: Foreign Application Memory Management Using Perl"
+        },
+        {
+          "speaker": "Dr. Andrew O'Neil",
+          "title": "Chemometrics: Determination of Pharmaceutical Authenticity in Perl"
+        },
+        {
+          "speaker": "Brett Estrade",
+          "title": "[ LIGHTNING TALK ] The 3 Actual Virtues of a Perl Programmer"
+        },
+        {
+          "speaker": "Dr. Nancy Lo Man Hung",
+          "title": "[ LIGHTNING TALK ] The Trichonephila Clavipes Gene Expression Analysis Reveals the Diversity of Spider Silk Genes"
+        },
+        {
+          "speaker": "Will Braswell",
+          "title": "[ LIGHTNING TALK ] Introduction to the PerlGPT AI"
+        }
+      ]
+    },
+    {
+      "event": "Summer 2025",
+      "source": "https://perlcommunity.org/conference/summer2025.html",
+      "talks": [
+        {
+          "speaker": "Brett Estrade",
+          "title": "John P. Linderman's Paper on Qsort"
+        },
+        {
+          "speaker": "Justin Kelly",
+          "title": "[ LIGHTNING TALK ] Perl Supabase, Coming Soon!"
+        },
+        {
+          "speaker": "Nihar & Nikhil Karra",
+          "title": "Yes, Perl Can Do DevOps — And Better Than You Think"
+        },
+        {
+          "speaker": "Brett Estrade",
+          "title": "Slaying the Beast: Linux MPI Beowulf Cluster Deployment with Perl's DevOps King, Rex"
+        },
+        {
+          "speaker": "John Napiorkowski",
+          "title": "Porting ASGI from Python to Perl"
+        },
+        {
+          "speaker": "Kai Baker",
+          "title": "The ShinyCMS Content Management System"
+        },
+        {
+          "speaker": "Kedar Mohile",
+          "title": "Privacy-Preserving Data Processing in Perl: Building Secure Healthcare Applications with Modern Perl Frameworks"
+        },
+        {
+          "speaker": "Brett Estrade",
+          "title": "wxPerl in the Eye of the Storm!"
+        },
+        {
+          "speaker": "John Napiorkowski",
+          "title": "Introduction to Valiant"
+        },
+        {
+          "speaker": "Vincent Zhou et al.",
+          "title": "What I Learned About Perl & Catalyst: A Junior Programmer's Perspective"
+        }
+      ]
+    },
+    {
+      "event": "Winter 2025",
+      "source": "https://perlcommunity.org/conference/winter2025.html",
+      "talks": [
+        {
+          "speaker": "Andrew Mehta",
+          "title": "Event Website Lessons: The Short-Notice London Perl Workshop"
+        },
+        {
+          "speaker": "Brett Estrade",
+          "title": "Finding the Keywords Perl Doesn't Have But Should"
+        },
+        {
+          "speaker": "John Napiorkowski",
+          "title": "PAGI: The Perl Asynchronous Gateway Interface AKA PSGI 2.0"
+        },
+        {
+          "speaker": "Bartosz Jarzyna",
+          "title": "[ LIGHTNING TALK ] Perl & Bitcoin Development Update"
+        },
+        {
+          "speaker": "Mohammed Zia",
+          "title": "[ LIGHTNING TALK ] A Perl File System Based on Fuse"
+        },
+        {
+          "speaker": "Mickey Macten",
+          "title": "[ LIGHTNING TALK ] Gary McKinnon & the Biggest (Perl) Hack of All Time"
+        },
+        {
+          "speaker": "Dr. David Condon",
+          "title": "[ LIGHTNING TALK ] SimpleFlow: Automating & Reliabilizing Computational Workflows"
+        },
+        {
+          "speaker": "Randal L. Schwartz",
+          "title": "[ KEYNOTE ] Modern Randal"
+        },
+        {
+          "speaker": "Dr. David Condon",
+          "title": "Matplotlib::Simple: Plotting Quickly in Perl"
+        },
+        {
+          "speaker": "Nicholas Hubbard",
+          "title": "OS-Specific Perl Packaging via App::CPANtoFPM"
+        },
+        {
+          "speaker": "John Napiorkowski",
+          "title": "AI Perl Committee: Introduction to Perl MCP"
+        },
+        {
+          "speaker": "Will Braswell",
+          "title": "[ LIGHTNING TALK ] The PerlGPT MetaCPAN Curator, Part II: Forward-and-Reverse Engineering via the SDLC for LLM Training Corpus Generation"
+        },
+        {
+          "speaker": "Nicholas Hubbard",
+          "title": "Introducing sbozyp, Slackware Package Management in Perl"
+        },
+        {
+          "speaker": "Dr. Joe Schaefer",
+          "title": "sealed.pm: Compile-Time Method Lookups"
+        },
+        {
+          "speaker": "Dr. Christos Argyropoulos",
+          "title": "Bits & Pieces: Perl Library for CPU & GPU Architectures"
+        }
+      ]
+    },
+    {
+      "event": "Summer 2026",
+      "source": "https://perlcommunity.org/conference/summer2026.html",
+      "talks": [
+        {
+          "speaker": "Marian Marinov",
+          "title": "Network Protection w/ Fortress & Hawk"
+        },
+        {
+          "speaker": "Brett Estrade",
+          "title": "The Perl Lazarus Project: Martha, Ship wxPerl Apps on Windows"
+        },
+        {
+          "speaker": "Marian Marinov",
+          "title": "[ LIGHTNING TALK ] Picard - Your Web Top Interface"
+        },
+        {
+          "speaker": "Dr. David Condon",
+          "title": "[ LIGHTNING TALK ] Statistics Like R"
+        },
+        {
+          "speaker": "Mickey Macten",
+          "title": "[ LIGHTNING TALK ] Beginning Perl on Linux Mint"
+        },
+        {
+          "speaker": "Marian Marinov",
+          "title": "[ LIGHTNING TALK ] Sort::DJB - The Fastest Sort in Perl"
+        },
+        {
+          "speaker": "Herbert Breunung",
+          "title": "Drawing by Numbers"
+        },
+        {
+          "speaker": "Randal L. Schwartz",
+          "title": "[ KEYNOTE ] Perl Poets of the AI Era"
+        },
+        {
+          "speaker": "Dimitrios Kechagias",
+          "title": "Perl::Weather Forecasting"
+        },
+        {
+          "speaker": "John Napiorkowski",
+          "title": "[ LIGHTNING TALK ] The Shape of PAGI to Come"
+        },
+        {
+          "speaker": "Haroldo Stenger",
+          "title": "Structured XML Rendered over PDF"
+        },
+        {
+          "speaker": "Marian Marinov",
+          "title": "[ LIGHTNING TALK ] Net::Bart - Searching for Your IP"
+        },
+        {
+          "speaker": "Vincent Zhou",
+          "title": "AI Predator Control with Perl"
+        },
+        {
+          "speaker": "Daniel Faigin",
+          "title": "Perl History & Usage Today"
+        },
+        {
+          "speaker": "Andrew Mehta",
+          "title": "[ LIGHTNING TALK ] Cool Things I Learned Exist"
+        },
+        {
+          "speaker": "Herbert Breunung",
+          "title": "Through Space & Color"
+        },
+        {
+          "speaker": "Brett Estrade",
+          "title": "[ LIGHTNING TALK ] Perling Like it's 1998 & on Windows"
+        },
+        {
+          "speaker": "Mohammed Zia",
+          "title": "[ LIGHTNING TALK ] Perl Filesystem on FUSE"
+        },
+        {
+          "speaker": "Brett Estrade",
+          "title": "[ LIGHTNING TALK ] The Perl Lazarus Project: Martha Live Demo"
+        },
+        {
+          "speaker": "Brett Estrade",
+          "title": "[ LIGHTNING TALK ] Editing Perl Code in an 8-Bit vi Clone"
+        },
+        {
+          "speaker": "Marian Marinov",
+          "title": "[ LIGHTNING TALK ] HomeLab Management Tools"
+        },
+        {
+          "speaker": "Will Braswell",
+          "title": "[ LIGHTNING TALK ] The PerlGPT MetaCPAN Curator, P2.5: Principles, Stages, Phases, Layers"
+        }
+      ]
+    }
+  ],
+  "excluded_program_slots": [
+    {
+      "event": "Winter 2024",
+      "speaker": "Dr. Christos Arygropoulos",
+      "title": "Conference Opening"
+    },
+    {
+      "event": "Winter 2024",
+      "speaker": "Will Braswell",
+      "title": "State of the Noonien Address"
+    },
+    {
+      "event": "Winter 2024",
+      "speaker": "Will Braswell et al.",
+      "title": "Perl Leadership Panel"
+    },
+    {
+      "event": "Winter 2024",
+      "speaker": "Dr. Christos Argyropoulos",
+      "title": "Conference Closing"
+    },
+    {
+      "event": "Winter 2024",
+      "speaker": "Everybody!",
+      "title": "[ BAD MOVIE NIGHT ] Mystery Science Theater 3000: Beyond Atlantis"
+    },
+    {
+      "event": "Summer 2025",
+      "speaker": "Will Braswell",
+      "title": "Day 1 Opening"
+    },
+    {
+      "event": "Summer 2025",
+      "speaker": "Will Braswell",
+      "title": "[ LIGHTNING TALK ] State of the Onions Address"
+    },
+    {
+      "event": "Summer 2025",
+      "speaker": "Will Braswell",
+      "title": "[ BLACK CAMEL ] RIP William Huston"
+    },
+    {
+      "event": "Summer 2025",
+      "speaker": "Will Braswell",
+      "title": "Day 1 Closing"
+    },
+    {
+      "event": "Summer 2025",
+      "speaker": "Randal L. Schwartz",
+      "title": "[ KEYNOTE ] AI & Science Reception"
+    },
+    {
+      "event": "Summer 2025",
+      "speaker": "Will Braswell",
+      "title": "Day 2 Opening"
+    },
+    {
+      "event": "Summer 2025",
+      "speaker": "Will Braswell",
+      "title": "Science Perl Committee Report"
+    },
+    {
+      "event": "Summer 2025",
+      "speaker": "Ohinoyi Moiza",
+      "title": "Perl Externship Report"
+    },
+    {
+      "event": "Summer 2025",
+      "speaker": "Will Braswell",
+      "title": "Perl::Types Committee Report"
+    },
+    {
+      "event": "Summer 2025",
+      "speaker": "Will Braswell",
+      "title": "AI Perl Committee Report"
+    },
+    {
+      "event": "Summer 2025",
+      "speaker": "Will Braswell",
+      "title": "Day 2 Closing"
+    },
+    {
+      "event": "Winter 2025",
+      "speaker": "Will Braswell",
+      "title": "Day 1 Opening"
+    },
+    {
+      "event": "Winter 2025",
+      "speaker": "Will Braswell",
+      "title": "Day 1 Interlude"
+    },
+    {
+      "event": "Winter 2025",
+      "speaker": "Will Braswell",
+      "title": "Day 1 Closing"
+    },
+    {
+      "event": "Winter 2025",
+      "speaker": "Will Braswell",
+      "title": "Day 2 Opening"
+    },
+    {
+      "event": "Winter 2025",
+      "speaker": "Will Braswell",
+      "title": "[ LIGHTNING TALK ] Perl Community Nonprofit Report"
+    },
+    {
+      "event": "Winter 2025",
+      "speaker": "Will Braswell",
+      "title": "Day 2 Interlude"
+    },
+    {
+      "event": "Winter 2025",
+      "speaker": "Everybody!",
+      "title": "[ BAD MOVIE NIGHT ] Mystery Science Theater 3000: Beyond Atlantis"
+    },
+    {
+      "event": "Winter 2025",
+      "speaker": "Will Braswell",
+      "title": "Day 2 Closing"
+    },
+    {
+      "event": "Summer 2026",
+      "speaker": "Will Braswell",
+      "title": "Day 1 Opening"
+    },
+    {
+      "event": "Summer 2026",
+      "speaker": "John Napiorkowski",
+      "title": "PAGI Status Report"
+    },
+    {
+      "event": "Summer 2026",
+      "speaker": "Will Braswell",
+      "title": "Day 1 Interlude"
+    },
+    {
+      "event": "Summer 2026",
+      "speaker": "Will Braswell",
+      "title": "Day 1 Closing"
+    },
+    {
+      "event": "Summer 2026",
+      "speaker": "Will Braswell",
+      "title": "Day 2 Opening"
+    },
+    {
+      "event": "Summer 2026",
+      "speaker": "Will Braswell",
+      "title": "[ LIGHTNING TALK ] RoboPerl Nonprofit Report"
+    },
+    {
+      "event": "Summer 2026",
+      "speaker": "Will Braswell",
+      "title": "Day 2 Interlude"
+    },
+    {
+      "event": "Summer 2026",
+      "speaker": "Everybody!",
+      "title": "[ BAD MOVIE NIGHT ] Mystery Science Theater 3000: Warrior of the Lost World"
+    },
+    {
+      "event": "Summer 2026",
+      "speaker": "Will Braswell",
+      "title": "Black Camel Report: Matt S. Trout & Chris Young"
+    },
+    {
+      "event": "Summer 2026",
+      "speaker": "Will Braswell",
+      "title": "Day 2 Closing"
+    }
+  ],
+  "pcc_technical_slots": 57,
+  "las_vegas_science_presentations": 8,
+  "named_contributors": [
+    "Adam Russell",
+    "Andrew Mehta",
+    "Andrew O'Neil",
+    "Bartosz Jarzyna",
+    "Brett Estrade",
+    "Christos Argyropoulos",
+    "Daniel Faigin",
+    "David Condon",
+    "Dimitrios Kechagias",
+    "George Baugh",
+    "Haroldo Stenger",
+    "Herbert Breunung",
+    "Jan Štěpánek",
+    "Joe Schaefer",
+    "John Napiorkowski",
+    "Justin Kelly",
+    "Kai Baker",
+    "Kedar Mohile",
+    "Luis Mochán",
+    "Manickam Thanneermalai",
+    "Marian Marinov",
+    "Mickey Macten",
+    "Mohammed Zia",
+    "Nancy Lo Man Hung",
+    "Nicholas Hubbard",
+    "Nihar Karra",
+    "Nikhil Karra",
+    "Ohinoyi Moiza",
+    "Randal L. Schwartz",
+    "Vincent Zhou",
+    "Will Braswell"
+  ],
+  "papers": [
+    {
+      "title": "Reasoning About the Rigor of Perl Programs Gaps, Limits to Understanding, and Means to Ameliorate",
+      "url": "https://science.perlcommunity.org/spj/article/view/5"
+    },
+    {
+      "title": "Perl Cross-Compiler for Microcontrollers",
+      "url": "https://science.perlcommunity.org/spj/article/view/10"
+    },
+    {
+      "title": "The The PerlGPT MetaCPAN Curator Building a Training Dataset to Fine-Tune the Perl LLM",
+      "url": "https://science.perlcommunity.org/spj/article/view/3"
+    },
+    {
+      "title": "Building a Storm Surge Forecasting System that Saves Lives ASGS, A Real-Time Operational Framework",
+      "url": "https://science.perlcommunity.org/spj/article/view/4"
+    },
+    {
+      "title": "Enhancing non-Perl Bioinformatic Applications with Perl Building Novel, Component-Based Applications Using Object Orientation, PDL, Alien, FFI,Inline and OpenMP",
+      "url": "https://science.perlcommunity.org/spj/article/view/6"
+    },
+    {
+      "title": "Supporting Universal Dependencies in Tree Editor TrEd",
+      "url": "https://science.perlcommunity.org/spj/article/view/8"
+    },
+    {
+      "title": "Chemometrics with Perl and Pharmaceutical Applications",
+      "url": "https://science.perlcommunity.org/spj/article/view/11"
+    },
+    {
+      "title": "Structure Based Structuring of Unstructured Data",
+      "url": "https://science.perlcommunity.org/spj/article/view/13"
+    }
+  ],
+  "pcc_recordings": 41,
+  "pcc_recording_seconds": 77251,
+  "projects_featured": [
+    [
+      "Catalyst",
+      "summer2025"
+    ],
+    [
+      "Valiant / Agendum",
+      "winter2024"
+    ],
+    [
+      "PAGI",
+      "winter2025"
+    ],
+    [
+      "wxPerl",
+      "summer2025"
+    ],
+    [
+      "Rex",
+      "summer2025"
+    ],
+    [
+      "Photonic",
+      "winter2024"
+    ],
+    [
+      "PerlGPT / MetaCPAN Curator",
+      "winter2025"
+    ],
+    [
+      "ShinyCMS",
+      "summer2025"
+    ],
+    [
+      "Perl Supabase",
+      "summer2025"
+    ],
+    [
+      "SimpleFlow",
+      "winter2025"
+    ],
+    [
+      "Matplotlib::Simple",
+      "winter2025"
+    ],
+    [
+      "Perl MCP",
+      "winter2025"
+    ],
+    [
+      "App::CPANtoFPM",
+      "winter2025"
+    ],
+    [
+      "sbozyp",
+      "winter2025"
+    ],
+    [
+      "sealed.pm",
+      "winter2025"
+    ],
+    [
+      "Bits & Pieces",
+      "winter2025"
+    ],
+    [
+      "Fortress & Hawk",
+      "summer2026"
+    ],
+    [
+      "Perl Lazarus / Martha",
+      "summer2026"
+    ],
+    [
+      "Picard",
+      "summer2026"
+    ],
+    [
+      "Sort::DJB",
+      "summer2026"
+    ],
+    [
+      "Perl::Weather",
+      "summer2026"
+    ],
+    [
+      "Net::Bart",
+      "summer2026"
+    ]
+  ],
+  "internship_note": "One named externship presenter documented: Ohinoyi Moiza; total interns awaits confirmation from Will Braswell.",
+  "recordings": [
+    {
+      "playlist_id": "PL_h_ssgrv9-rtMKJn5VguwcELcY05Ocqz",
+      "position": 1,
+      "video_id": "w5kSHmDeMig",
+      "title": "Perl Community Conference Summer 2025 - Will Braswell, Ohinoyi Moiza - Intern Report",
+      "duration": "41:20",
+      "source_visibility": "public_source"
+    },
+    {
+      "playlist_id": "PL_h_ssgrv9-rtMKJn5VguwcELcY05Ocqz",
+      "position": 2,
+      "video_id": "UMbT6Ui4Nao",
+      "title": "Perl Community Conference Summer 2025 - Vincent Napiorkowski   What I Learned About Perl & Catalyst",
+      "duration": "38:44",
+      "source_visibility": "public_source"
+    },
+    {
+      "playlist_id": "PL_h_ssgrv9-rtMKJn5VguwcELcY05Ocqz",
+      "position": 3,
+      "video_id": "NADhMHyn8lE",
+      "title": "Perl Community Conference Summer 2025  - Perl Types Will Braswell, Jr",
+      "duration": "24:57",
+      "source_visibility": "public_source"
+    },
+    {
+      "playlist_id": "PL_h_ssgrv9-rtMKJn5VguwcELcY05Ocqz",
+      "position": 4,
+      "video_id": "gkgTLZMnoa8",
+      "title": "Perl Community Conference Summer 2025 - Valiant Update  John Napiorkowski",
+      "duration": "46:20",
+      "source_visibility": "public_source"
+    },
+    {
+      "playlist_id": "PL_h_ssgrv9-rtMKJn5VguwcELcY05Ocqz",
+      "position": 5,
+      "video_id": "hBNo93xowAc",
+      "title": "Perl Community Conference Summer 2025  - Brett Estrade wxPerl on Windows",
+      "duration": "57:06",
+      "source_visibility": "public_source"
+    },
+    {
+      "playlist_id": "PL_h_ssgrv9-rtMKJn5VguwcELcY05Ocqz",
+      "position": 6,
+      "video_id": "V_kE8SUcEAI",
+      "title": "Perl Community Conference Summer 2025 - Virtues Update",
+      "duration": "3:23",
+      "source_visibility": "public_source"
+    },
+    {
+      "playlist_id": "PL_h_ssgrv9-rtMKJn5VguwcELcY05Ocqz",
+      "position": 7,
+      "video_id": "_BBjBommYaM",
+      "title": "Perl Community Conference Summer 2025 - Privacy Preserving Applications",
+      "duration": "46:50",
+      "source_visibility": "public_source"
+    },
+    {
+      "playlist_id": "PL_h_ssgrv9-rtMKJn5VguwcELcY05Ocqz",
+      "position": 8,
+      "video_id": "2JlZ9FUxBxw",
+      "title": "Perl Community Conference Summer 2025 - Kai Baker, et al Shiny CMS",
+      "duration": "25:33",
+      "source_visibility": "public_source"
+    },
+    {
+      "playlist_id": "PL_h_ssgrv9-rtMKJn5VguwcELcY05Ocqz",
+      "position": 9,
+      "video_id": "5TpkjJlKIg4",
+      "title": "Perl Community Conference Summer 2025 - John Napiorkowski Porting ASGI from Python to Perl",
+      "duration": "38:19",
+      "source_visibility": "public_source"
+    },
+    {
+      "playlist_id": "PL_h_ssgrv9-rtMKJn5VguwcELcY05Ocqz",
+      "position": 10,
+      "video_id": "hI-ywpW7mqw",
+      "title": "Perl Community Conference Summer 2025 - Brett Estrade Building Beowulf Clusters with Perl",
+      "duration": "1:30:20",
+      "source_visibility": "public_source"
+    },
+    {
+      "playlist_id": "PL_h_ssgrv9-rtMKJn5VguwcELcY05Ocqz",
+      "position": 11,
+      "video_id": "kQgSuzaa1Fs",
+      "title": "Perl Community Conference Summer 2025 - Perl Can Dev Ops Better Than You Think",
+      "duration": "33:44",
+      "source_visibility": "public_source"
+    },
+    {
+      "playlist_id": "PL_h_ssgrv9-rtMKJn5VguwcELcY05Ocqz",
+      "position": 12,
+      "video_id": "YgVajMRJN2Y",
+      "title": "Perl Community Conference Summer 2025 - Justin Kelly Perl Supabase",
+      "duration": "17:39",
+      "source_visibility": "public_source"
+    },
+    {
+      "playlist_id": "PL_h_ssgrv9-rtMKJn5VguwcELcY05Ocqz",
+      "position": 13,
+      "video_id": "9BQcpYV5f90",
+      "title": "Perl Community Conference Summer 2025 - Brett Estrade Review of John P Linderman's  Quick Sort Paper",
+      "duration": "43:09",
+      "source_visibility": "public_source"
+    },
+    {
+      "playlist_id": "PL_h_ssgrv9-rtMKJn5VguwcELcY05Ocqz",
+      "position": 14,
+      "video_id": "M1jOWZAM-cA",
+      "title": "Perl Community Conference Summer 2025 - Science Perl Committee Report",
+      "duration": "26:11",
+      "source_visibility": "public_source"
+    },
+    {
+      "playlist_id": "PL_h_ssgrv9-rtMKJn5VguwcELcY05Ocqz",
+      "position": 15,
+      "video_id": "oL4uCN6me_0",
+      "title": "Perl Community Conference Summer 2025 - State of the Onions",
+      "duration": "33:32",
+      "source_visibility": "public_source"
+    },
+    {
+      "playlist_id": "PL_h_ssgrv9-oeZUjgUnGDL48gpMCgsLST",
+      "position": 1,
+      "video_id": "sfVDfpqmfBs",
+      "title": "Perl Community Conference Winter 2024 - Intro - Dr. Christos Argyropoulos, MD",
+      "duration": "2:39",
+      "source_visibility": "public_source"
+    },
+    {
+      "playlist_id": "PL_h_ssgrv9-oeZUjgUnGDL48gpMCgsLST",
+      "position": 2,
+      "video_id": "uzZOy-hFQrc",
+      "title": "Perl Community Conference Winter 2024 - State of the Noonien - Will Braswell, Jr",
+      "duration": "16:12",
+      "source_visibility": "public_source"
+    },
+    {
+      "playlist_id": "PL_h_ssgrv9-oeZUjgUnGDL48gpMCgsLST",
+      "position": 3,
+      "video_id": "3Ka2Zp2CM2k",
+      "title": "Perl Community Conference Winter 2024 - Metamaterials - Dr. Luis Mochán",
+      "duration": "55:47",
+      "source_visibility": "public_source"
+    },
+    {
+      "playlist_id": "PL_h_ssgrv9-oeZUjgUnGDL48gpMCgsLST",
+      "position": 4,
+      "video_id": "tZrtlTmfIso",
+      "title": "Perl Community Conference Winter 2024 - Valiant - John Napiorkowski",
+      "duration": "17:29",
+      "source_visibility": "public_source"
+    },
+    {
+      "playlist_id": "PL_h_ssgrv9-oeZUjgUnGDL48gpMCgsLST",
+      "position": 5,
+      "video_id": "v2-SaHAQ9iA",
+      "title": "Perl Community Conference Winter 2024  - CPAN Ontologies - Dr  Adam Russell",
+      "duration": "24:21",
+      "source_visibility": "public_source"
+    },
+    {
+      "playlist_id": "PL_h_ssgrv9-oeZUjgUnGDL48gpMCgsLST",
+      "position": 6,
+      "video_id": "OeWgpp_zuR0",
+      "title": "Perl Community Conference Winter 2024 - Limits of Thread Safety in the Perl C API - Brett Estrade",
+      "duration": "40:21",
+      "source_visibility": "public_source"
+    },
+    {
+      "playlist_id": "PL_h_ssgrv9-oeZUjgUnGDL48gpMCgsLST",
+      "position": 7,
+      "video_id": "UUdjE3ZZ0P8",
+      "title": "Perl Community Conference Winter 2024 - Perl FFI, Native C Options  - Dr. Christos Argyropoulos, MD",
+      "duration": "44:26",
+      "source_visibility": "public_source"
+    },
+    {
+      "playlist_id": "PL_h_ssgrv9-oeZUjgUnGDL48gpMCgsLST",
+      "position": 8,
+      "video_id": "kgwZ5KoptO4",
+      "title": "Perl Community Conference Winter 2024 - Chemometrics - Dr.  Andrew O'Neil",
+      "duration": "25:11",
+      "source_visibility": "public_source"
+    },
+    {
+      "playlist_id": "PL_h_ssgrv9-oeZUjgUnGDL48gpMCgsLST",
+      "position": 9,
+      "video_id": "vuShpuCGdbg",
+      "title": "Perl Community Conference Winter 2024 - Perl Types - WIll Braswell, Jr",
+      "duration": "13:22",
+      "source_visibility": "public_source"
+    },
+    {
+      "playlist_id": "PL_h_ssgrv9-oeZUjgUnGDL48gpMCgsLST",
+      "position": 10,
+      "video_id": "bzIFx4lu_0g",
+      "title": "Perl Community Conference Winter 2024 - Leadership Panel - WIll Braswell, Jr, et al.",
+      "duration": "30:17",
+      "source_visibility": "public_source"
+    },
+    {
+      "playlist_id": "PL_h_ssgrv9-oeZUjgUnGDL48gpMCgsLST",
+      "position": 11,
+      "video_id": "pcQL92D5xzU",
+      "title": "Perl Community Conference Winter 2024 - Lightning Talks - Various",
+      "duration": "18:06",
+      "source_visibility": "public_source"
+    },
+    {
+      "playlist_id": "PL_h_ssgrv9-oeZUjgUnGDL48gpMCgsLST",
+      "position": 12,
+      "video_id": "t6PLBGmwGGM",
+      "title": "Perl Community Conference Winter 2024 - Closing - Dr. Christos Argyropoulos, MD",
+      "duration": "2:21",
+      "source_visibility": "public_source"
+    },
+    {
+      "playlist_id": "PLLsQjH2F6zOo",
+      "position": 1,
+      "video_id": "sZ2L-7BWXOE",
+      "title": "Perl Community Conference Winter 2025 - Finding Missing Perl Keywords Brett Estrade",
+      "duration": "1:24:09",
+      "source_visibility": "unlisted_source"
+    },
+    {
+      "playlist_id": "PLLsQjH2F6zOo",
+      "position": 2,
+      "video_id": "FwHBZv8RnYA",
+      "title": "Perl Community Conference Winter 2025 - PAGI: Asynchronous Gateway Interface John Napiorkowski",
+      "duration": "49:09",
+      "source_visibility": "unlisted_source"
+    },
+    {
+      "playlist_id": "PLLsQjH2F6zOo",
+      "position": 3,
+      "video_id": "QuZGpZWuvek",
+      "title": "Perl Community Conference Winter 2025 - Perl & Bitcoin Development Update Bartosz Jarzyna",
+      "duration": "6:01",
+      "source_visibility": "unlisted_source"
+    },
+    {
+      "playlist_id": "PLLsQjH2F6zOo",
+      "position": 4,
+      "video_id": "_6j7_iW9krI",
+      "title": "Perl Community Conference Winter 2025 - A Perl File System Based on FUSE Mohammed Zia",
+      "duration": "17:48",
+      "source_visibility": "unlisted_source"
+    },
+    {
+      "playlist_id": "PLLsQjH2F6zOo",
+      "position": 5,
+      "video_id": "hU-YC_-ybrY",
+      "title": "Perl Community Conference Winter 2025 - Gary McKinnon & the Biggest Perl Hack Mickey Macten",
+      "duration": "4:17",
+      "source_visibility": "unlisted_source"
+    },
+    {
+      "playlist_id": "PLLsQjH2F6zOo",
+      "position": 6,
+      "video_id": "WUV4QcoB1mk",
+      "title": "Perl Community Conference Winter 2025 - SimpleFlow: Automating Computation Dr. David Condon",
+      "duration": "5:46",
+      "source_visibility": "unlisted_source"
+    },
+    {
+      "playlist_id": "PLLsQjH2F6zOo",
+      "position": 7,
+      "video_id": "VWUDSNe8uaM",
+      "title": "Perl Community Conference Winter 2025 - Matplotlib::Simple: Plotting in Perl Dr. David Condon",
+      "duration": "34:56",
+      "source_visibility": "unlisted_source"
+    },
+    {
+      "playlist_id": "PLLsQjH2F6zOo",
+      "position": 8,
+      "video_id": "Se2BAEiDMh4",
+      "title": "Perl Community Conference Winter 2025 - AI Perl Committee: Perl MCP John Napiorkowski",
+      "duration": "1:07:13",
+      "source_visibility": "unlisted_source"
+    },
+    {
+      "playlist_id": "PLLsQjH2F6zOo",
+      "position": 9,
+      "video_id": "QC_zd_tFJdM",
+      "title": "Perl Community Conference Winter 2025 - Perl Community Nonprofit Report Will Braswell",
+      "duration": "13:39",
+      "source_visibility": "unlisted_source"
+    },
+    {
+      "playlist_id": "PLLsQjH2F6zOo",
+      "position": 10,
+      "video_id": "pA-M8has_ns",
+      "title": "Perl Community Conference Winter 2025 - PerlGPT MetaCPAN Curator Part II Will Braswell",
+      "duration": "9:09",
+      "source_visibility": "unlisted_source"
+    },
+    {
+      "playlist_id": "PLLsQjH2F6zOo",
+      "position": 11,
+      "video_id": "gSic3jDZDy8",
+      "title": "Perl Community Conference Winter 2025 - sbozyp: Slackware Package Management Nicholas Hubbard",
+      "duration": "22:49",
+      "source_visibility": "unlisted_source"
+    },
+    {
+      "playlist_id": "PLLsQjH2F6zOo",
+      "position": 12,
+      "video_id": "EY6Iko-oAeg",
+      "title": "Perl Community Conference Winter 2025 - sealed.pm: Compile-Time Method Lookups Dr. Joe Schaefer",
+      "duration": "34:39",
+      "source_visibility": "unlisted_source"
+    },
+    {
+      "playlist_id": "PLLsQjH2F6zOo",
+      "position": 13,
+      "video_id": "UlQILH9qQGQ",
+      "title": "Perl Community Conference Winter 2025 - Bits & Pieces: CPU & GPU Libraries Dr. Christos Argyropoulos",
+      "duration": "42:36",
+      "source_visibility": "unlisted_source"
+    },
+    {
+      "playlist_id": "PLLsQjH2F6zOo",
+      "position": 14,
+      "video_id": "aSZH_4JuVPM",
+      "title": "Perl Community Conference Winter 2025 - Event Website Lessons: The London Perl Workshop Andrew Mehta",
+      "duration": "37:41",
+      "source_visibility": "unlisted_source"
+    }
+  ],
+  "science_track_speakers": [
+    "Christos Argyropoulos",
+    "Adam Russell",
+    "Andrew O'Neil",
+    "Will Braswell",
+    "George Baugh",
+    "Jan Štěpánek",
+    "Brett Estrade",
+    "Manickam Thanneermalai"
+  ]
+}

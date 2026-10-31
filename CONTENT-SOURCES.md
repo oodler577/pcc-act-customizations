@@ -66,3 +66,15 @@ prefix. Committee/nonprofit reports, introductions, closings, are excluded. Las 
 using the six explicit video URLs supplied from the Science Perl track listing.
 No recording URL was supplied for the Christos Argyropoulos keynote or Manickam
 Thanneermalai talk; neither is presented as an available recording.
+
+## Impact snapshot
+
+As of 2026-10-31. research/impact/evidence.json records the included technical
+program slots, exclusions, named people, paper URLs, recording durations, and
+project/tool groupings. Source schedules are the four perlcommunity.org conference
+pages. Technical slot counts are 10, 10, 15, and 22 respectively. Eight Las Vegas
+Science Perl presentations are taken from the published SPJ list, not from the
+six linked videos. The 31 named people include the documented externship presenter.
+Unspecified “et al.” contributors are not estimated. The Summer 2025 schedule’s
+Vincent Zhou attribution is used; the differing video name is not counted again.
+Internship program totals await Will Braswell’s confirmation.
