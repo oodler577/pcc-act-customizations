@@ -19,9 +19,10 @@
   }
 %]
 
+<p>Talks and audience questions are in English.</p>
 <form class="pcc-proposal-form" method="POST" action="[% global.request.r.uri %]">
 
-<input type="hidden" name="pcc_version" value="1" />
+<input type="hidden" name="pcc_version" value="2" />
 [% IF pcc_errors.size %]<div role="alert">
 <p>Please check your proposal:</p>
 <ul>[% FOREACH e=pcc_errors %]<li>[% e %]</li>[% END %]</ul>
@@ -44,7 +45,8 @@
 <table class="pcc-proposal-table" border="0" cellpadding="10" cellspacing="0">
 <tr>
 <td>
-<table border="0" cellpadding="0" cellspacing="10">
+<table class="pcc-proposal-fields" border="0" cellpadding="0" cellspacing="10">
+<colgroup><col class="pcc-label-column" /><col class="pcc-spacer-column" /><col /></colgroup>
 [% IF global.request.user.is_talks_admin %]
 <tr>
   <td align="right">{{User}}</td>
@@ -112,30 +114,9 @@
   [% END %]
 [% END %]
 
-<tr>
- <td align="right" valign="top">
- {{Tags}}</td>
-  <td>&nbsp;</td>
-  <td>
-    <input type="text" name="tags" value="[% tags %]" size="51" maxlength="100" />
-  </td>
-</tr>
 
-[% IF global.config.talks_languages %]
-<tr>
-  <td align="right" valign="top">
-  {{Language}}</td>
-  <td>&nbsp;</td>
-  <td>
-<select name="lang" size="1">
-        <option value=""[% ' selected="selected"' UNLESS lang %] />
-      [% FOREACH lg = global.config.talks_languages.keys.sort %]
-        <option value="[% lg %]"[% ' selected="selected"' IF lang==lg %]>[% global.config.talks_languages.$lg %]</option>
-      [% END %]
-  </select>
-</td>
-</tr>
-[% END %]
+
+<input type="hidden" name="lang" value="en" />
 
 <tr>
   <td align="right">{{Hide details}}</td>
@@ -181,23 +162,16 @@
 </tr>
 
 <tr>
-  <td align="right">{{Allow recording}}</td>
+  <td align="right">Recording</td>
   <td>&nbsp;</td>
   <td>
-    <input type="checkbox" name="allow_record"[% ' checked' IF allow_record %] />
-    {{Check the box to indicate you agree for this talk to be recorded.}}
+    <input type="hidden" name="allow_record" value="1" />
+    <label><input type="checkbox" disabled[% ' checked' IF !global.request.user.is_talks_admin || !talk_id || allow_record %] /> Recording and publication required</label>
+    <p>PCC records and publishes its talks. By submitting your proposal, you agree to your talk being recorded and published.</p>
   </td>
 </tr>
 
-<tr>
-  <td align="right">{{Video URLs}}</td>
-  <td>&nbsp;</td>
-  <td>
-    1. <input type="text" name="url_video1" value="[% url_video1 %]" size="51" maxlength="256" /> <br />
-    2. <input type="text" name="url_video2" value="[% url_video2 %]" size="51" maxlength="256" /> <br />
-    3. <input type="text" name="url_video3" value="[% url_video3 %]" size="51" maxlength="256" /> <br />
-  </td>
-</tr>
+
 
 <tr>
 <td align="right" valign="top">Talk length</td>
@@ -267,9 +241,18 @@
 </select>
 </div>
 <div class="pcc-field">
-<label for="pcc-timezone">Native time zone (IANA name)</label>
-<input id="pcc-timezone" name="pcc_timezone" value="[% pcc.timezone %]" placeholder="America/Chicago"[% ' required' UNLESS global.request.user.is_talks_admin %] />
-<small>For example America/Chicago, Europe/London, or Asia/Tokyo. All preferences below use this time zone.</small>
+<label for="pcc-timezone">Your time zone</label>
+<select id="pcc-timezone" name="pcc_timezone"[% ' required' UNLESS global.request.user.is_talks_admin %]>
+<option value="">Choose your time zone</option>
+[% FOREACH group=timezone_groups %]
+<optgroup label="[% group.label %]">
+[% FOREACH zone=group.options %]
+<option value="[% zone.name %]"[% ' selected' IF pcc.timezone==zone.name %]>[% zone.label %]</option>
+[% END %]
+</optgroup>
+[% END %]
+</select>
+<small>Choose your nearest city or region. Scheduling preferences use this time zone, including its seasonal clock changes.</small>
 </div>
 <fieldset>
 <legend>Preferred local times (choose any)</legend>
@@ -299,38 +282,12 @@
 </div>
 </fieldset>
 <fieldset>
-<legend>AI and your contribution</legend>
-<p>AI tools are welcome. No apology or lengthy disclaimer is needed. Help us understand what the tools did, what you did, and how you checked the results.</p>
+<legend>AI and human effort</legend>
+<p>AI tools are welcome. No apology or lengthy disclaimer is needed.</p>
 <div class="pcc-field">
-<label for="pcc-ai_extent">Extent of AI involvement</label>
-<select id="pcc-ai_extent" name="pcc_ai_extent"[% ' required' UNLESS global.request.user.is_talks_admin %]>
-<option value="">Choose an option</option>
-<option value="none"[% ' selected' IF pcc.ai_extent=='none' %]>None</option>
-<option value="minor"[% ' selected' IF pcc.ai_extent=='minor' %]>Minor</option>
-<option value="substantial"[% ' selected' IF pcc.ai_extent=='substantial' %]>Substantial</option>
-<option value="predominant"[% ' selected' IF pcc.ai_extent=='predominant' %]>Predominant</option>
-</select>
-</div>
-<div class="pcc-field">
-<label for="pcc-percent">Estimated AI share (optional, 0–100%)</label>
-<input id="pcc-percent" type="number" min="0" max="100" step="0.1" name="pcc_ai_percent" value="[% pcc.ai_percent %]" />
-<small>Only estimate if meaningful; explain what you are measuring below.</small>
-</div>
-<div class="pcc-field">
-<label for="pcc-ai_basis">What does the percentage measure? (for example lines of code or slide text)</label>
-<textarea id="pcc-ai_basis" name="pcc_ai_basis" rows="3" maxlength="4000">[% pcc.ai_basis %]</textarea>
-</div>
-<div class="pcc-field">
-<label for="pcc-ai_generated">What work did AI produce or perform?</label>
-<textarea id="pcc-ai_generated" name="pcc_ai_generated" rows="3" maxlength="4000">[% pcc.ai_generated %]</textarea>
-</div>
-<div class="pcc-field">
-<label for="pcc-human_contribution">What did you direct, develop, investigate, select, or integrate yourself?</label>
-<textarea id="pcc-human_contribution" name="pcc_human_contribution" rows="3" maxlength="4000">[% pcc.human_contribution %]</textarea>
-</div>
-<div class="pcc-field">
-<label for="pcc-verification">How did you verify the results? Include limitations worth discussing.</label>
-<textarea id="pcc-verification" name="pcc_verification" rows="3" maxlength="4000">[% pcc.verification %]</textarea>
+<label for="pcc-ai_notes">How much of this work involved AI, and what did you contribute?</label>
+<textarea id="pcc-ai_notes" name="pcc_ai_notes" rows="4" maxlength="4000">[% pcc.ai_notes %]</textarea>
+<small>Briefly describe AI's role and your own design, development, testing, or judgment. A rough estimate is welcome if useful; no AI use is also a valid answer.</small>
 </div>
 </fieldset>
 </td>

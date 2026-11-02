@@ -2,7 +2,7 @@
 
 The form stores a versioned JSON block at the end of the existing talks.comment text field. Ordinary comments remain separate in the editor. Duration uses ACT's native duration/lightning fields. Paper/talk choice is stored in the block; organizer track assignments remain independent. No schema migration or track records are needed.
 
-Details include paper/talk type, delivery, IANA time zone, local time preferences, constraints, prerecorded live Q&A, longer-duration requests, AI extent and optional percentage with its basis, AI output, presenter effort and verification. These details are separate from the public abstract. Unknown metadata keys are preserved; corrupt blocks fail without overwriting data. Server validation works without JavaScript; JavaScript only controls Q&A visibility. Existing ACT permissions and acceptance/scheduling logic are retained. Organizers may maintain legacy proposals without filling in answers on behalf of the speaker.
+Details include paper/talk type, delivery, IANA time zone, local time preferences, constraints, prerecorded live Q&A, longer-duration requests, a single AI/human-effort comment box. Time zones are chosen from standard named regions (common choices first); seasonal clock changes are handled by their IANA identifiers. The form assumes English and hides Tags and Video URLs without clearing existing values. Recording/publication is a stated submission requirement; the displayed recording control is fixed, and speaker submissions confirm it. Organizer edits preserve existing recording consent rather than inventing it. Older separate AI answers are combined for display and retained in stored metadata. These details are separate from the public abstract. Unknown metadata keys are preserved; corrupt blocks fail without overwriting data. Server validation works without JavaScript; JavaScript only controls Q&A visibility. Existing ACT permissions and acceptance/scheduling logic are retained. Organizers may maintain legacy proposals without filling in answers on behalf of the speaker.
 
 ## Deploy
 
@@ -23,7 +23,7 @@ python3 scripts/setup-proposals.py /home/sciperlconf/act/deploy --activate
 ./scripts/apply-theme.sh /home/sciperlconf/act/deploy conference
 ```
 
-Helpers print backup paths. No other service needs rebuilding. The activation marker enables future theme applications to refresh the form; without it, theme-only deployments retain the upstream form. New choices are 30 and 55 minutes, plus native lightning talks. Existing assigned lengths remain intact. Longer talks are requests for organizer agreement, not automatic schedule assignments.
+Helpers print backup paths. No other service needs rebuilding. The activation marker enables future theme applications to refresh the form after verifying that the matching handler is running; without it, theme-only deployments retain the upstream form. New choices are 30 and 55 minutes, plus native lightning talks. Existing assigned lengths remain intact. Longer talks are requests for organizer agreement, not automatic schedule assignments.
 
 Check a proposal and edit it as both speaker and organizer. Verify saved answers, ordinary comments, assigned duration and organizer track assignment. Organizer CSV export also contains the metadata in Comments. Organizer notification emails include the comment details; configure recipients accordingly. No production test submissions are made by the development tests.
 

@@ -5,7 +5,7 @@ use FindBin;
 use lib "$FindBin::Bin/../deploy/smtp/lib";
 use lib $ENV{ACT_REFERENCE_LIB} || '/opt/pcc-browser/act-reference/lib';
 use DateTime;
-our (%Request,$Config,$talk,$view,$created);
+our (%Request,$Config,$talk,$view,$created,@saved_tags,$updated_tags);
 BEGIN {
  for my $name(qw(Config Handler Email Handler/Talk/Util I18N Tag Talk Template/HTML Template Track User Util)) {
    $INC{"Act/$name.pm"}=__FILE__;
@@ -18,7 +18,7 @@ BEGIN {
  sub notify_accept {}
  package Act::I18N;
  package Act::Tag;
- sub split_tags { return () } sub fetch_tags { return () } sub update_tags {}
+ sub split_tags { split /\s+/, ($_[1] || '') } sub fetch_tags { @main::saved_tags } sub update_tags { shift; my %args=@_; $main::updated_tags=join ' ',@{$args{newtags}} }
  package Act::Talk;
  sub new { $main::talk }
  sub create { shift; $main::created++; $main::talk=bless {talk_id=>1,@_},__PACKAGE__ }
@@ -96,4 +96,15 @@ is((Pcc::Proposal::unpack_comment($talk->comment))[1]{qa},'yes','older forms pre
 request({submit=>1,talk_id=>1,title=>'Legacy proposal',abstract=>'Existing abstract',duration=>55,lang=>'en',user_id=>2,pcc_version=>1},1);
 is_deeply($view->{vars}{pcc_errors},[],'organizer may maintain a legacy talk with incomplete new metadata');
 is($talk->title,'Legacy proposal','organizer edit saved without fabricated speaker answers');
+$talk->{url_video1}='https://example.invalid/existing-recording';
+$talk->{allow_record}=0;
+@saved_tags=('perl','science');
+request({%base,talk_id=>1,pcc_version=>2,user_id=>2,comment=>'Keep metadata',pcc_ai_notes=>'I tested AI generated code.'},1);
+is($talk->url_video1,'https://example.invalid/existing-recording','hidden video URLs preserved');
+is($updated_tags,'perl science','hidden tags preserved');
+is($talk->lang,'en','English stored automatically');
+is($talk->allow_record,0,'organizer edit does not invent prior recording consent');
+request({%base,talk_id=>1,pcc_version=>2,pcc_ai_notes=>'No AI used.'});
+is($talk->allow_record,1,'speaker submission confirms stated recording requirement');
+is((Pcc::Proposal::unpack_comment($talk->comment))[1]{ai_notes},'No AI used.','combined effort comment saved');
 done_testing;

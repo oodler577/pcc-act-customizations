@@ -19,14 +19,26 @@ for my $width(1440,390) {
        qaHidden: document.querySelector('#pcc-qa-field').hidden,
        qa: document.querySelector('#pcc-qa').value,
        timezone: document.querySelector('#pcc-timezone').value,
-       aiText: document.querySelector('#pcc-ai_generated').value,
+       aiText: document.querySelector('#pcc-ai_notes').value,
        errors: !!document.querySelector('[role=alert]'),
        nativeDuration: !!document.querySelector('[name=duration]'),
-       adminUser: !!document.querySelector('[name=user_id]')
+       adminUser: !!document.querySelector('[name=user_id]'),
+       hiddenRows: !document.querySelector('input[name=tags],select[name=lang],input[name=url_video1]'),
+       english: document.querySelector('[name=lang]').value,
+       aiBoxes: document.querySelectorAll('textarea[name^=pcc_ai]').length,
+       timezoneOptions: document.querySelectorAll('#pcc-timezone option').length,
+       recordingLocked: !!document.querySelector('input[type=checkbox][disabled]'),
+       labelWidth: document.querySelector('.pcc-proposal-fields tr td').getBoundingClientRect().width
      };
    });
    ok(!$result->{overflow},"$state $width: no horizontal overflow");
    is_deeply($result->{duplicates},[],"$state $width: unique control IDs");
+   ok($result->{hiddenRows},"$state $width: tags, language and video URL controls hidden");
+   is($result->{english},'en',"$state $width: English assumed");
+   is($result->{aiBoxes},1,"$state $width: one AI comment box");
+   ok($result->{timezoneOptions}>100,"$state $width: standard timezone choices");
+   ok($result->{recordingLocked},"$state $width: recording policy fixed");
+   ok($result->{labelWidth}>=135,"$state $width: label column has room") if $width>650;
    ok($result->{nativeDuration},"$state $width: native duration retained");
    is(!!$result->{adminUser},$state eq 'admin'?1:'',"$state $width: organizer controls");
    if($state ne 'new') {

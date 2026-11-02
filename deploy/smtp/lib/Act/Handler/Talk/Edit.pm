@@ -135,6 +135,16 @@ sub handler {
             $fields->{comment} = Pcc::Proposal::pack_comment($fields->{comment}, $saved) if keys %$saved;
         }
 
+        if (($Request{args}{pcc_version} || '') eq '2') {
+            # Removed controls must not clear or replace saved tags/recording URLs.
+            $fields->{tags} = join ' ', @tags;
+            delete @{$fields}{qw(url_video1 url_video2 url_video3)};
+            $fields->{lang} = 'en';
+            # Speaker submission confirms the published recording requirement.
+            $fields->{allow_record} = $talk && $Request{user}->is_talks_admin
+                ? $talk->allow_record : 1;
+        }
+
         # organizer specifies user id
         my $user_id = $Request{user}->is_talks_admin
                     ? $Request{args}{user_id}
@@ -274,7 +284,10 @@ sub handler {
     my $display_comment = $Request{args}{submit} ? $fields->{comment} : ($talk ? $talk->comment : '');
     my ($plain_comment, $saved_pcc) = Pcc::Proposal::unpack_comment($display_comment);
     $template->variables(%$fields) if $Request{args}{submit};
-    $template->variables(comment => $plain_comment, pcc => $saved_pcc, pcc_errors => $pcc_errors);
+    $saved_pcc->{ai_notes} = Pcc::Proposal::ai_notes($saved_pcc);
+    $template->variables(comment => $plain_comment, pcc => $saved_pcc,
+        pcc_errors => $pcc_errors,
+        timezone_groups => Pcc::Proposal::timezone_groups($saved_pcc->{timezone}));
     $template->variables(
         dates => \@dates,
         users => [ sort { lc $a->{last_name} cmp lc $b->{last_name} }

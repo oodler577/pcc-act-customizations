@@ -69,11 +69,18 @@ input,select,textarea,button{font:inherit;max-width:100%}input:not([type=checkbo
 
 /* Proposal form: constrain legacy table widths and align custom fields. */
 .pcc-proposal { text-align:left; }
-.pcc-proposal table { width:100%; max-width:100%; }
+.pcc-proposal table { width:100%; max-width:100%; table-layout:fixed; }
+.pcc-proposal .pcc-label-column { width:140px; }
+.pcc-proposal .pcc-spacer-column { width:12px; }
+.pcc-proposal-fields > tbody > tr > td:first-child:not([colspan]) { overflow-wrap:normal; word-break:normal; hyphens:none; }
+.pcc-proposal-fields > tbody > tr > td:nth-child(2):not([colspan]) { padding:0; }
 .pcc-proposal td { vertical-align:top; }
 .pcc-proposal input:not([type=checkbox]):not([type=submit]),
 .pcc-proposal select, .pcc-proposal textarea { max-width:100%; box-sizing:border-box; }
-.pcc-proposal textarea { width:100%; }
+.pcc-proposal textarea { width:100%; min-width:0; }
+.pcc-proposal input[size]:not([type=checkbox]) { width:100%; }
+.pcc-proposal input[name=duration], .pcc-proposal input[type=number] { width:100px; }
+.pcc-proposal [hidden] { display:none!important; }
 .pcc-proposal fieldset { min-width:0; margin:1rem 0; padding:1rem; border:1px solid #ccd7df; }
 .pcc-proposal legend { color:#1e6292; font-weight:bold; }
 .pcc-field { margin:1rem 0; }
@@ -83,6 +90,7 @@ input,select,textarea,button{font:inherit;max-width:100%}input:not([type=checkbo
 .pcc-proposal [role=alert] { border:2px solid #a43828; padding:1rem; }
 @media(max-width:650px) {
  .pcc-proposal table, .pcc-proposal tbody, .pcc-proposal tr, .pcc-proposal td { display:block; width:auto; }
+ .pcc-proposal colgroup { display:none; }
  .pcc-proposal td:empty { display:none; }
  .pcc-proposal td[align=right] { text-align:left; }
  .pcc-proposal input[size] { width:100%; }
