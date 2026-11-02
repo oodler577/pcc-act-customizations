@@ -75,14 +75,7 @@
     </select>
    {{Time}}
     <input type="text" name="time" value="[% datetime.strftime('%H:%M') %]" size="5" maxlength="5" />
-   {{Room}}
-    <select name="room">
-     <option value=""[% ' selected="selected"' UNLESS room %] />
-    [% FOREACH r = rooms.keys.sort %]
-     <option value="[% r %]"[% ' selected="selected"' IF room == r %]>[% rooms.$r %]</option>
-    [% END %]
-    </select>
-   </td>
+</td>
 </tr>
 [% END %]
 
@@ -222,15 +215,6 @@
 <fieldset>
 <legend>Proposal and participation details</legend>
 <p>These details are for you and the organizers, separate from your public abstract. Scheduling preferences are requests, not guarantees. For recordings, use clear audio and readable slides or code; 1080p is preferred. We will coordinate delivery and playback with you.</p>
-<div class="pcc-field">
-<label for="pcc-talk_type">Talk type</label>
-<select id="pcc-talk_type" name="pcc_talk_type"[% ' required' UNLESS global.request.user.is_talks_admin %]>
-<option value="">Choose an option</option>
-<option value="science"[% ' selected' IF pcc.talk_type=='science' %]>Science Perl / Science Perl Journal — paper contribution</option>
-<option value="talk_only"[% ' selected' IF pcc.talk_type=='talk_only' %]>Talk only — no paper contribution</option>
-</select>
-</div>
-<p>Science Perl proposals include a paper contribution; journal acceptance is a separate review process. Talk-only proposals are welcome.</p>
 <div class="pcc-field">
 <label for="pcc-delivery">Presentation format</label>
 <select id="pcc-delivery" name="pcc_delivery"[% ' required' UNLESS global.request.user.is_talks_admin %]>

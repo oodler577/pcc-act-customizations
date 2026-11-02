@@ -6,9 +6,8 @@ use JSON::PP ();
 my $json = JSON::PP->new->canonical->pretty;
 my $start = '[PCC proposal details v1]';
 my $end = '[/PCC proposal details]';
-our @fields = qw(talk_type delivery timezone morning afternoon evening availability qa qa_notes ai_extent ai_percent ai_basis ai_generated human_contribution verification longer_minutes ai_notes);
+our @fields = qw(delivery timezone morning afternoon evening availability qa qa_notes ai_extent ai_percent ai_basis ai_generated human_contribution verification longer_minutes ai_notes);
 my %choices = (
- talk_type => [qw(science talk_only)],
  delivery => [qw(in_person live_remote prerecorded)],
  qa => [qw(yes no unsure)],
  ai_extent => [qw(none minor substantial predominant)],
@@ -43,7 +42,7 @@ sub from_args {
      push @errors, "Please choose a valid $key." unless grep { $_ eq $v } @{$choices{$key}};
    }
  }
- for my $key(qw(talk_type delivery timezone)) {
+ for my $key(qw(delivery timezone)) {
    push @errors, "Please complete ".($key =~ s/_/ /gr)."." unless length($data{$key}) || $options{allow_incomplete};
  }
  if ($data{timezone} ne '') {
@@ -51,7 +50,7 @@ sub from_args {
    push @errors, 'Choose a valid IANA time zone, such as America/Chicago.'
      unless DateTime::TimeZone->is_valid_name($data{timezone}) && $data{timezone} ne 'floating';
  }
- if ($data{delivery} eq 'prerecorded') {
+ if (($data{delivery} // '') eq 'prerecorded') {
    push @errors, 'Please indicate your availability for live questions.' unless $data{qa} || $options{allow_incomplete};
  } else { $data{qa} = ''; $data{qa_notes} = '' }
  if ($data{longer_minutes} ne '') {

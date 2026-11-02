@@ -138,7 +138,7 @@ sub handler {
         if (($Request{args}{pcc_version} || '') eq '2') {
             # Removed controls must not clear or replace saved tags/recording URLs.
             $fields->{tags} = join ' ', @tags;
-            delete @{$fields}{qw(url_video1 url_video2 url_video3)};
+            delete @{$fields}{qw(url_video1 url_video2 url_video3 room)};
             $fields->{lang} = 'en';
             # Speaker submission confirms the published recording requirement.
             $fields->{allow_record} = $talk && $Request{user}->is_talks_admin
@@ -199,6 +199,10 @@ sub handler {
         };
 
         if ($ok) {
+            # A single-stream conference needs no room chooser.
+            my @configured_rooms = keys %{$Config->rooms};
+            $fields->{room} = $configured_rooms[0] if !$talk && @configured_rooms == 1;
+
             # handle is_lightning (from orga's form)
             $fields->{duration} = 'lightning' if delete $fields->{is_lightning};
             $fields->{lightning} = 0;

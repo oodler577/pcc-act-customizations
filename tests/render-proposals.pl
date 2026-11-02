@@ -9,7 +9,7 @@ open my $f,'<:encoding(UTF-8)',"$r/actdocs/templates/talk/add" or die $!;local $
 $text =~ s/\{\{(.*?)\}\}/$1/sg;
 my $tt=Template->new({INCLUDE_PATH=>["$r/actdocs/templates","$r/actdocs/static","$reference/conferences/demo/actdocs/templates","$reference/templates","$d/mock"],ABSOLUTE=>1,ENCODING=>'UTF-8',FILTERS=>{form_unescape=>sub{$_[0]}}});
 for my $mode(qw(new edit admin error)) {
- my %pcc=(talk_type=>'science',delivery=>'prerecorded',timezone=>'America/Chicago',qa=>'yes',ai_extent=>'substantial',ai_percent=>'20',ai_basis=>'Example code',ai_notes=>encode_entities('<script>alert(1)</script>'),human_contribution=>'Designed, tested, and integrated',verification=>'Compared results',morning=>1);
+ my %pcc=(delivery=>'prerecorded',timezone=>'America/Chicago',qa=>'yes',ai_extent=>'substantial',ai_percent=>'20',ai_basis=>'Example code',ai_notes=>encode_entities('<script>alert(1)</script>'),human_contribution=>'Designed, tested, and integrated',verification=>'Compared results',morning=>1);
  my $html;
  $tt->process(\$text,{
   title=>'Example Perl talk',abstract=>'An abstract',comment=>'Organizer note',duration=>30,

@@ -62,11 +62,12 @@ sub request {
  Act::Handler::Talk::Edit::handler();
 }
 my %base=(submit=>1,title=>'A useful Perl talk',abstract=>'Perl techniques',duration=>30,
- comment=>'Please avoid Friday',lang=>'en',pcc_version=>1,pcc_talk_type=>'talk_only',
+ comment=>'Please avoid Friday',lang=>'en',pcc_version=>1,
  pcc_delivery=>'prerecorded',pcc_timezone=>'Europe/London',pcc_qa=>'yes',pcc_ai_extent=>'none');
 request({%base});
 is($created,1,'new talk created through patched handler');
 is($talk->duration,30,'native duration saved');
+is($talk->room,1,'new talk assigned the sole configured room');
 is($view->{processed},'talk/added','native success page');
 my ($plain,$details)=Pcc::Proposal::unpack_comment($talk->comment);
 is($plain,'Please avoid Friday','ordinary comment saved');
@@ -98,11 +99,13 @@ is_deeply($view->{vars}{pcc_errors},[],'organizer may maintain a legacy talk wit
 is($talk->title,'Legacy proposal','organizer edit saved without fabricated speaker answers');
 $talk->{url_video1}='https://example.invalid/existing-recording';
 $talk->{allow_record}=0;
+$talk->{room}=1;
 @saved_tags=('perl','science');
 request({%base,talk_id=>1,pcc_version=>2,user_id=>2,comment=>'Keep metadata',pcc_ai_notes=>'I tested AI generated code.'},1);
 is($talk->url_video1,'https://example.invalid/existing-recording','hidden video URLs preserved');
 is($updated_tags,'perl science','hidden tags preserved');
 is($talk->lang,'en','English stored automatically');
+is($talk->room,1,'existing room assignment preserved with hidden control');
 is($talk->allow_record,0,'organizer edit does not invent prior recording consent');
 request({%base,talk_id=>1,pcc_version=>2,pcc_ai_notes=>'No AI used.'});
 is($talk->allow_record,1,'speaker submission confirms stated recording requirement');

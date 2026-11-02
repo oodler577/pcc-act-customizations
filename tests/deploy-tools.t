@@ -19,6 +19,7 @@ my $cmd=join ' ',@ARGV;
 if($cmd=~/config --format json/){print encode_json({services=>{act=>{image=>'synthetic-base',build=>{args=>{ACT_BASE_IMAGE=>'synthetic-base'}}}}})}
 elsif($cmd=~/config --quiet/){exit($ENV{PCC_FAIL_CONFIG}?1:0)}
 elsif($cmd=~/id -[ug]/){print "10001\n"}
+elsif($cmd=~/SELECT DISTINCT room/){print encode_json($ENV{PCC_BUSY_ROOM}?['r2']:[])}
 elsif($cmd=~/exec/){
  exit 1 if $ENV{PCC_STALE_IMAGE};
  for my $rel('Pcc/Proposal.pm','Act/Handler/Talk/Edit.pm'){
@@ -104,6 +105,17 @@ SKIP: {
  like(read_text($ini),qr/name_en = Updated PCC/,'conference name updated');
  like(read_text("$d/compose.override.yml"),qr/ACT_SMTP_FROM_NAME: "Updated PCC"/,'SMTP display name updated');
 }
+write_text($ini,read_text($ini)."\n[rooms]\nrooms = r1 r2 r3\nr1_name_en = Room 1\nr2_name_en = Room 2\nr3_name_en = Room 3\n");
+my $before_rooms=read_text($ini);
+{
+ local $ENV{PCC_BUSY_ROOM}=1;
+ my ($blocked)=invoke('setup-proposals.pl','--single-room');
+ ok($blocked,'single-room conversion refuses other assigned rooms');
+ is(read_text($ini),$before_rooms,'busy-room refusal leaves configuration unchanged');
+}
+status_ok(invoke('setup-proposals.pl','--single-room'));
+like(read_text($ini),qr/^rooms = r1$/m,'only first room remains active');
+like(read_text($ini),qr/^r1_name_en = Main program$/m,'single room labeled Main program');
 my ($status,$out,$err)=invoke('checkpoint-images.pl','--output',"$tmp/checkpoint",'--archive');
 is($status,0,'Perl checkpoint completes');
 my $manifest=read_text("$tmp/checkpoint/images.json");

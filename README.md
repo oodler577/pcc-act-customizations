@@ -6,7 +6,7 @@ Conference branding and the SMTP display name can be set with scripts/set-confer
 
 ## Proposal form customization
 
-See [PROPOSALS.md](PROPOSALS.md) for talk type, delivery, time zone, scheduling, prerecorded Q&A, and AI contribution fields. This is an optional application-image update, not a database migration. Theme-only installation does not activate the new form.
+See [PROPOSALS.md](PROPOSALS.md) for delivery, time zone, scheduling, prerecorded Q&A, and AI contribution fields. This is an optional application-image update, not a database migration. Theme-only installation does not activate the new form.
 
 ## Install on an existing deployment
 

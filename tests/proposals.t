@@ -5,7 +5,7 @@ use FindBin;
 use lib "$FindBin::Bin/../deploy/smtp/lib";
 use Pcc::Proposal;
 my %args=(
- pcc_talk_type=>'science',pcc_delivery=>'prerecorded',
+ pcc_delivery=>'prerecorded',
  pcc_timezone=>'America/Chicago',pcc_qa=>'yes',
  pcc_ai_notes=>"AI drafted code; I designed the approach and verified it.\nAbout a quarter of the example code.",
  pcc_morning=>'1',pcc_availability=>"Friday\nbefore 11 am",
@@ -31,7 +31,7 @@ for my $case(
  ['pcc_ai_notes','x'x4001,'AI comment length limited'],
  ['pcc_ai_notes',[],'AI array input rejected'],
  ['pcc_longer_minutes','45','longer duration validated'],
- ['pcc_talk_type',[],'array input rejected'],
+ ['pcc_delivery',[],'array input rejected'],
 ) {
  my %bad=(%args,$case->[0]=>$case->[1]);
  my (undef,$errs)=Pcc::Proposal::from_args(\%bad);
@@ -60,4 +60,7 @@ is($counts{'America/Chicago'},1,'Central timezone exists once');
 is($counts{'UTC'},1,'UTC offered');
 is($counts{'US/Central'},1,'saved timezone aliases remain selectable');
 ok(@zones>100,'worldwide standard timezone options');
+my $previous=Pcc::Proposal::pack_comment('',{talk_type=>'science'});
+my (undef,$retained)=Pcc::Proposal::unpack_comment(Pcc::Proposal::pack_comment($previous,$data));
+is($retained->{talk_type},'science','retired talk type metadata preserved');
 done_testing;

@@ -23,6 +23,8 @@ for my $width(1440,390) {
        errors: !!document.querySelector('[role=alert]'),
        nativeDuration: !!document.querySelector('[name=duration]'),
        adminUser: !!document.querySelector('[name=user_id]'),
+       roomAbsent: !document.querySelector('[name=room]'),
+       talkTypeAbsent: !document.querySelector('[name=pcc_talk_type]'),
        hiddenRows: !document.querySelector('input[name=tags],select[name=lang],input[name=url_video1]'),
        english: document.querySelector('[name=lang]').value,
        aiBoxes: document.querySelectorAll('textarea[name^=pcc_ai]').length,
@@ -33,6 +35,8 @@ for my $width(1440,390) {
    });
    ok(!$result->{overflow},"$state $width: no horizontal overflow");
    is_deeply($result->{duplicates},[],"$state $width: unique control IDs");
+   ok($result->{roomAbsent},"$state $width: room control absent");
+   ok($result->{talkTypeAbsent},"$state $width: retired talk type absent");
    ok($result->{hiddenRows},"$state $width: tags, language and video URL controls hidden");
    is($result->{english},'en',"$state $width: English assumed");
    is($result->{aiBoxes},1,"$state $width: one AI comment box");
