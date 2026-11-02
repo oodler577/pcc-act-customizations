@@ -82,3 +82,6 @@ For a later edition, prepare a reviewed profile and home page under editions/,
 then use --edition ID. The helper has no production credentials or account login
 hard-coded in it. Full stack and browser checks on the production configuration
 remain necessary; development fixtures use synthetic Docker/database responses.
+
+To make the general home use the empty path and stop serving ACT through the
+science hostname, follow HOME-ROUTING.md after edition setup.

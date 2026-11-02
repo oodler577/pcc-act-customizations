@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>[% IF title AND title != 'Perl Community Conference' %][% title | html %] · [% END %]Perl Community Conference</title>
 [% SET pcc_base_uri = global.config.general_full_uri OR 'https://conference.perlcommunity.org/conference/' %]
+[% SET pcc_home_uri = global.request.conference == 'conference' ? pcc_base_uri : make_uri('index.html') %]
 [% SET pcc_description = 'Dedicated exclusively to Perl 5. PCC meets around Perl’s birthday on December 18 and around July 4, in Austin, Texas and online. Development, community, and science.' %]
 [% IF meta_description %][% SET pcc_description = meta_description %][% END %]
 <meta name="description" content="[% pcc_description | html %]">
@@ -37,7 +38,7 @@
 <body>
 <a class="skip-link" href="#content">Skip to content</a>
 <header class="site-header"><div class="header-inner">
-<a class="brand" href="[% make_uri('index.html') %]"><span class="brand-oyster" aria-hidden="true"><img src="[% make_uri_info('images', 'pcc-oyster-156.webp') %]" alt="" width="156" height="156" decoding="async" fetchpriority="high"></span><span><strong>Perl Community Conference</strong><small>Development · Community · Science</small></span></a>
+<a class="brand" href="[% pcc_home_uri | html %]"><span class="brand-oyster" aria-hidden="true"><img src="[% make_uri_info('images', 'pcc-oyster-156.webp') %]" alt="" width="156" height="156" decoding="async" fetchpriority="high"></span><span><strong>Perl Community Conference</strong><small>Development · Community · Science</small></span></a>
 <div class="header-actions">
 <a class="header-donate support-donate" href="[% make_uri('donate.html') %]#donate">Donate</a>
 <a class="header-donate support-sponsor" href="[% make_uri('donate.html') %]#sponsor">Sponsor</a>
@@ -45,7 +46,7 @@
 </div>
 </div></header>
 <div class="site-layout">
-<nav id="menu" aria-label="Conference navigation"><a class="nav-home" href="[% make_uri('index.html') %]">Conference home</a>[% PROCESS menu %]</nav>
+<nav id="menu" aria-label="Conference navigation"><a class="nav-home" href="[% pcc_home_uri | html %]">Conference home</a>[% PROCESS menu %]</nav>
 <main id="content" tabindex="-1">[% IF title %]<h1 class="page-title">[% title | html %]</h1>[% END %][% content %]</main>
 </div>
 <footer class="site-footer"><span>Perl Community Conference</span><span>Powered by <a href="https://github.com/book/Act">Act</a></span></footer>

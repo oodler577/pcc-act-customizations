@@ -109,3 +109,7 @@ hidden credential entry, deployment steps, and delivery verification.
 ## Conference editions
 
 See [WINTER2026.md](WINTER2026.md) to create the December 17–18 edition in the existing ACT installation. The Perl helper creates a separate configuration and scoped organizer access without copying existing proposals or attendee registrations.
+
+## Permanent home URL
+
+See [HOME-ROUTING.md](HOME-ROUTING.md) to serve the general PCC site at the hostname root while retaining ACT conference identifiers.
