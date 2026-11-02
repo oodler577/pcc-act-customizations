@@ -53,8 +53,9 @@ git -C /path/to/act/source checkout 9af60d83390335bdbaeebaa2eb6bc44aa75ecfde
 ./scripts/build-image.sh /path/to/act/source
 ```
 
-Base tags and CPAN resolution can change; retain image digests or export the
-built image when exact binary reproduction is needed. MAKEFLAGS requests
+The Perl base is pinned by registry digest. CPAN and Debian package resolution
+can still change during a fresh build. See [UPGRADING.md](UPGRADING.md) for exact
+image checkpoints, rollback and the ACT override review checklist. MAKEFLAGS requests
 serial make builds but does not impose a container memory limit.
 
 ## Hosting integration

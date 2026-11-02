@@ -1,0 +1,14 @@
+{
+  "act_commit": "9af60d83390335bdbaeebaa2eb6bc44aa75ecfde",
+  "perl_base": "perl:5.40-bookworm@sha256:ecd0a71e150ba19b82b768b4cbe770a58d85b93d64a620337314daef36d5ff10",
+  "upstream_files": {
+    "lib/Act/Email.pm": "033bb29c5b1b55b9795f31c5809f9992c15a048feee0b13f5e1926e1bb37c409",
+    "lib/Act/Handler/Talk/Edit.pm": "c3f5c5a3b6c809ddc2d1b8b8708255286c4ee19975f5b3eab05a26b3fd0e0329",
+    "lib/Act/Handler/Wiki.pm": "0e435d41400af621dd5d4b606647b432dc1470e173fe0ec76f3b8dfc82ce4cf7",
+    "lib/Act/Handler/WikiEdit.pm": "0e9d9e7c268c15c11ec8f333a31c3f04a85a92664cd915b19ff5ddc2acc38391",
+    "lib/Act/Middleware/Language.pm": "212afb496f5321c049b6375a8a6ed6dc2fb3298707046b0c3b1bfefae03cdc2a",
+    "templates/talk/add": "d742951c7ea6b073c74db20f2c758b306b6ce6a6a5380a2c79dacbe30540eacf",
+    "templates/ui": "b0ddaf060b0732875133512b77730f13e95c1c4a51f59ba4a1b1bd52846faf52",
+    "templates/menu": null
+  }
+}
