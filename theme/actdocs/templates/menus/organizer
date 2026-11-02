@@ -1,0 +1,44 @@
+[% IF global.request.user.is_admin OR global.request.user.is_talks_admin OR global.request.user.is_news_admin OR global.request.user.is_users_admin OR global.request.user.is_treasurer %]
+<details class="admin-panel">
+<summary>Admin</summary>
+<div class="admin-tools">
+<p class="admin-context">[% IF global.request.conference == 'conference' %]General PCC site[% ELSE %][% IF global.conference.name %][% global.conference.name | html %][% ELSE %][% global.request.conference | html %][% END %][% END %]</p>
+[% IF global.request.user.is_talks_admin %]
+<h3>Program</h3>
+<ul>
+<li><a href="[% make_uri('talks') %]">Manage talks</a></li>
+<li><a href="[% make_uri('schedule') %]">Schedule</a></li>
+<li><a href="[% make_uri('tracks') %]">Tracks</a></li>
+<li><a href="[% make_uri('ical_import') %]">iCal import</a></li>
+<li><a href="[% make_uri('export_talks') %]">Talks CSV export</a></li>
+<li><a href="[% make_uri('events') %]">Manage events</a></li>
+<li><a href="[% make_uri('newevent') %]">Add an event</a></li>
+</ul>
+[% END %]
+[% IF global.request.user.is_news_admin %]
+<h3>News</h3>
+<ul><li><a href="[% make_uri('newsadmin') %]">News Administration</a></li></ul>
+[% END %]
+[% IF global.request.user.is_users_admin %]
+<h3>Attendees</h3>
+<ul>
+<li><a href="[% make_uri('export') %]">Users CSV export</a></li>
+<li><a href="[% make_uri('confirm_attend') %]">Confirm attendance</a></li>
+<li><a href="[% make_uri('create') %]">Register a new user</a></li>
+</ul>
+[% END %]
+[% IF global.request.user.is_treasurer %]
+<h3>Payments</h3>
+<ul>
+<li><a href="[% make_uri('payments') %]">Payments</a></li>
+<li><a href="[% make_uri('csv/payments') %]">Payments CSV</a></li>
+<li><a href="[% make_uri('csv/payment_items') %]">Payment details CSV</a></li>
+</ul>
+[% END %]
+[% IF global.request.user.is_admin %]
+<h3>Access</h3>
+<ul><li><a href="[% make_uri('rights') %]">Rights management</a></li></ul>
+[% END %]
+</div>
+</details>
+[% END %]

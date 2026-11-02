@@ -95,3 +95,18 @@ input,select,textarea,button{font:inherit;max-width:100%}input:not([type=checkbo
  .pcc-proposal td[align=right] { text-align:left; }
  .pcc-proposal input[size] { width:100%; }
 }
+
+/* Current event belongs inside the introduction, with organizer tools grouped separately. */
+.hero-current-edition{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;padding-bottom:18px;margin:0 0 24px;border-bottom:1px solid #cedbe5}
+.hero-current-edition .edition-label{flex-basis:100%;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted)}
+.hero-current-edition a{font-size:22px;font-weight:700;text-decoration:none}
+.hero-current-edition .edition-dates{font-size:12px;color:var(--muted)}
+#menu .admin-panel{margin-top:25px;border:1px solid #d4dce2;background:#f5f7f9}
+#menu .admin-panel summary{cursor:pointer;padding:11px 12px;font-weight:700;color:var(--navy)}
+#menu .admin-panel[open] summary{border-bottom:1px solid #d4dce2}
+#menu .admin-tools{padding:12px}
+#menu .admin-context{margin:0 0 12px;font-size:11px;color:var(--muted)}
+#menu .admin-tools h3{font-size:10px;letter-spacing:1px;text-transform:uppercase;margin:17px 0 5px;color:var(--muted)}
+#menu .admin-tools ul{display:block;margin:0;padding:0;list-style:none}
+#menu .admin-tools li{display:block;margin:0;padding:0}
+#menu .admin-tools a{font-size:12px;padding:5px 0}

@@ -1,0 +1,9 @@
+[% WRAPPER menus/section %]
+{{Users}}
+[% END %]
+[% WRAPPER menus/item %]
+<a href="[% make_uri('search') %]">{{Search}}</a>
+[% END %]
+[% WRAPPER menus/item %]
+<a href="[% make_uri('stats') %]">{{Statistics}}</a>
+[% END %]

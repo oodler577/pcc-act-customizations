@@ -1,0 +1,6 @@
+[% WRAPPER menus/section %]
+Current Conference
+[% END %]
+[% WRAPPER menus/item %]
+<a href="https://conference.perlcommunity.org/winter2026/">Winter 2026</a>
+[% END %]

@@ -1,23 +1,14 @@
-[% WRAPPER menus/item %]
-<a href="https://conference.perlcommunity.org/winter2026/">Winter 2026 · December 17–18</a>
-[% END %]
 [% WRAPPER menus/section %]
 <a href="[% make_uri('news') %]">{{News}}</a>
 [% END %]
-[% IF global.request.user.is_news_admin %]
-[% WRAPPER menus/item %]
-<a href="[% make_uri('newsadmin') %]">{{News Administration}}</a>
-[% END %]
-[% END %]
-
 [% WRAPPER menus/item %]
 <a href="[% make_uri('impacts.html') %]">Impacts</a>
 [% END %]
 
 [% WRAPPER menus/item %]
-<a href="[% make_uri('speak.html') %]">Thinking of speaking?</a>
+<a href="[% IF global.request.conference == 'conference' %]https://conference.perlcommunity.org/winter2026/speak.html[% ELSE %][% make_uri('speak.html') %][% END %]">Thinking of speaking?</a>
 [% END %]
-[% IF global.config.talks_submissions_open OR global.request.user.is_talks_admin %]
+[% IF global.request.conference != 'conference' AND (global.config.talks_submissions_open OR global.request.user.is_talks_admin) %]
    [% WRAPPER menus/item %]
    <a href="[% make_uri('newtalk') %]">
     {{Submit a talk proposal}}

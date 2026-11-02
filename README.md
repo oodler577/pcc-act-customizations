@@ -113,3 +113,7 @@ See [WINTER2026.md](WINTER2026.md) to create the December 17–18 edition in the
 ## Permanent home URL
 
 See [HOME-ROUTING.md](HOME-ROUTING.md) to serve the general PCC site at the hostname root while retaining ACT conference identifiers.
+
+## Navigation
+
+The general home links to the Current Conference (Winter 2026), with its date and registration button integrated into the hero. Edition pages retain their own proposal links. The shared brand always returns to https://conference.perlcommunity.org/; the sidebar home retains the current edition. Organizer tools are collected in a collapsible Admin panel near the top of the right navigation. Each group follows its original conference-scoped permission; this does not change authorization. Public Search and Statistics remain at the bottom.
