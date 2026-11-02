@@ -9,7 +9,7 @@ sendmail command wrapper, or persistent retry queue.
 Pull master. Run the following as the deployment administrator:
 
 ```bash
-python3 scripts/setup-mail.py /path/to/act/deploy sender@example.org
+perl scripts/setup-mail.pl /path/to/act/deploy sender@example.org
 ```
 
 The script asks for:
@@ -104,21 +104,7 @@ asgs-sendmail fork. It follows the same authenticated TLS SMTP approach.
 On the server, use a hidden prompt and preserve the secret file's ownership:
 
 ```bash
-python3 - /path/to/act/deploy/secrets/ses-smtp.json <<'PY'
-import getpass,json,sys
-from pathlib import Path
-p=Path(sys.argv[1])
-config=json.loads(p.read_text())
-config["username"]=input("New SMTP username: ").strip()
-first=getpass.getpass("New SMTP password: ")
-if first != getpass.getpass("Confirm password: "):
-    raise SystemExit("Passwords did not match; no changes made")
-if not config["username"] or not first or any(c in config["username"]+first for c in "\r\n\x00"):
-    raise SystemExit("Invalid credentials; no changes made")
-config["password"]=first
-with p.open("w") as f: json.dump(config,f);f.write("\n")
-p.chmod(0o600)
-PY
+perl scripts/rotate-smtp-credentials.pl /path/to/act/deploy/secrets/ses-smtp.json
 docker compose --project-directory /path/to/act/deploy restart act
 ```
 
@@ -138,10 +124,10 @@ it does not configure an alternative delivery service.
 ```bash
 docker build --build-arg ACT_BASE_IMAGE=perl:5.40-bookworm \
   -t pcc-act-smtp-integration deploy/smtp
-python3 tests/smtp-integration.py
+perl tests/smtp-integration.pl
 ```
 
-The test runner needs aiosmtpd, Docker, and openssl and runs as root on an
+The test runner needs Perl IO::Socket::SSL, Docker, and openssl and runs as root on an
 isolated development host with the default Docker bridge and port 587 free
 on that bridge interface. All credentials and recipients are synthetic.
 It verifies trusted TLS/AUTH delivery, recipient/header preservation,
@@ -163,10 +149,10 @@ unchanged; the new branding applies to subsequent messages.
 For an existing deployment:
 
 ```bash
-python3 scripts/set-conference-branding.py /path/to/act/deploy
-./scripts/apply-theme.sh /path/to/act/deploy conference
+perl scripts/set-conference-branding.pl /path/to/act/deploy
 docker compose --project-directory /path/to/act/deploy build act
 docker compose --project-directory /path/to/act/deploy up -d --no-deps --force-recreate act
+./scripts/apply-theme.sh /path/to/act/deploy conference
 ```
 
 The default name is Perl Community Conference. Use --name to customize it.

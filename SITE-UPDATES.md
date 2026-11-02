@@ -4,7 +4,7 @@ Run as root on the ACT server, after pulling master:
 
 ```sh
 cd /opt/pcc-act-styles
-python3 scripts/update-site.py /home/sciperlconf/act/deploy
+perl scripts/update-site.pl /home/sciperlconf/act/deploy
 ./scripts/apply-theme.sh /home/sciperlconf/act/deploy conference
 cd /home/sciperlconf/act/deploy
 docker compose build act &&

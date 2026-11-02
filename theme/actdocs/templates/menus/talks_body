@@ -1,3 +1,8 @@
+[% IF global.request.user.is_talks_admin %]
+   [% WRAPPER menus/item %]
+   <a href="[% make_uri('talks') %]">Manage talks</a>
+   [% END %]
+[% END %]
 [% IF global.config.talks_show_schedule OR global.request.user.is_talks_admin %]
    [% WRAPPER menus/item %]
    <a href="[% make_uri('schedule') %]">

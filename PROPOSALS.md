@@ -11,7 +11,7 @@ On production, stage the code and build the existing direct-SMTP ACT image:
 ```bash
 cd /opt/pcc-act-styles
 git pull --ff-only https://github.com/oodler577/pcc-act-customizations.git master
-python3 scripts/setup-proposals.py /home/sciperlconf/act/deploy
+perl scripts/setup-proposals.pl /home/sciperlconf/act/deploy
 docker compose --project-directory /home/sciperlconf/act/deploy build act
 ```
 
@@ -19,7 +19,7 @@ Only after the image build succeeds (activation verifies the running code):
 
 ```bash
 docker compose --project-directory /home/sciperlconf/act/deploy up -d --no-deps --force-recreate act
-python3 scripts/setup-proposals.py /home/sciperlconf/act/deploy --activate
+perl scripts/setup-proposals.pl /home/sciperlconf/act/deploy --activate
 ./scripts/apply-theme.sh /home/sciperlconf/act/deploy conference
 ```
 

@@ -13,7 +13,7 @@ mkdir -p "$deploy/backups"
 backup=$(mktemp "$deploy/backups/theme-XXXXXXXX.tar.gz")
 tar -C "$deploy" -czf "$backup" "conferences/$conf"
 if [[ -f "$deploy/.pcc-proposals-enabled" ]]; then
-  python3 "$repo/scripts/setup-proposals.py" "$deploy" --conference "$conf" --activate
+  perl "$repo/scripts/setup-proposals.pl" "$deploy" --conference "$conf" --activate
 fi
 mkdir -p "$target/actdocs/templates/menus"
 cp "$repo/theme/actdocs/templates/menu" "$target/actdocs/templates/menu"

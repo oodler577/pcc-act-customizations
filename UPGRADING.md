@@ -15,7 +15,7 @@ This repository does not manage OJS or Nginx image updates. Run the checkpoint t
 On the production host, from this repository:
 
 ```bash
-python3 scripts/checkpoint-images.py /home/sciperlconf/act/deploy --archive
+perl scripts/checkpoint-images.pl /home/sciperlconf/act/deploy --archive
 ```
 
 The command prints a new private directory under deploy/backups. It records only whitelisted image metadata, running service/image mappings, available ACT build base IDs and the customization checkout commit. It does not write Compose configuration, environment variables, SMTP credentials or container identities into the manifest. It does not change running services or Compose settings. Stopped services are listed as missing; start or checkpoint them separately if they matter.
@@ -48,7 +48,7 @@ Use the actual filenames; do not omit normal overrides containing settings or se
 ## Deliberate ACT upgrade
 
 1. Checkpoint the running images and back up the databases, conference files, configuration and private secrets. Record the previous customization commit. Use an isolated test deployment with synthetic data and a mail sink; no SES delivery from tests.
-2. Check out the candidate ACT revision in a separate clean source tree. Run python3 scripts/check-act-upgrade.py /path/to/candidate. It reports changed upstream files beneath our overrides. A match only means those tracked files match; it is not proof of overall compatibility.
+2. Check out the candidate ACT revision in a separate clean source tree. Run perl scripts/check-act-upgrade.pl /path/to/candidate. It reports changed upstream files beneath our overrides. A match only means those tracked files match; it is not proof of overall compatibility.
 3. Review changes in Act::Handler::Talk::Edit, the talk/add template, Act::Email, the language middleware, disabled wiki handlers, database migrations, dependency requirements and routing. Merge upstream fixes into our overrides rather than hiding them under an older copied handler.
 4. Update the explicit source commit in scripts/build-image.sh, the image name/default base reference where needed, the reviewed file hashes in upstream-lock.json, and documentation together. Change the Perl digest intentionally when adopting a new base; record why. Never just change an image tag and skip review.
 5. Rebuild the base ACT image with scripts/build-image.sh. For production, the base should remain the existing tested local image until the candidate passes. Update ACT_BASE_IMAGE in the deployment's private Compose build arguments to the tested new base. Staging helpers copy selected overrides, so ensure the complete reviewed deploy/smtp/lib tree is staged before rebuilding the derivative image. Do not copy production secrets into a build context.
@@ -56,3 +56,7 @@ Use the actual filenames; do not omit normal overrides containing settings or se
 7. Commit the upgrade and pin changes. Deploy only ACT first, following PROPOSALS.md for staged proposal code and activation. Run the documented production checks and take another image checkpoint. Keep rollback images and database backups; a database migration may require a database restore as well as the previous image.
 
 Current proposal deployment instructions are in PROPOSALS.md; SMTP in MAIL.md; language/wiki updates in SITE-UPDATES.md. Future full dependency reproducibility would require a CPAN distribution lock plus a controlled Debian package snapshot, beyond the binary image checkpoint provided here.
+
+## Checkout after the Perl tooling migration
+
+The deployment and SMTP test tools are Perl programs. The earlier tool files were removed from every reachable Git revision, so older commit IDs changed. Refresh existing checkouts using a fresh clone; do not merge an old local master into the rewritten branch. Preserve any local modifications outside the checkout first. The deployment directory and running containers are separate from this repository and do not need rebuilding for this tooling-only change.

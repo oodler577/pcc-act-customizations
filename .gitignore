@@ -9,7 +9,6 @@ data/
 *.cer
 *.dump
 *.sql
-__pycache__/
 node_modules/
 qa/
 playwright-report/
