@@ -4,27 +4,28 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>[% IF title AND title != 'Perl Community Conference' %][% title | html %] · [% END %]Perl Community Conference</title>
+[% SET pcc_base_uri = global.config.general_full_uri OR 'https://conference.perlcommunity.org/conference/' %]
 [% SET pcc_description = 'Dedicated exclusively to Perl 5. PCC meets around Perl’s birthday on December 18 and around July 4, in Austin, Texas and online. Development, community, and science.' %]
 [% IF meta_description %][% SET pcc_description = meta_description %][% END %]
 <meta name="description" content="[% pcc_description | html %]">
 [% IF canonical_path OR NOT title OR title == 'Perl Community Conference' %]
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="canonical" href="https://science.perlcommunity.org/conference/[% canonical_path | html %]">
+<link rel="canonical" href="[% pcc_base_uri | html %][% canonical_path | html %]">
 [% ELSE %]<meta name="robots" content="noindex,follow">[% END %]
 <meta property="og:site_name" content="Perl Community Conference">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="[% IF title AND title != 'Perl Community Conference' %][% title | html %] · [% END %]Perl Community Conference">
 <meta property="og:description" content="[% pcc_description | html %]">
-[% IF canonical_path OR NOT title OR title == 'Perl Community Conference' %]<meta property="og:url" content="https://science.perlcommunity.org/conference/[% canonical_path | html %]">[% END %]
-<meta property="og:image" content="https://science.perlcommunity.org/conference/images/pcc-social.jpg">
+[% IF canonical_path OR NOT title OR title == 'Perl Community Conference' %]<meta property="og:url" content="[% pcc_base_uri | html %][% canonical_path | html %]">[% END %]
+<meta property="og:image" content="[% pcc_base_uri | html %]images/pcc-social.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Perl Community Conference — Development, Community, Science; official oyster logo">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="[% IF title AND title != 'Perl Community Conference' %][% title | html %] · [% END %]Perl Community Conference">
 <meta name="twitter:description" content="[% pcc_description | html %]">
-<meta name="twitter:image" content="https://science.perlcommunity.org/conference/images/pcc-social.jpg">
+<meta name="twitter:image" content="[% pcc_base_uri | html %]images/pcc-social.jpg">
 <meta name="twitter:image:alt" content="Perl Community Conference — Development, Community, Science; official oyster logo">
 [% IF openid %]<link rel="openid.server" href="[% global.request.base_url %][% make_uri('openid') %]">[% END %]
 <link rel="alternate" type="application/atom+xml" title="Conference news" href="[% global.request.base_url %][% make_uri_info('atom', global.request.language) %].xml">
@@ -40,7 +41,7 @@
 <div class="header-actions">
 <a class="header-donate support-donate" href="[% make_uri('donate.html') %]#donate">Donate</a>
 <a class="header-donate support-sponsor" href="[% make_uri('donate.html') %]#sponsor">Sponsor</a>
-<a class="journal-link" href="/spj">Science Perl Journal ↗</a>
+<a class="journal-link" href="https://science.perlcommunity.org/spj">Science Perl Journal ↗</a>
 </div>
 </div></header>
 <div class="site-layout">

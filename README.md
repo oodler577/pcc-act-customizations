@@ -105,3 +105,7 @@ logged-in Act organizer pages on the deployment after installation.
 
 See [MAIL.md](MAIL.md) for direct SES SMTP with required STARTTLS and authentication,
 hidden credential entry, deployment steps, and delivery verification.
+
+## Conference editions
+
+See [WINTER2026.md](WINTER2026.md) to create the December 17–18 edition in the existing ACT installation. The Perl helper creates a separate configuration and scoped organizer access without copying existing proposals or attendee registrations.

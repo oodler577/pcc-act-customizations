@@ -1,3 +1,6 @@
+[% WRAPPER menus/item %]
+<a href="https://conference.perlcommunity.org/winter2026/">Winter 2026 · December 17–18</a>
+[% END %]
 [% WRAPPER menus/section %]
 <a href="[% make_uri('news') %]">{{News}}</a>
 [% END %]
