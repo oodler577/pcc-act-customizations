@@ -66,3 +66,24 @@ input,select,textarea,button{font:inherit;max-width:100%}input:not([type=checkbo
 
 /* Distinct, restrained support choices; both retain clear text labels. */
 .button.support-donate,.header-donate.support-donate{background:#426b53;border-color:#426b53;color:#fff}.button.support-donate:hover,.header-donate.support-donate:hover{background:#345440;border-color:#345440;color:#fff}.button.support-sponsor,.header-donate.support-sponsor{background:#c7ad70;border-color:#c7ad70;color:#292516}.button.support-sponsor:hover,.header-donate.support-sponsor:hover{background:#b49a60;border-color:#b49a60;color:#211d10}.support-section{margin:30px 0;padding-top:12px;border-top:1px solid var(--line)}.support-section h3{scroll-margin-top:24px}.header-actions{flex-wrap:wrap}.support-choices{margin:20px 0}
+
+/* Proposal form: constrain legacy table widths and align custom fields. */
+.pcc-proposal { text-align:left; }
+.pcc-proposal table { width:100%; max-width:100%; }
+.pcc-proposal td { vertical-align:top; }
+.pcc-proposal input:not([type=checkbox]):not([type=submit]),
+.pcc-proposal select, .pcc-proposal textarea { max-width:100%; box-sizing:border-box; }
+.pcc-proposal textarea { width:100%; }
+.pcc-proposal fieldset { min-width:0; margin:1rem 0; padding:1rem; border:1px solid #ccd7df; }
+.pcc-proposal legend { color:#1e6292; font-weight:bold; }
+.pcc-field { margin:1rem 0; }
+.pcc-field > label, .pcc-field small { display:block; margin:.3rem 0; }
+.pcc-field > label { font-weight:bold; }
+.pcc-choice { display:block; margin:.6rem 0; }
+.pcc-proposal [role=alert] { border:2px solid #a43828; padding:1rem; }
+@media(max-width:650px) {
+ .pcc-proposal table, .pcc-proposal tbody, .pcc-proposal tr, .pcc-proposal td { display:block; width:auto; }
+ .pcc-proposal td:empty { display:none; }
+ .pcc-proposal td[align=right] { text-align:left; }
+ .pcc-proposal input[size] { width:100%; }
+}

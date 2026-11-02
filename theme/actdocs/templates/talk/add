@@ -1,0 +1,397 @@
+[% WRAPPER ui title = loc("Submit/Edit a talk") %]
+
+<div class="pcc-proposal">
+
+[% PROCESS error
+   msgs = {
+     ERR_USER           => loc("You must specify a user"),
+     ERR_TITLE          => loc("You must enter a title for the talk"),
+     ERR_ABSTRACT       => loc("You must provide an abstract"),
+     ERR_DATE           => loc("The supplied date is invalid"),
+     ERR_TIME           => loc("The supplied time is invalid"),
+     ERR_DATERANGE      => loc("The date/time is out of range"),
+     ERR_DURATION       => loc("Please choose a duration"),
+     ERR_URL_ABSTRACT   => loc("Abstract URL is not a valid URL"),
+     ERR_URL_TALK       => loc("Talk URL is not a valid URL"),
+     ERR_ROOM           => loc("Incorrect room submitted"),
+     ERR_LEVEL          => loc("Please choose a target audience"),
+     ERR_LANG           => loc("Incorrect language"),
+  }
+%]
+
+<form class="pcc-proposal-form" method="POST" action="[% global.request.r.uri %]">
+
+<input type="hidden" name="pcc_version" value="1" />
+[% IF pcc_errors.size %]<div role="alert">
+<p>Please check your proposal:</p>
+<ul>[% FOREACH e=pcc_errors %]<li>[% e %]</li>[% END %]</ul>
+</div>[% END %]
+[% IF return_url %]
+<input type="hidden" name="return_url" value="[% return_url %]" />
+[% END %]
+
+[% IF talk_id %]
+<input type="hidden" name="talk_id" value="[% talk_id %]" />
+<p>
+ {{View}}
+ <a href="[% make_uri_info('talk', talk_id) %]" >[% title %]</a>
+</p>
+<p>
+<input type="checkbox" name="delete" />
+{{Delete this talk}}
+</p>
+[% END %]
+<table class="pcc-proposal-table" border="0" cellpadding="10" cellspacing="0">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="10">
+[% IF global.request.user.is_talks_admin %]
+<tr>
+  <td align="right">{{User}}</td>
+  <td>&nbsp;</td>
+  <td>
+    <select name="user_id">
+    [% uid = user_id ? user_id : global.request.user.user_id %]
+    [% FOREACH u=users %]
+      <option value="[% u.user_id %]"[% ' selected="selected"' IF u.user_id == uid %]>
+        [% u.first_name %] [% u.last_name %]
+      </option>
+    [% END %]
+    </select>
+  </td>
+</tr>
+
+<tr>
+  <td align="right">{{Date}}</td>
+  <td>&nbsp;</td>
+  <td>
+   <select name="date">
+     <option value=""[% ' selected="selected"' UNLESS datetime %] />
+   [% FOREACH d=dates %]
+     <option value="[% d.ymd %]"[% ' selected="selected"' IF datetime.ymd == d.ymd %]>[% d.ymd %]</option>
+   [% END %]
+    </select>
+   {{Time}}
+    <input type="text" name="time" value="[% datetime.strftime('%H:%M') %]" size="5" maxlength="5" />
+   {{Room}}
+    <select name="room">
+     <option value=""[% ' selected="selected"' UNLESS room %] />
+    [% FOREACH r = rooms.keys.sort %]
+     <option value="[% r %]"[% ' selected="selected"' IF room == r %]>[% rooms.$r %]</option>
+    [% END %]
+    </select>
+   </td>
+</tr>
+[% END %]
+
+<tr>
+  <td align="right">{{Title}}</td>
+  <td>&nbsp;</td>
+  <td>
+    <input type="text" name="title" value="[% title %]" size="51" maxlength="100" />
+  </td>
+</tr>
+
+[% IF tracks.size != 0 %]
+  [% IF global.request.user.is_talks_admin %]
+<tr>
+  <td align="right" valign="top">
+  {{Track}}</td>
+  <td>&nbsp;</td>
+  <td>
+   <select name="track_id">
+     <option value=""[% ' selected="selected"' UNLESS track_id %] />
+   [% FOREACH t=tracks %]
+     <option value="[% t.track_id %]"[% ' selected="selected"' IF t.track_id == track_id %]>[% t.title %]</option>
+   [% END %]
+   </select>
+  </td>
+</tr>
+  [% ELSE %]
+   <input type="hidden" name="track_id" value="[% track_id %]" />
+  [% END %]
+[% END %]
+
+<tr>
+ <td align="right" valign="top">
+ {{Tags}}</td>
+  <td>&nbsp;</td>
+  <td>
+    <input type="text" name="tags" value="[% tags %]" size="51" maxlength="100" />
+  </td>
+</tr>
+
+[% IF global.config.talks_languages %]
+<tr>
+  <td align="right" valign="top">
+  {{Language}}</td>
+  <td>&nbsp;</td>
+  <td>
+<select name="lang" size="1">
+        <option value=""[% ' selected="selected"' UNLESS lang %] />
+      [% FOREACH lg = global.config.talks_languages.keys.sort %]
+        <option value="[% lg %]"[% ' selected="selected"' IF lang==lg %]>[% global.config.talks_languages.$lg %]</option>
+      [% END %]
+  </select>
+</td>
+</tr>
+[% END %]
+
+<tr>
+  <td align="right">{{Hide details}}</td>
+  <td>&nbsp;</td>
+  <td>
+    <input type="checkbox" name="hide_details"[% ' checked' IF hide_details %] />
+    {{Check the box to hide the abstract and URLs, and to only show the teaser until this talk happens.}}
+  </td>
+</tr>
+
+<tr>
+  <td align="right" valign="top">
+  {{Teaser}}<br />{{(plain text)}}</td>
+  <td>&nbsp;</td>
+  <td>
+    <textarea name="teaser" cols="50" rows="3">[% teaser | form_unescape %]</textarea>
+  </td>
+</tr>
+
+<tr>
+  <td align="right" valign="top">
+  {{Abstract}}<br />{{(plain text)}}</td>
+  <td>&nbsp;</td>
+  <td>
+    <textarea name="abstract" cols="50" rows="7">[% abstract | form_unescape %]</textarea>
+  </td>
+</tr>
+
+<tr>
+  <td align="right">{{Abstract URL}}</td>
+  <td>&nbsp;</td>
+  <td>
+    <input type="text" name="url_abstract" value="[% url_abstract %]" size="51" maxlength="256" />
+  </td>
+</tr>
+
+<tr>
+  <td align="right">{{Talk URL}}</td>
+  <td>&nbsp;</td>
+  <td>
+    <input type="text" name="url_talk" value="[% url_talk %]" size="51" maxlength="256" />
+  </td>
+</tr>
+
+<tr>
+  <td align="right">{{Allow recording}}</td>
+  <td>&nbsp;</td>
+  <td>
+    <input type="checkbox" name="allow_record"[% ' checked' IF allow_record %] />
+    {{Check the box to indicate you agree for this talk to be recorded.}}
+  </td>
+</tr>
+
+<tr>
+  <td align="right">{{Video URLs}}</td>
+  <td>&nbsp;</td>
+  <td>
+    1. <input type="text" name="url_video1" value="[% url_video1 %]" size="51" maxlength="256" /> <br />
+    2. <input type="text" name="url_video2" value="[% url_video2 %]" size="51" maxlength="256" /> <br />
+    3. <input type="text" name="url_video3" value="[% url_video3 %]" size="51" maxlength="256" /> <br />
+  </td>
+</tr>
+
+<tr>
+<td align="right" valign="top">Talk length</td>
+<td>
+</td>
+<td>
+[% IF global.request.user.is_talks_admin %]
+<label>Scheduled minutes <input name="duration" value="[% duration == 'lightning' ? '' : duration %]" size="4" />
+</label>
+<label>
+<input type="checkbox" name="is_lightning"[% ' checked' IF duration=='lightning' %] /> Lightning talk</label>
+[% ELSIF talk_id %]
+<input type="hidden" name="duration" value="[% duration %]" />
+[% IF duration == 'lightning' %]Lightning talk[% ELSE %][% duration %] minutes[% END %]
+<p>To change an assigned length, ask the organizers in Comments.</p>
+[% ELSE %]
+<select name="duration" aria-label="Talk length" required>
+<option value="">Choose a length</option>
+<option value="lightning"[% ' selected' IF duration=='lightning' %]>Lightning talk, 5–8 minutes</option>
+[% FOREACH d=global.config.talks_durations.keys.nsort %]
+<option value="[% d %]"[% ' selected' IF duration==d %]>[% IF d==30 %]Medium talk, 25–30 minutes[% ELSIF d==55 %]Full talk, 50–55 minutes[% ELSE %][% d %] minutes[% END %]</option>
+[% END %]
+</select>
+[% END %]
+<p>Longer talks are welcome by arrangement. Select full length above and enter your requested total below.</p>
+<label>Requested longer length (minutes, optional)
+<input type="number" name="pcc_longer_minutes" min="56" max="240" value="[% pcc.longer_minutes %]" />
+</label>
+</td>
+</tr>
+
+[% IF global.config.talks_levels %]
+<tr>
+  <td align="right" valign="top">{{Target audience}}</td>
+  <td>&nbsp;</td>
+  <td>
+<select name="level">
+       [% FOREACH levelname = global.config.talks_levels_names %]
+         <option value="[% loop.count %]"[% ' selected="selected"' IF level == loop.count %]>[% levelname %]</option>
+       [% END %]
+  </select>
+</td>
+</tr>
+[% END %]
+
+<tr>
+<td colspan="3">
+<fieldset>
+<legend>Proposal and participation details</legend>
+<p>These details are for you and the organizers, separate from your public abstract. Scheduling preferences are requests, not guarantees. For recordings, use clear audio and readable slides or code; 1080p is preferred. We will coordinate delivery and playback with you.</p>
+<div class="pcc-field">
+<label for="pcc-talk_type">Talk type</label>
+<select id="pcc-talk_type" name="pcc_talk_type"[% ' required' UNLESS global.request.user.is_talks_admin %]>
+<option value="">Choose an option</option>
+<option value="science"[% ' selected' IF pcc.talk_type=='science' %]>Science Perl / Science Perl Journal — paper contribution</option>
+<option value="talk_only"[% ' selected' IF pcc.talk_type=='talk_only' %]>Talk only — no paper contribution</option>
+</select>
+</div>
+<p>Science Perl proposals include a paper contribution; journal acceptance is a separate review process. Talk-only proposals are welcome.</p>
+<div class="pcc-field">
+<label for="pcc-delivery">Presentation format</label>
+<select id="pcc-delivery" name="pcc_delivery"[% ' required' UNLESS global.request.user.is_talks_admin %]>
+<option value="">Choose an option</option>
+<option value="in_person"[% ' selected' IF pcc.delivery=='in_person' %]>In person</option>
+<option value="live_remote"[% ' selected' IF pcc.delivery=='live_remote' %]>Live remote</option>
+<option value="prerecorded"[% ' selected' IF pcc.delivery=='prerecorded' %]>Prerecorded video</option>
+</select>
+</div>
+<div class="pcc-field">
+<label for="pcc-timezone">Native time zone (IANA name)</label>
+<input id="pcc-timezone" name="pcc_timezone" value="[% pcc.timezone %]" placeholder="America/Chicago"[% ' required' UNLESS global.request.user.is_talks_admin %] />
+<small>For example America/Chicago, Europe/London, or Asia/Tokyo. All preferences below use this time zone.</small>
+</div>
+<fieldset>
+<legend>Preferred local times (choose any)</legend>
+<label class="pcc-choice">
+<input type="checkbox" name="pcc_morning" value="1"[% ' checked' IF pcc.morning %] /> Morning (before noon)</label>
+<label class="pcc-choice">
+<input type="checkbox" name="pcc_afternoon" value="1"[% ' checked' IF pcc.afternoon %] /> Afternoon (noon–6 pm)</label>
+<label class="pcc-choice">
+<input type="checkbox" name="pcc_evening" value="1"[% ' checked' IF pcc.evening %] /> Evening (after 6 pm)</label>
+</fieldset>
+<div class="pcc-field" id="pcc-qa-field">
+<label for="pcc-qa">Live Q&A after prerecorded video (prerecorded talks only)</label>
+<select id="pcc-qa" name="pcc_qa">
+<option value="">Choose an option</option>
+<option value="yes"[% ' selected' IF pcc.qa=='yes' %]>Yes — I will join live</option>
+<option value="no"[% ' selected' IF pcc.qa=='no' %]>No — recording only</option>
+<option value="unsure"[% ' selected' IF pcc.qa=='unsure' %]>Not sure — please coordinate with me</option>
+</select>
+</div>
+<div class="pcc-field">
+<label for="pcc-availability">Availability: dates, exact time windows, or constraints</label>
+<textarea id="pcc-availability" name="pcc_availability" rows="3" maxlength="4000">[% pcc.availability %]</textarea>
+</div>
+<div class="pcc-field">
+<label for="pcc-qa_notes">Q&A availability or connection notes</label>
+<textarea id="pcc-qa_notes" name="pcc_qa_notes" rows="3" maxlength="4000">[% pcc.qa_notes %]</textarea>
+</div>
+</fieldset>
+<fieldset>
+<legend>AI and your contribution</legend>
+<p>AI tools are welcome. No apology or lengthy disclaimer is needed. Help us understand what the tools did, what you did, and how you checked the results.</p>
+<div class="pcc-field">
+<label for="pcc-ai_extent">Extent of AI involvement</label>
+<select id="pcc-ai_extent" name="pcc_ai_extent"[% ' required' UNLESS global.request.user.is_talks_admin %]>
+<option value="">Choose an option</option>
+<option value="none"[% ' selected' IF pcc.ai_extent=='none' %]>None</option>
+<option value="minor"[% ' selected' IF pcc.ai_extent=='minor' %]>Minor</option>
+<option value="substantial"[% ' selected' IF pcc.ai_extent=='substantial' %]>Substantial</option>
+<option value="predominant"[% ' selected' IF pcc.ai_extent=='predominant' %]>Predominant</option>
+</select>
+</div>
+<div class="pcc-field">
+<label for="pcc-percent">Estimated AI share (optional, 0–100%)</label>
+<input id="pcc-percent" type="number" min="0" max="100" step="0.1" name="pcc_ai_percent" value="[% pcc.ai_percent %]" />
+<small>Only estimate if meaningful; explain what you are measuring below.</small>
+</div>
+<div class="pcc-field">
+<label for="pcc-ai_basis">What does the percentage measure? (for example lines of code or slide text)</label>
+<textarea id="pcc-ai_basis" name="pcc_ai_basis" rows="3" maxlength="4000">[% pcc.ai_basis %]</textarea>
+</div>
+<div class="pcc-field">
+<label for="pcc-ai_generated">What work did AI produce or perform?</label>
+<textarea id="pcc-ai_generated" name="pcc_ai_generated" rows="3" maxlength="4000">[% pcc.ai_generated %]</textarea>
+</div>
+<div class="pcc-field">
+<label for="pcc-human_contribution">What did you direct, develop, investigate, select, or integrate yourself?</label>
+<textarea id="pcc-human_contribution" name="pcc_human_contribution" rows="3" maxlength="4000">[% pcc.human_contribution %]</textarea>
+</div>
+<div class="pcc-field">
+<label for="pcc-verification">How did you verify the results? Include limitations worth discussing.</label>
+<textarea id="pcc-verification" name="pcc_verification" rows="3" maxlength="4000">[% pcc.verification %]</textarea>
+</div>
+</fieldset>
+</td>
+</tr>
+<tr>
+  <td align="right" valign="top">{{Comments}}</td>
+  <td>&nbsp;</td>
+  <td>
+    {{The comment field is used for communicating information about}}<br />
+    <textarea name="comment" cols="50" rows="3">[% comment | form_unescape %]</textarea>
+  </td>
+</tr>
+
+<tr>
+  <td align="right" valign="top">{{Status}}</td>
+  <td>&nbsp;</td>
+  <td>
+    [% IF global.request.user.is_talks_admin %]
+    <input type="checkbox" name="accepted"[% ' checked' IF accepted %] />
+    {{accepted}}<br />
+    <input type="checkbox" name="confirmed"[% ' checked' IF confirmed %] />
+    {{confirmed}}<br />
+    [% ELSE %]
+      [% IF accepted %]
+        {{Accepted}}<br />
+        <input type="checkbox" name="confirmed"[% ' checked' IF confirmed %] />
+        {{confirmed}}<br />
+      [% ELSE %]
+        {{Pending}}
+      [% END %]
+    [% END %]
+   </td>
+</tr>
+
+<tr>
+   <td colspan="3" align="right">
+      <input type="submit" name="submit" value="{{Submit this talk}}" />
+   </td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<script>
+(function () {
+  const delivery = document.getElementById('pcc-delivery');
+  const qa = document.getElementById('pcc-qa-field');
+  const select = document.getElementById('pcc-qa');
+  const notes = document.getElementById('pcc-qa_notes').parentElement;
+  function update() {
+    const recorded = delivery.value === 'prerecorded';
+    const organizer = [% IF global.request.user.is_talks_admin %]true[% ELSE %]false[% END %];
+    qa.hidden = notes.hidden = !recorded;
+    select.required = recorded && !organizer;
+  }
+  delivery.addEventListener('change', update);
+  update();
+})();
+</script>
+</form>
+</div>
+
+[% END %]

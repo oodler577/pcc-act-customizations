@@ -31,6 +31,11 @@ chmod 755 "$target/wwwdocs/fonts"
 cp "$repo"/theme/wwwdocs/fonts/*.woff2 "$repo/theme/wwwdocs/fonts/OFL.txt" "$target/wwwdocs/fonts/"
 chmod 644 "$target/wwwdocs/fonts/OFL.txt"
 chmod 644 "$target"/wwwdocs/fonts/*.woff2
+if [[ -f "$deploy/.pcc-proposals-enabled" ]]; then
+  mkdir -p "$target/actdocs/templates/talk"
+  cp "$repo/theme/actdocs/templates/talk/add" "$target/actdocs/templates/talk/add"
+  chmod 644 "$target/actdocs/templates/talk/add"
+fi
 docker compose --project-directory "$deploy" restart act
 printf 'Theme installed. Backup: %s\n' "$backup"
 printf 'Rollback: %s/scripts/restore-theme.sh %q %q\n' "$repo" "$deploy" "$backup"
