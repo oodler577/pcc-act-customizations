@@ -147,6 +147,33 @@
 </tr>
 
 <tr>
+<td align="right" valign="top">
+[% IF global.request.user.is_talks_admin || talk_id %]Talk length[% ELSE %]<label for="pcc-talk-length">Talk length</label>[% END %]
+</td>
+<td>&nbsp;</td>
+<td>
+[% IF global.request.user.is_talks_admin %]
+<label>Scheduled minutes <input name="duration" value="[% duration == 'lightning' ? '' : duration %]" size="4" />
+</label>
+<label>
+<input type="checkbox" name="is_lightning"[% ' checked' IF duration=='lightning' %] /> Lightning talk</label>
+[% ELSIF talk_id %]
+<input type="hidden" name="duration" value="[% duration %]" />
+[% IF duration == 'lightning' %]Lightning talk[% ELSE %][% duration %] minutes[% END %]
+<p>To change an assigned length, ask the organizers in Comments.</p>
+[% ELSE %]
+<select id="pcc-talk-length" name="duration" required>
+<option value="">Choose a length</option>
+<option value="lightning"[% ' selected' IF duration=='lightning' %]>Lightning talk, 5–8 minutes</option>
+[% FOREACH d=global.config.talks_durations.keys.nsort %]
+<option value="[% d %]"[% ' selected' IF duration==d %]>[% IF d==30 %]Medium talk, 25–30 minutes[% ELSIF d==55 %]Full talk, 50–55 minutes[% ELSE %][% d %] minutes[% END %]</option>
+[% END %]
+</select>
+[% END %]
+</td>
+</tr>
+
+<tr>
   <td align="right">{{Talk URL}}</td>
   <td>&nbsp;</td>
   <td>
@@ -165,36 +192,6 @@
 </tr>
 
 
-
-<tr>
-<td align="right" valign="top">Talk length</td>
-<td>
-</td>
-<td>
-[% IF global.request.user.is_talks_admin %]
-<label>Scheduled minutes <input name="duration" value="[% duration == 'lightning' ? '' : duration %]" size="4" />
-</label>
-<label>
-<input type="checkbox" name="is_lightning"[% ' checked' IF duration=='lightning' %] /> Lightning talk</label>
-[% ELSIF talk_id %]
-<input type="hidden" name="duration" value="[% duration %]" />
-[% IF duration == 'lightning' %]Lightning talk[% ELSE %][% duration %] minutes[% END %]
-<p>To change an assigned length, ask the organizers in Comments.</p>
-[% ELSE %]
-<select name="duration" aria-label="Talk length" required>
-<option value="">Choose a length</option>
-<option value="lightning"[% ' selected' IF duration=='lightning' %]>Lightning talk, 5–8 minutes</option>
-[% FOREACH d=global.config.talks_durations.keys.nsort %]
-<option value="[% d %]"[% ' selected' IF duration==d %]>[% IF d==30 %]Medium talk, 25–30 minutes[% ELSIF d==55 %]Full talk, 50–55 minutes[% ELSE %][% d %] minutes[% END %]</option>
-[% END %]
-</select>
-[% END %]
-<p>Longer talks are welcome by arrangement. Select full length above and enter your requested total below.</p>
-<label>Requested longer length (minutes, optional)
-<input type="number" name="pcc_longer_minutes" min="56" max="240" value="[% pcc.longer_minutes %]" />
-</label>
-</td>
-</tr>
 
 [% IF global.config.talks_levels %]
 <tr>
@@ -216,11 +213,11 @@
 <legend>Proposal and participation details</legend>
 <p>These details are for you and the organizers, separate from your public abstract. Scheduling preferences are requests, not guarantees. For recordings, use clear audio and readable slides or code; 1080p is preferred. We will coordinate delivery and playback with you.</p>
 <div class="pcc-field">
-<label for="pcc-delivery">Presentation format</label>
+<label for="pcc-delivery">How will you give your talk?</label>
 <select id="pcc-delivery" name="pcc_delivery"[% ' required' UNLESS global.request.user.is_talks_admin %]>
 <option value="">Choose an option</option>
-<option value="in_person"[% ' selected' IF pcc.delivery=='in_person' %]>In person</option>
-<option value="live_remote"[% ' selected' IF pcc.delivery=='live_remote' %]>Live remote</option>
+<option value="in_person"[% ' selected' IF pcc.delivery=='in_person' %]>In person in Austin</option>
+<option value="live_remote"[% ' selected' IF pcc.delivery=='live_remote' %]>Live online</option>
 <option value="prerecorded"[% ' selected' IF pcc.delivery=='prerecorded' %]>Prerecorded video</option>
 </select>
 </div>

@@ -30,7 +30,6 @@ for my $case(
  ['pcc_availability','x'x4001,'text length limited'],
  ['pcc_ai_notes','x'x4001,'AI comment length limited'],
  ['pcc_ai_notes',[],'AI array input rejected'],
- ['pcc_longer_minutes','45','longer duration validated'],
  ['pcc_delivery',[],'array input rejected'],
 ) {
  my %bad=(%args,$case->[0]=>$case->[1]);
@@ -60,7 +59,11 @@ is($counts{'America/Chicago'},1,'Central timezone exists once');
 is($counts{'UTC'},1,'UTC offered');
 is($counts{'US/Central'},1,'saved timezone aliases remain selectable');
 ok(@zones>100,'worldwide standard timezone options');
-my $previous=Pcc::Proposal::pack_comment('',{talk_type=>'science'});
-my (undef,$retained)=Pcc::Proposal::unpack_comment(Pcc::Proposal::pack_comment($previous,$data));
+my ($current,$current_errors)=Pcc::Proposal::from_args({%args,pcc_longer_minutes=>'75'});
+is_deeply($current_errors,[],'obsolete custom duration input ignored');
+ok(!exists $current->{longer_minutes},'new custom duration requests are not stored');
+my $previous=Pcc::Proposal::pack_comment('',{talk_type=>'science',longer_minutes=>'90'});
+my (undef,$retained)=Pcc::Proposal::unpack_comment(Pcc::Proposal::pack_comment($previous,$current));
 is($retained->{talk_type},'science','retired talk type metadata preserved');
+is($retained->{longer_minutes},'90','existing custom duration request is preserved');
 done_testing;

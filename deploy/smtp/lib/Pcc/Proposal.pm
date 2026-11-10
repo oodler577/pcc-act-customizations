@@ -6,7 +6,7 @@ use JSON::PP ();
 my $json = JSON::PP->new->canonical->pretty;
 my $start = '[PCC proposal details v1]';
 my $end = '[/PCC proposal details]';
-our @fields = qw(delivery timezone morning afternoon evening availability qa qa_notes ai_extent ai_percent ai_basis ai_generated human_contribution verification longer_minutes ai_notes);
+our @fields = qw(delivery timezone morning afternoon evening availability qa qa_notes ai_extent ai_percent ai_basis ai_generated human_contribution verification ai_notes);
 my %choices = (
  delivery => [qw(in_person live_remote prerecorded)],
  qa => [qw(yes no unsure)],
@@ -53,10 +53,6 @@ sub from_args {
  if (($data{delivery} // '') eq 'prerecorded') {
    push @errors, 'Please indicate your availability for live questions.' unless $data{qa} || $options{allow_incomplete};
  } else { $data{qa} = ''; $data{qa_notes} = '' }
- if ($data{longer_minutes} ne '') {
-   push @errors, 'Requested longer duration must be 56 to 240 minutes.'
-     unless $data{longer_minutes} =~ /^\d+$/ && $data{longer_minutes}>=56 && $data{longer_minutes}<=240;
- }
  return (\%data,\@errors);
 }
 sub pack_comment {

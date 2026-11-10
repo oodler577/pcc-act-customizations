@@ -13,7 +13,18 @@ for my $width(1440,390) {
  for my $state(qw(new edit admin error)) {
    $page->goto("$base/proposal-$state.html",{waitUntil=>'networkidle'});
    my $result=$page->evaluate(q{
+     const abstractUrl = document.querySelector('[name=url_abstract]');
+     const length = document.querySelector('#pcc-talk-length');
+     const delivery = document.querySelector('#pcc-delivery');
+     const lengthBounds = length?.getBoundingClientRect();
      return {
+       lengthVisible: !!lengthBounds && lengthBounds.width > 0 &&
+         lengthBounds.height > 0 && lengthBounds.top > abstractUrl.getBoundingClientRect().bottom,
+       lengthLabel: length?.labels[0]?.textContent,
+       lengthOptions: length ? [...length.options].slice(1).map(o => o.value) : [],
+       customLengthAbsent: !document.querySelector('[name=pcc_longer_minutes]'),
+       deliveryLabel: delivery.labels[0].textContent,
+       deliveryOptions: [...delivery.options].slice(1).map(o => o.textContent),
        overflow: document.documentElement.scrollWidth > innerWidth,
        duplicates: [...document.querySelectorAll('[id]')].map(e=>e.id).filter((id,i,a)=>a.indexOf(id)!==i),
        qaHidden: document.querySelector('#pcc-qa-field').hidden,
@@ -44,6 +55,10 @@ for my $width(1440,390) {
    ok($result->{recordingLocked},"$state $width: recording policy fixed");
    ok($result->{labelWidth}>=135,"$state $width: label column has room") if $width>650;
    ok($result->{nativeDuration},"$state $width: native duration retained");
+   ok($result->{customLengthAbsent},"$state $width: custom length field absent");
+   is($result->{deliveryLabel},'How will you give your talk?',"$state $width: delivery question is explicit");
+   is_deeply($result->{deliveryOptions},['In person in Austin','Live online','Prerecorded video'],
+      "$state $width: delivery options are clear");
    is(!!$result->{adminUser},$state eq 'admin'?1:'',"$state $width: organizer controls");
    if($state ne 'new') {
      is($result->{qa},'yes',"$state $width: saved Q&A restored");
@@ -51,6 +66,9 @@ for my $width(1440,390) {
      is($result->{aiText},'<script>alert(1)</script>',"$state $width: disclosure rendered as text");
      ok(!$result->{qaHidden},"$state $width: recorded Q&A visible");
    } else {
+     ok($result->{lengthVisible},"new $width: length dropdown clears the abstract URL input");
+     is($result->{lengthLabel},'Talk length',"new $width: dropdown has a visible associated label");
+     is_deeply($result->{lengthOptions},['lightning','30','55'],"new $width: standard lengths only");
      ok($result->{qaHidden},"new $width: Q&A initially hidden");
      $page->selectOption('#pcc-delivery','prerecorded');
      my $visible=$page->evaluate(q{return !document.querySelector('#pcc-qa-field').hidden && document.querySelector('#pcc-qa').required;});
