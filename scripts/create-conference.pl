@@ -6,6 +6,7 @@ use Getopt::Long qw(GetOptions);
 use Digest::SHA qw(sha256_hex);
 use File::Path qw(make_path remove_tree);
 use File::Find;
+use File::Basename qw(basename);
 my ($edition,$source,$admin)=('winter2026','conference',undef);
 GetOptions('edition=s'=>\$edition,'from=s'=>\$source,'admin-login=s'=>\$admin) or die "Invalid options\n";
 my $d=deployment(shift // die "Usage: $0 DEPLOY --admin-login LOGIN [--edition winter2026] [--from conference]\n");
@@ -84,7 +85,10 @@ my $ok=eval{
  copy_tree("$r/theme/actdocs/templates","$target/actdocs/templates");
  copy_tree("$r/theme/actdocs/static","$target/actdocs/static");
  copy_tree("$r/theme/wwwdocs","$target/wwwdocs");
- copy_file("$r/editions/$edition/index.html","$target/actdocs/static/index.html");
+ for my $page (glob "$r/editions/$edition/*.html") {
+  next unless -f $page;
+  copy_file($page,"$target/actdocs/static/".basename($page));
+ }
  write_text("$target/actdocs/conf/act.ini",$conf);
  find({no_chdir=>1,wanted=>sub{my $file=$File::Find::name;die "Unexpected symlink\n" if -l $file;chmod(-d $file?0755:0644,$file) or die "chmod: $!\n";chown($uid,$gid,$file) or die "chown: $!\n"}},$target);
  chmod 0640,"$target/actdocs/conf/act.ini" or die $!;

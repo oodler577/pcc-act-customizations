@@ -50,6 +50,7 @@ is(read_text("$d/conferences/conference/actdocs/conf/act.ini"),$before,'source e
 ok(-f "$target/actdocs/templates/local-wrapper",'local source wrappers preserved');
 ok(!-e "$target/wwwdocs/photos/private",'private photos not copied');
 like(read_text("$target/actdocs/static/index.html"),qr/December 17–18/,'edition-specific homepage');
+ok(-f "$target/actdocs/static/why-pay.html",'edition-specific fee page copied');
 ok(-f "$target/wwwdocs/images/pcc-oyster-156.webp",'shared theme assets copied');
 is((stat("$target/actdocs/conf/act.ini"))[2]&0777,0640,'private configuration readable by ACT owner');
 my $db=decode_json_text(read_text("$tmp/db-call.json"));
@@ -64,5 +65,5 @@ my $stale=fixture('stale');{local $ENV{PCC_STALE}=1;($status)=create($stale)}ok(
 my $failed=fixture('dbfail');my $global_before=read_text("$failed/conf/act.ini");
 {local $ENV{PCC_DB_FAIL}=1;($status)=create($failed)}ok($status,'database failure reported');ok(!-e "$failed/conferences/winter2026",'failed uncommitted edition files cleaned up');is(read_text("$failed/conf/act.ini"),$global_before,'failed edition not enabled');
 my $ui=read_text("$r/theme/actdocs/templates/ui");like($ui,qr/global.config.general_full_uri/,'metadata derives from edition configuration');unlike($ui,qr{science.perlcommunity.org/conference/},'metadata is not tied to the old conference path');
-like(read_text("$r/scripts/apply-theme.sh"),qr{editions/\$conf/index.html},'theme updates retain edition homepages');
+like(read_text("$r/scripts/apply-theme.sh"),qr{editions/\$conf/"\*\.html},'theme updates include edition-specific HTML pages');
 done_testing;

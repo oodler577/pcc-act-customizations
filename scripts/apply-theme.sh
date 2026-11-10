@@ -21,9 +21,10 @@ cp "$repo"/theme/actdocs/templates/menus/* "$target/actdocs/templates/menus/"
 chmod 644 "$target/actdocs/templates/menu" "$target"/actdocs/templates/menus/*
 cp "$repo/theme/actdocs/templates/ui" "$target/actdocs/templates/ui"
 cp "$repo"/theme/actdocs/static/*.html "$target/actdocs/static/"
-if [[ -f "$repo/editions/$conf/index.html" ]]; then
-  cp "$repo/editions/$conf/index.html" "$target/actdocs/static/index.html"
-fi
+for page in "$repo/editions/$conf/"*.html; do
+  [[ -f "$page" ]] || continue
+  cp "$page" "$target/actdocs/static/"
+done
 
 chmod 644 "$target"/actdocs/static/*.html
 mkdir -p "$target/wwwdocs/css"
