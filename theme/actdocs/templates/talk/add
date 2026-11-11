@@ -20,7 +20,7 @@
 %]
 
 <p>Talks and audience questions are in English.</p>
-<p>We assign a DOI (digital object identifier) to each substantive
+<p>At no charge to the speaker, we assign a DOI (digital object identifier) to each substantive
 talk video we produce and publish, so others can cite your work.</p>
 <form class="pcc-proposal-form" method="POST" action="[% global.request.r.uri %]">
 
