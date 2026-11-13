@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+[% IF global.request.conference == 'winter2026' AND title == 'Speak at the PCC' %]
+[% page_title = 'Speak at the PCC · Perl Community Conference - Dec 17 & 18, 2026!' %]
+[% END %]
 <title>[% IF page_title %][% page_title | html %][% ELSE %][% IF title AND title != 'Perl Community Conference' %][% title | html %] · [% END %]Perl Community Conference[% END %]</title>
 [% SET pcc_base_uri = global.config.general_full_uri OR 'https://conference.perlcommunity.org/conference/' %]
 [% SET pcc_home_uri = global.request.conference == 'conference' ? pcc_base_uri : make_uri('index.html') %]
@@ -16,7 +19,7 @@
 <meta property="og:site_name" content="Perl Community Conference">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
-<meta property="og:title" content="[% IF title AND title != 'Perl Community Conference' %][% title | html %] · [% END %]Perl Community Conference">
+<meta property="og:title" content="[% IF page_title %][% page_title | html %][% ELSE %][% IF title AND title != 'Perl Community Conference' %][% title | html %] · [% END %]Perl Community Conference[% END %]">
 <meta property="og:description" content="[% pcc_description | html %]">
 [% IF canonical_path OR NOT title OR title == 'Perl Community Conference' %]<meta property="og:url" content="[% pcc_base_uri | html %][% canonical_path | html %]">[% END %]
 <meta property="og:image" content="[% pcc_base_uri | html %]images/pcc-social.jpg">
@@ -24,7 +27,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Perl Community Conference — Development, Community, Science; official oyster logo">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="[% IF title AND title != 'Perl Community Conference' %][% title | html %] · [% END %]Perl Community Conference">
+<meta name="twitter:title" content="[% IF page_title %][% page_title | html %][% ELSE %][% IF title AND title != 'Perl Community Conference' %][% title | html %] · [% END %]Perl Community Conference[% END %]">
 <meta name="twitter:description" content="[% pcc_description | html %]">
 <meta name="twitter:image" content="[% pcc_base_uri | html %]images/pcc-social.jpg">
 <meta name="twitter:image:alt" content="Perl Community Conference — Development, Community, Science; official oyster logo">
