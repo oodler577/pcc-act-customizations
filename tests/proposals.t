@@ -87,4 +87,10 @@ my ($unchecked)=Pcc::Proposal::from_args({%args,pcc_paperless_doi_ack_present=>1
 is((Pcc::Proposal::unpack_comment(Pcc::Proposal::pack_comment($ack_comment,$unchecked)))[1]{paperless_doi_ack},'','unchecking clears acknowledgment');
 my (undef,$bad_ack)=Pcc::Proposal::from_args({%args,pcc_paperless_doi_ack=>'yes'});
 ok(@$bad_ack,'invalid acknowledgment rejected');
+my (undef,$missing_science)=Pcc::Proposal::from_args(\%args,science_track=>1);
+ok(@$missing_science,'science requires paper title or exception acknowledgment');
+my (undef,$with_paper)=Pcc::Proposal::from_args({%args,pcc_paper_title=>'Research'},science_track=>1);
+is_deeply($with_paper,[],'science with paper needs no exception checkbox');
+my (undef,$with_exception)=Pcc::Proposal::from_args({%args,pcc_paperless_doi_ack=>1},science_track=>1);
+is_deeply($with_exception,[],'science exception allows blank paper title');
 done_testing;

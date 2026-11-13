@@ -15,7 +15,7 @@ for my $mode(qw(new edit admin error)) {
   title=>'Example Perl talk',abstract=>'An abstract',comment=>'Organizer note',duration=>30,
   ($mode ne 'new'?(talk_id=>1,pcc=>\%pcc):()),
   ($mode eq 'error'?(pcc_errors=>['Please indicate your availability for live questions.']):()),
-  users=>[{user_id=>1,first_name=>'Test',last_name=>'Speaker'}],tracks=>[],rooms=>{},dates=>[],
+  users=>[{user_id=>1,first_name=>'Test',last_name=>'Speaker'}],tracks=>[{track_id=>1,title=>"General Perl"},{track_id=>2,title=>"Science Perl / Science Perl Journal"}],rooms=>{},dates=>[],
   timezone_groups=>Pcc::Proposal::timezone_groups('America/Chicago'),
   global=>{config=>{talks_durations=>{30=>1,55=>1},talks_languages=>{en=>'English'}},request=>{language=>'en',base_url=>'',r=>{uri=>'/conference/newtalk'},user=>{is_talks_admin=>$mode eq 'admin',user_id=>1}},news=>sub{return []}},
   loc=>sub{$_[0]},make_uri=>sub{return '/conference/'.$_[0]},make_uri_info=>sub{return '/conference/'.join('/',@_) }

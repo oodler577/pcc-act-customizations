@@ -57,6 +57,10 @@ sub from_args {
  if (($data{delivery} // '') eq 'prerecorded') {
    push @errors, 'Please indicate your availability for live questions.' unless $data{qa} || $options{allow_incomplete};
  } else { $data{qa} = ''; $data{qa_notes} = '' }
+ if ($options{science_track} && !$options{allow_incomplete}
+     && !length($data{paper_title} // '') && !($data{paperless_doi_ack} // '')) {
+   push @errors, 'For the Science track, enter your associated paper title or acknowledge the one-time paperless DOI exception.';
+ }
  return (\%data,\@errors);
 }
 sub pack_comment {

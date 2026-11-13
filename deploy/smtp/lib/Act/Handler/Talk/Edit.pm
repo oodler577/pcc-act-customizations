@@ -69,6 +69,9 @@ sub handler {
 
     my $template = Act::Template::HTML->new();
     my $fields;
+    my $tracks = Act::Track->get_tracks(conf_id => $Request{conference});
+    my %science_tracks = map { $_->{track_id} => 1 }
+        grep { $_->{title} =~ /science/i } @$tracks;
     my ($pcc, $pcc_errors) = ({}, []);
     my $sdate = format_datetime_string($Config->talks_start_date);
     my $edate = format_datetime_string($Config->talks_end_date);
@@ -123,7 +126,13 @@ sub handler {
 
         if (!$talk || $Request{args}{pcc_version}) {
             ($pcc, $pcc_errors) = Pcc::Proposal::from_args($Request{args},
-                allow_incomplete => $Request{user}->is_talks_admin);
+                allow_incomplete => $Request{user}->is_talks_admin,
+                science_track => $science_tracks{$Request{args}{track_id} || ''});
+            if ($Request{args}{pcc_track_choice_present}
+                && !$Request{user}->is_talks_admin
+                && !grep { $_->{track_id} eq ($fields->{track_id} || '') } @$tracks) {
+                push @$pcc_errors, 'Please select a talk track.';
+            }
             $ok = 0 if @$pcc_errors;
             # Use saved details as a base so unknown future keys are preserved.
             my ($plain, $saved) = Pcc::Proposal::unpack_comment($talk ? $talk->comment : '');
@@ -291,6 +300,7 @@ sub handler {
     $saved_pcc->{ai_notes} = Pcc::Proposal::ai_notes($saved_pcc);
     $template->variables(comment => $plain_comment, pcc => $saved_pcc,
         pcc_errors => $pcc_errors,
+        tracks => $tracks,
         timezone_groups => Pcc::Proposal::timezone_groups($saved_pcc->{timezone}));
     $template->variables(
         dates => \@dates,
@@ -298,7 +308,7 @@ sub handler {
                    @{Act::User->get_users(conf_id => $Request{conference})}
                  ],
         rooms => $Config->rooms,
-        tracks => Act::Track->get_tracks( conf_id => $Request{conference}),
+
     ) if $Request{user}->is_talks_admin;
     $template->process('talk/add');
     return;
