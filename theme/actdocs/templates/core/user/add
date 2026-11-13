@@ -4,7 +4,6 @@
  {{Sorry, this conference is over.}}
 </p>
 [% ELSE %]
-[% PROCESS user/registration_intro %]
 [% MACRO user_info_x(user)
    BLOCK;
 %]<a href="[% user.most_recent_participation.url %]user/[% user.user_id %]">[% user_info_base(user) %]</a>[% END %]
@@ -43,5 +42,7 @@
 [% END %]
 [% PROCESS 'user/forms/new_user' %]
 </center>
+
+[% PROCESS user/registration_intro %]
 
 [% END %]
