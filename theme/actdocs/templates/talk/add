@@ -221,10 +221,16 @@ video. <a href="[% make_uri('speak.html') %]#science-track-dois">Read the speake
 <label for="pcc-paper-title">Associated paper title (Science track)</label>
 <input type="text" id="pcc-paper-title" name="pcc_paper_title" maxlength="4000" value="[% pcc.paper_title %]" aria-describedby="pcc-paper-help" />
 <p id="pcc-paper-help">For a Science track talk accompanying an SPJ paper, enter the paper’s title.
-<a href="https://science.perlcommunity.org/spj/about/submissions" target="_blank" rel="noopener noreferrer">Log in or create an SPJ account and submit your abstract ↗</a>.
+<a href="https://science.perlcommunity.org/spj/submission" target="_blank" rel="noopener noreferrer">Log in or create an SPJ account and submit your abstract ↗</a>.
 <strong>Your SPJ/OJS username must exactly match your PCC username.</strong>
 We plan to merge the authentication systems, so use the same username on both sites.
 If you are requesting the one-time Science track exception without a paper, leave this field blank and explain the request in Comments.</p>
+<input type="hidden" name="pcc_paperless_doi_ack_present" value="1" />
+<label class="pcc-choice" for="pcc-paperless-doi-ack">
+<input type="checkbox" id="pcc-paperless-doi-ack" name="pcc_paperless_doi_ack" value="1"[% ' checked' IF pcc.paperless_doi_ack %] />
+I understand that I may receive only one DOI for a Science track talk video without an associated paper, subject to PCC Program Committee approval.
+</label>
+<small>Check this box if you are requesting the exception for a talk without a paper.</small>
 </div>
 <p>These details are for you and the organizers, separate from your public abstract. Scheduling preferences are requests, not guarantees. For recordings, use clear audio and readable slides or code; 1080p is preferred. We will coordinate delivery and playback with you.</p>
 <div class="pcc-field">

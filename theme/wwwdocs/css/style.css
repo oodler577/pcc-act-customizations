@@ -84,6 +84,7 @@ input,select,textarea,button{font:inherit;max-width:100%}input:not([type=checkbo
 .pcc-proposal fieldset { min-width:0; margin:1rem 0; padding:1rem; border:1px solid #ccd7df; }
 .pcc-proposal legend { color:#1e6292; font-weight:bold; }
 .pcc-field { margin:1rem 0; }
+.pcc-proposal #pcc-paper-title { display:block; width:100%; min-width:0; }
 .pcc-field > label, .pcc-field small { display:block; margin:.3rem 0; }
 .pcc-field > label { font-weight:bold; }
 .pcc-choice { display:block; margin:.6rem 0; }

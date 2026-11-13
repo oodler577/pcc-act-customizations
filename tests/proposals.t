@@ -78,4 +78,13 @@ for my $invalid ([], 'x'x4001) {
  my (undef,$errors)=Pcc::Proposal::from_args({%args,pcc_paper_title=>$invalid});
  ok(@$errors,'invalid paper title rejected');
 }
+my ($ack,$ack_errors)=Pcc::Proposal::from_args({%args,pcc_paperless_doi_ack_present=>1,pcc_paperless_doi_ack=>1});
+is_deeply($ack_errors,[],'paperless DOI acknowledgment accepted');
+my $ack_comment=Pcc::Proposal::pack_comment('',$ack);
+is((Pcc::Proposal::unpack_comment($ack_comment))[1]{paperless_doi_ack},1,'acknowledgment persisted');
+is((Pcc::Proposal::unpack_comment(Pcc::Proposal::pack_comment($ack_comment,$older_form)))[1]{paperless_doi_ack},1,'older forms retain acknowledgment');
+my ($unchecked)=Pcc::Proposal::from_args({%args,pcc_paperless_doi_ack_present=>1});
+is((Pcc::Proposal::unpack_comment(Pcc::Proposal::pack_comment($ack_comment,$unchecked)))[1]{paperless_doi_ack},'','unchecking clears acknowledgment');
+my (undef,$bad_ack)=Pcc::Proposal::from_args({%args,pcc_paperless_doi_ack=>'yes'});
+ok(@$bad_ack,'invalid acknowledgment rejected');
 done_testing;
