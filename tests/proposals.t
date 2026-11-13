@@ -66,4 +66,16 @@ my $previous=Pcc::Proposal::pack_comment('',{talk_type=>'science',longer_minutes
 my (undef,$retained)=Pcc::Proposal::unpack_comment(Pcc::Proposal::pack_comment($previous,$current));
 is($retained->{talk_type},'science','retired talk type metadata preserved');
 is($retained->{longer_minutes},'90','existing custom duration request is preserved');
+my ($paper,$paper_errors)=Pcc::Proposal::from_args({%args,pcc_paper_title=>'  A Perl research paper  '});
+is_deeply($paper_errors,[],'paper title accepted');
+is($paper->{paper_title},'A Perl research paper','paper title trimmed');
+my (undef,$saved_paper)=Pcc::Proposal::unpack_comment(Pcc::Proposal::pack_comment('Note',$paper));
+is($saved_paper->{paper_title},'A Perl research paper','paper title persists');
+my ($older_form)=Pcc::Proposal::from_args(\%args);
+my (undef,$kept_paper)=Pcc::Proposal::unpack_comment(Pcc::Proposal::pack_comment(Pcc::Proposal::pack_comment('',$paper),$older_form));
+is($kept_paper->{paper_title},'A Perl research paper','older form preserves paper title');
+for my $invalid ([], 'x'x4001) {
+ my (undef,$errors)=Pcc::Proposal::from_args({%args,pcc_paper_title=>$invalid});
+ ok(@$errors,'invalid paper title rejected');
+}
 done_testing;

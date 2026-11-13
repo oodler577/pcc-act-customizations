@@ -6,7 +6,7 @@ use JSON::PP ();
 my $json = JSON::PP->new->canonical->pretty;
 my $start = '[PCC proposal details v1]';
 my $end = '[/PCC proposal details]';
-our @fields = qw(delivery timezone morning afternoon evening availability qa qa_notes ai_extent ai_percent ai_basis ai_generated human_contribution verification ai_notes);
+our @fields = qw(delivery timezone morning afternoon evening availability qa qa_notes ai_extent ai_percent ai_basis ai_generated human_contribution verification ai_notes paper_title);
 my %choices = (
  delivery => [qw(in_person live_remote prerecorded)],
  qa => [qw(yes no unsure)],
@@ -30,7 +30,7 @@ sub from_args {
  my ($args, %options) = @_;
  my (%data, @errors);
  for my $key (@fields) {
-   next if $key eq 'ai_notes' && !exists $args->{pcc_ai_notes};
+   next if $key =~ /^(?:ai_notes|paper_title)$/ && !exists $args->{"pcc_$key"};
    next if $key =~ /^(?:ai_extent|ai_percent|ai_basis|ai_generated|human_contribution|verification)$/ && !exists $args->{"pcc_$key"};
    my $v = $args->{"pcc_$key"} // '';
    if (ref($v)) { push @errors, "Invalid $key."; next }
