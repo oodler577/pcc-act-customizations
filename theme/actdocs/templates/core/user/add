@@ -1,0 +1,52 @@
+[% USE date %]
+[% IF date.now > end_date %]
+<p>
+ {{Sorry, this conference is over.}}
+</p>
+[% ELSE %]
+<p>
+ Create your PCC conference account below.
+</p>
+[% MACRO user_info_x(user)
+   BLOCK;
+%]<a href="[% user.most_recent_participation.url %]user/[% user.user_id %]">[% user_info_base(user) %]</a>[% END %]
+
+<p>If you have a login from previous PCC conferences, you do not need a new account.
+<a href="[% make_uri('login') %]">Log in with your existing account</a> to join this conference.</p>
+
+<center>
+
+[% PROCESS error
+   msgs = {
+     ERR_IDENTIFIER_EXISTS => loc("Identifier is already in use. Please choose another.", login),
+     ERR_EMAIL_EXISTS      => loc("The address is already registered.", email),
+     ERR_IDENTIFIER        => loc("Your identifier must contain at least 3 characters"),
+     ERR_FIRST_NAME        => loc("You must enter your first name"),
+     ERR_LAST_NAME         => loc("You must enter your last name"),
+     ERR_EMAIL             => loc("You must enter your email"),
+     ERR_COUNTRY           => loc("You must enter a country from the list"),
+     ERR_EMAIL_SYNTAX      => loc("Your email address looks bogus."),
+     ERR_DUPLICATE_EXISTS  => loc("Accounts with similar information already exist."),
+     ERR_TSHIRT            => loc("A valid T-shirt size is required."),
+  }
+%]
+
+[% IF duplicates.size ;
+   "<p>";
+   FOREACH u IN duplicates ;
+       "[" ; u.login ; "] ";
+       user_info_x(u);
+       IF ! u.email_hide ; " &lt;"; u.email; "&gt;" ; END ;
+       " ("; u.country_name;
+       ")<br />";
+   END;
+   "</p>";
+%]
+<p>[% loc("Use the links above to check if you are one of those.", make_uri('main')) %]</p>
+[% END %]
+[% PROCESS 'user/forms/new_user' %]
+</center>
+
+<p>Your account lets you join PCC conferences and submit talks.</p>
+<p><strong>Speakers with approved talks receive a free ticket to the whole conference.</strong></p>
+[% END %]

@@ -1,0 +1,3 @@
+[% WRAPPER ui title = loc("Registration") %]
+[% PROCESS core/user/add %]
+[% END %]

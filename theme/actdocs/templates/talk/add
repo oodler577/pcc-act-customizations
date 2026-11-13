@@ -25,7 +25,7 @@ accompanying papers submitted or intended for submission to the Science Perl Jou
 We assign their published talk videos a DOI (digital object identifier) at no charge
 to the speaker. A Science talk with no paper and no planned SPJ submission may be
 accepted as a one-time exception per speaker, including one free DOI for its published
-video. <a href="[% make_uri('speak.html') %]">Read the speaker and DOI policy</a>.</p>
+video. <a href="[% make_uri('speak.html') %]#science-track-dois">Read the speaker and DOI policy</a>.</p>
 <form class="pcc-proposal-form" method="POST" action="[% global.request.r.uri %]">
 
 <input type="hidden" name="pcc_version" value="2" />

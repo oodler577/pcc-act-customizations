@@ -20,6 +20,11 @@ cp "$repo/theme/actdocs/templates/menu" "$target/actdocs/templates/menu"
 cp "$repo"/theme/actdocs/templates/menus/* "$target/actdocs/templates/menus/"
 chmod 644 "$target/actdocs/templates/menu" "$target"/actdocs/templates/menus/*
 cp "$repo/theme/actdocs/templates/ui" "$target/actdocs/templates/ui"
+mkdir -p "$target/actdocs/templates/user" "$target/actdocs/templates/core/user"
+cp -R "$repo"/theme/actdocs/templates/user/. "$target/actdocs/templates/user/"
+cp "$repo"/theme/actdocs/templates/core/user/* "$target/actdocs/templates/core/user/"
+chmod 755 "$target/actdocs/templates/user/forms"
+chmod 644 "$target"/actdocs/templates/user/add "$target"/actdocs/templates/user/twostep_add "$target"/actdocs/templates/user/forms/* "$target"/actdocs/templates/core/user/*
 cp "$repo"/theme/actdocs/static/*.html "$target/actdocs/static/"
 for page in "$repo/editions/$conf/"*.html; do
   [[ -f "$page" ]] || continue
