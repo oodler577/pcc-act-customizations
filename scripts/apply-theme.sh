@@ -27,8 +27,9 @@ chmod 644 "$target/actdocs/templates/talk/talk_list"
 mkdir -p "$target/actdocs/templates/user" "$target/actdocs/templates/core/user"
 cp -R "$repo"/theme/actdocs/templates/user/. "$target/actdocs/templates/user/"
 cp "$repo"/theme/actdocs/templates/core/user/* "$target/actdocs/templates/core/user/"
-chmod 755 "$target/actdocs/templates/user/forms"
-chmod 644 "$target"/actdocs/templates/user/add "$target"/actdocs/templates/user/twostep_add "$target"/actdocs/templates/user/forms/* "$target"/actdocs/templates/core/user/*
+chmod 755 "$target/actdocs/templates/core" "$target/actdocs/templates/core/user"
+find "$target/actdocs/templates/user" -type d -exec chmod 755 {} +
+find "$target/actdocs/templates/user" "$target/actdocs/templates/core/user" -type f -exec chmod 644 {} +
 cp "$repo"/theme/actdocs/static/*.html "$target/actdocs/static/"
 for page in "$repo/editions/$conf/"*.html; do
   [[ -f "$page" ]] || continue
