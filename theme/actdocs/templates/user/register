@@ -1,0 +1,4 @@
+[% WRAPPER ui title = loc('Registration') %]
+[% PROCESS user/registration_intro UNLESS closed %]
+[% PROCESS core/user/register %]
+[% END %]

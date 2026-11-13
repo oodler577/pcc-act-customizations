@@ -4,15 +4,12 @@
  {{Sorry, this conference is over.}}
 </p>
 [% ELSE %]
-<p>
- Create your PCC conference account below.
-</p>
+[% PROCESS user/registration_intro %]
 [% MACRO user_info_x(user)
    BLOCK;
 %]<a href="[% user.most_recent_participation.url %]user/[% user.user_id %]">[% user_info_base(user) %]</a>[% END %]
 
-<p>If you have a login from previous PCC conferences, you do not need a new account.
-<a href="[% make_uri('login') %]">Log in with your existing account</a> to join this conference.</p>
+
 
 <center>
 
@@ -47,6 +44,4 @@
 [% PROCESS 'user/forms/new_user' %]
 </center>
 
-<p>Your account lets you join PCC conferences and submit talks.</p>
-<p><strong>Speakers with approved talks receive a free ticket to the whole conference.</strong></p>
 [% END %]

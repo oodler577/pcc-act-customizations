@@ -1,0 +1,7 @@
+<p>Create an account to register for the current conference and submit a talk.
+<strong>If you already have an account from a previous Perl Community Conference (PCC),
+simply <a href="[% make_uri('main') %]">log in</a> with your existing username and join the current conference.</strong></p>
+<p>Your profile will appear in the conference’s
+<a href="[% make_uri('search') %]">attendee directory</a>, helping participants
+connect before, during, and after the event.</p>
+<p><strong>Speakers with approved talks receive a free ticket to the whole conference.</strong></p>

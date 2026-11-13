@@ -1,7 +1,6 @@
 [% WRAPPER ui title = loc("Confirmation required") %]
 
-<p>If you have a login from previous PCC conferences, you do not need a new account.
-<a href="[% make_uri('login') %]">Log in with your existing account</a> to join this conference.</p>
+[% PROCESS user/registration_intro %]
 
 <p>{{This operation requires a confirmation. Please enter your email address,}}</p>
 
