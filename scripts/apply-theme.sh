@@ -23,6 +23,10 @@ cp "$repo/theme/actdocs/templates/ui" "$target/actdocs/templates/ui"
 cp "$repo/theme/actdocs/templates/login" "$target/actdocs/templates/login"
 chmod 644 "$target/actdocs/templates/login"
 
+mkdir -p "$target/actdocs/templates/news"
+cp "$repo/theme/actdocs/templates/news/list" "$target/actdocs/templates/news/list"
+chmod 644 "$target/actdocs/templates/news/list"
+
 mkdir -p "$target/actdocs/templates/talk"
 cp "$repo/theme/actdocs/templates/talk/talk_list" "$target/actdocs/templates/talk/talk_list"
 chmod 644 "$target/actdocs/templates/talk/talk_list"

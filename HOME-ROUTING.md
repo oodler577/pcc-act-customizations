@@ -31,6 +31,15 @@ Routes:
 - Applying the theme to an edition removes its old donate.html after backing it
   up. Apply the theme to conference first, then the editions, and rerun the home
   proxy helper so old links continue to work.
+- News lives at /conference/news, with article URLs /conference/news/ID and
+  the shared Atom feed at /conference/atom/en.xml. Root and edition news/feed
+  aliases redirect there, preserving the article ID, language and query string.
+  News Administration links use /conference/newsadmin; legacy newsadmin/newsedit
+  URLs use method-preserving 308 redirects. ACT still checks news permissions in
+  the general conference; no access rights are granted or changed.
+- Existing news records and publication states are not modified. The public
+  Winter 2026 news page was empty when this change was prepared on 2026-11-16.
+  General-site news continues to use its existing records and homepage updates.
 - Existing account/authentication routes retain their paths on the conference hostname.
 - /winter2026/ and future edition paths pass through normally.
 - ACT routes on science.perlcommunity.org redirect to the conference hostname;

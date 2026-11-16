@@ -19,6 +19,8 @@ for my $id(qw(conference winter2026)){
  for my $role('guest','member',@flags,'all'){
   my $user=$role eq 'guest'?undef:{has_registered=>1,participation=>1,login=>'test',user_id=>1,map {$_=>($role eq $_ || $role eq 'all')} @flags};
   my $html=render($id,$user,0);
+  like($html,qr{href="/conference/news"},"$id $role: shared public news");
+  unlike($html,qr{href="/winter2026/news(?:admin)?"},"$id $role: no separate edition news links");
   like($html,qr/Current Conference/,"$id $role: current conference heading");
   like($html,qr{href="https://conference.perlcommunity.org/winter2026/">Winter 2026</a>},"$id $role: current edition link");
   if($id eq 'conference'){
@@ -32,15 +34,16 @@ for my $id(qw(conference winter2026)){
   is(defined($admin)?1:0,$has_right?1:0,"$id $role: Admin visibility follows role");
   for my $flag(@flags){
    for my $path(@{$paths{$flag}}){
+    my $target=$path eq "newsadmin" ? "conference" : $id;
     # Talks has a public list; Schedule may be published. All organizer actions
     # must also be in the Admin group when the corresponding right is present.
     if($role eq $flag || $role eq 'all'){
-     like($admin||'',qr{href="/\Q$id\E/\Q$path\E"},"$id $role: $path in Admin");
+     like($admin||'',qr{href="/\Q$target\E/\Q$path\E"},"$id $role: $path in Admin");
     }elsif($path ne 'talks'){
-     unlike($admin||'',qr{href="/\Q$id\E/\Q$path\E"},"$id $role: no unrelated $path tool");
+     unlike($admin||'',qr{href="/\Q$target\E/\Q$path\E"},"$id $role: no unrelated $path tool");
     }
     next if $path eq 'talks';
-    unlike($public,qr{href="/\Q$id\E/\Q$path\E"},"$id $role: $path outside public links");
+    unlike($public,qr{href="/\Q$target\E/\Q$path\E"},"$id $role: $path outside public links");
    }
   }
   unlike($html,qr/<details class="admin-panel"[^>]*open/,"$id $role: tools start collapsed");
@@ -56,4 +59,19 @@ my $home=read_text("$r/theme/actdocs/static/index.html");
 unlike($home,qr/aria-label="Current conference edition"/,'old detached announcement strip removed');
 like($home,qr{<section class="hero">.*?class="hero-current-edition"}s,'current edition integrated into hero');
 like($home,qr{href="https://conference.perlcommunity.org/winter2026/">Winter 2026 details &amp; registration},'main call to action leads to current edition');
+# The shared news renderer must keep permalinks and feed discovery on conference,
+# even if it is used in a future edition's template context.
+for my $id(qw(conference winter2026)){
+ my $html;
+ $tt->process('news/list',{
+  global=>{request=>{conference=>$id,language=>'en'},config=>{general_full_uri=>"https://conference.perlcommunity.org/$id/"}},
+  news=>[{news_id=>42,title=>'Shared announcement',datetime=>'2026-11-16',user=>{}}],
+  texts=>['<p>Announcement text</p>'],
+  loc=>sub{$_[0]},date_format=>sub{'2026-11-16'},user_info=>sub{'Organizer'},
+  make_uri=>sub{"/$id/".$_[0]},make_uri_info=>sub{"/$id/".join('/',@_)}
+ },\$html) or die $tt->error;
+ like($html,qr{href="/conference/news/42"},"$id: article permalink is shared");
+ like($html,qr{type="application/atom\+xml"[^>]+href="/conference/atom/en\.xml"},"$id: shared Atom subscription");
+ unlike($html,qr{href="/winter2026/(?:news|atom)},"$id: no edition news or feed destinations");
+}
 done_testing;

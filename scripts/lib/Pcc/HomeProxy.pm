@@ -57,6 +57,14 @@ sub home_proxy_config {
         location = /conference { return 301 /$is_args$args; }
         location = /conference/ { return 301 /$is_args$args; }
         location = /conference/index.html { return 301 /$is_args$args; }
+        # News, its feed, and editing all belong to the general conference.
+        # Keep POST methods/bodies when old edition editor URLs are followed.
+        location ~ ^/conference/(?:news(?:/[0-9]+)?/?|newsadmin/?|newsedit/?|atom(?:/[a-zA-Z0-9_]+\.xml)?/?)$ {
+            proxy_pass http://127.0.0.1:5000;
+        }
+        location ~ ^/(?:[a-zA-Z0-9_-]+/)?(news(?:/[0-9]+)?/?|newsadmin/?|newsedit/?|atom(?:/[a-zA-Z0-9_]+\.xml)?/?)$ {
+            return 308 /conference/$1$is_args$args;
+        }
         location = /conference/donate.html {
             proxy_pass http://127.0.0.1:5000;
         }

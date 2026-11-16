@@ -33,7 +33,7 @@
 <meta name="twitter:image" content="[% pcc_base_uri | html %]images/pcc-social.jpg">
 <meta name="twitter:image:alt" content="Perl Community Conference — Development, Community, Science; official oyster logo">
 [% IF openid %]<link rel="openid.server" href="[% global.request.base_url %][% make_uri('openid') %]">[% END %]
-<link rel="alternate" type="application/atom+xml" title="Conference news" href="[% global.request.base_url %][% make_uri_info('atom', global.request.language) %].xml">
+<link rel="alternate" type="application/atom+xml" title="Conference news" href="/conference/atom/[% global.request.language | uri %].xml">
 <link rel="stylesheet" href="/css/act-base.css">
 <link rel="stylesheet" href="/css/schedule.css">
 <link rel="stylesheet" href="[% make_uri_info('css', 'style.css') %]?v=22">

@@ -17,7 +17,7 @@
 [% END %]
 [% IF global.request.user.is_news_admin %]
 <h3>News</h3>
-<ul><li><a href="[% make_uri('newsadmin') %]">News Administration</a></li></ul>
+<ul><li><a href="/conference/newsadmin">PCC News Administration</a></li></ul>
 [% END %]
 [% IF global.request.user.is_users_admin %]
 <h3>Attendees</h3>

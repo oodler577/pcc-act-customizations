@@ -1,5 +1,5 @@
 [% WRAPPER menus/section %]
-<a href="[% make_uri('news') %]">{{News}}</a>
+<a href="/conference/news">{{News}}</a>
 [% END %]
 [% WRAPPER menus/item %]
 <a href="[% make_uri('impacts.html') %]">Impacts</a>
