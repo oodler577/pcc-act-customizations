@@ -1,4 +1,4 @@
-[% WRAPPER ui title = 'Support the PCC: Donate or Sponsor' meta_description = 'Small gifts make a big difference to the PCC. Donate $5, $10, $15 or another amount, or discuss sponsorship with public recognition. Support our $1,500 annual goal.' canonical_path = 'donate.html' %]
+[% WRAPPER ui title = 'Support the PCC: Donate or Sponsor' meta_description = 'Small gifts make a big difference to the PCC. Donate $5, $10, $15 or another amount, or discuss sponsorship with public recognition. Support our $1,750 annual goal.' canonical_path = 'donate.html' canonical_url = 'https://conference.perlcommunity.org/conference/donate.html' %]
 <section class="donation-page sponsorship-page">
 <p class="eyebrow">SUPPORT THE PCC · THE PERL COMMUNITY · SCIENCE PERL</p>
 <h2>Small gifts. Shared effort. Lasting Perl knowledge.</h2>
@@ -6,11 +6,11 @@
 prepare recordings, publish the Science Perl Journal, and maintain our online resources.
 Your support helps cover the expenses that volunteer time alone cannot pay.</p>
 <div class="hero-actions support-choices" aria-label="Choose how to support PCC">
-<a class="button support-donate" href="#donate">Donate</a>
-<a class="button support-sponsor" href="#sponsor">Sponsor</a>
+<a class="button support-donate" href="/conference/donate.html#donate">Donate</a>
+<a class="button support-sponsor" href="/conference/donate.html#sponsor">Sponsor</a>
 </div>
 <aside class="donation-callout">
-<h3>Our annual fundraising goal: at least $1,500</h3>
+<h3>Our annual fundraising goal: at least $1,750</h3>
 <p>Our volunteers put in hundreds of hours each year organizing the PCC and publishing the
 Science Perl Journal. This fundraising goal helps cover:</p>
 <ul>
@@ -48,14 +48,15 @@ on the site, at conferences, and alongside recordings and announcements.</p>
 and benefits will be agreed with organizers before sponsorship is finalized.
 Individuals and independent consultants are welcome alongside companies.</p>
 <div class="sponsor-table-wrap"><table>
-<thead><tr><th scope="col">Level</th><th scope="col">Annual contribution</th><th scope="col">Contribution toward our $1,500 goal</th></tr></thead>
+<thead><tr><th scope="col">Level</th><th scope="col">Annual contribution</th></tr></thead>
 <tbody>
-<tr><th scope="row">Diamond PERL Sponsor</th><td>$1,000</td><td>66.7%</td></tr>
-<tr><th scope="row">Platinum PERL Sponsor</th><td>$500</td><td>33.3%</td></tr>
-<tr><th scope="row">Golden PERL Sponsor</th><td>$250</td><td>16.7%</td></tr>
-<tr><th scope="row">Supporting Sponsor</th><td>$100</td><td>6.7%</td></tr>
+<tr><th scope="row">Diamond PERL Sponsor</th><td>$1,000</td></tr>
+<tr><th scope="row">Platinum PERL Sponsor</th><td>$500</td></tr>
+<tr><th scope="row">Golden PERL Sponsor</th><td>$250</td></tr>
+<tr><th scope="row">Supporting Sponsor</th><td>$100</td></tr>
 </tbody></table></div>
-<p>The PERL level names draw inspiration from our
+<p><strong>PERL stands for Public Enrichment and Robotics Laboratories.</strong>
+The PERL level names draw inspiration from our
 <a href="https://perlcommunity.org/awards/" target="_blank" rel="noopener noreferrer">Golden, Platinum, and Diamond PERL awards</a>.
 Sponsorship acknowledges financial support; it does not confer an award or influence
 award selection, talk acceptance, or journal peer review.</p>
@@ -68,7 +69,7 @@ and benefits will be agreed with organizers before a sponsorship is finalized.</
 and how you would like your support acknowledged, including whether you prefer anonymity.</p>
 <div class="hero-actions">
 <a class="button support-sponsor" href="mailto:brett.estrade@gmail.com?subject=PCC%20sponsorship">Discuss a sponsorship</a>
-<a class="button support-donate" href="#donate">Make a donation</a>
+<a class="button support-donate" href="/conference/donate.html#donate">Make a donation</a>
 </div>
 
 </section>
@@ -93,13 +94,18 @@ online services available takes dependable infrastructure and ongoing funding.</
 <p>Explore <a href="[% make_uri('impacts.html') %]">Impacts</a> and
 <a href="[% make_uri('past-talks.html') %]">Past Talks</a> to see the people, projects,
 and research your support helps bring together.</p>
-<h3>Giving through our nonprofit</h3>
-<p>RoboPerl—Public Enrichment &amp; Robotics Laboratories—is our parent
-<strong>501(c)(3) nonprofit organization</strong>. Its
+<aside class="nonprofit-identity" aria-labelledby="nonprofit">
+<a class="nonprofit-logo" href="https://roboperl.org/" target="_blank" rel="noopener noreferrer"><img src="[% make_uri_info('images', 'roboperl-logo.png') %]" alt="Public Enrichment and Robotics Laboratories (RoboPerl) logo" width="160" height="160" loading="lazy"></a>
+<div>
+<h3 id="nonprofit">Giving through our nonprofit</h3>
+<p><strong>Public Enrichment and Robotics Laboratories (PERL)</strong>, also known
+as RoboPerl, is our parent <strong>501(c)(3) nonprofit organization</strong>. Its
 <a href="https://roboperl.org/support-us.html" target="_blank" rel="noopener noreferrer">support page</a>
 provides additional donation methods and information for your records.
 Contact <a href="mailto:brett.estrade@gmail.com">brett.estrade@gmail.com</a>
 to discuss sponsorship recognition.</p>
+</div>
+</aside>
 <p>Thank you for helping preserve useful Perl knowledge for the next person.</p>
 </section>
 [% END %]

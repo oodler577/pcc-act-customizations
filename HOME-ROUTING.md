@@ -21,8 +21,16 @@ Routes:
 
 - / internally serves ACT's existing /conference/ homepage.
 - /conference, /conference/, /conference/index.html and /index.html redirect to /.
-- Public conduct.html, past-talks.html, impacts.html, donate.html, sponsors.html
-  and speak.html are available at the root; their old /conference/ URLs redirect.
+- Public conduct.html, past-talks.html, impacts.html and speak.html are available
+  at the root; their old /conference/ URLs redirect.
+- The only donation/sponsorship page is /conference/donate.html. All shared
+  Donate/Sponsor links and edition support links point there. /donate.html and
+  edition donate.html URLs redirect to it; sponsors.html aliases redirect to its
+  #sponsor section. Query strings are retained. The exact canonical route is
+  proxied directly to ACT, so it does not enter the legacy redirect rules.
+- Applying the theme to an edition removes its old donate.html after backing it
+  up. Apply the theme to conference first, then the editions, and rerun the home
+  proxy helper so old links continue to work.
 - Existing account/authentication routes retain their paths on the conference hostname.
 - /winter2026/ and future edition paths pass through normally.
 - ACT routes on science.perlcommunity.org redirect to the conference hostname;

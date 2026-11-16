@@ -81,8 +81,8 @@ Internship program totals await Will Braswell’s confirmation.
 
 ## Donations and mailing list
 
-Donation copy, volunteer effort, expense scope, $1,000 minimum annual fundraising
-goal, parent-nonprofit relationship, and exact PayPal payment URL supplied by the
+Donation copy, volunteer effort, expense scope, $1,750 minimum annual fundraising
+goal (updated by the user on 2026-11-16), parent-nonprofit relationship, and exact PayPal payment URL supplied by the
 user. Generalized from the user’s video-editing fundraising email; no prior campaign
 amounts or progress are carried forward. No tax outcome or processor features promised.
 RoboPerl’s public 501(c)(3) statement and support options read at
@@ -122,6 +122,14 @@ Verified HTTP 200 on 2026-10-31: https://joss.theoj.org/,
 https://joss.theoj.org/papers/in/Perl (JOSS’s Perl language listings, including
 mixed-language software), and https://arxiv.org/ (general archive).
 Added to the sidebar and homepage research/publication card.
+
+## PERL identity and logo
+
+The user confirmed on 2026-11-16 that PERL means **Public Enrichment and Robotics
+Laboratories** and supplied the original PNG used at
+`theme/wwwdocs/images/roboperl-logo.png`. It is displayed unchanged beside the
+parent-nonprofit information on the shared donation page. The sponsor table has
+only the level and annual contribution columns, as requested.
 
 ## Sponsorship stub
 

@@ -126,3 +126,6 @@ input,select,textarea,button{font:inherit;max-width:100%}input:not([type=checkbo
 .pcc-rights-table th { white-space:nowrap; overflow-wrap:normal; word-break:normal; }
 .pcc-rights-table th:not(:first-child),
 .pcc-rights-table td:not(:first-child) { width:1%; text-align:center; }
+
+.nonprofit-identity{display:flex;align-items:center;gap:24px;margin:32px 0;padding:24px;background:#f5f7f9;border:1px solid var(--line);border-radius:4px}.nonprofit-logo{display:block;flex:0 0 120px}.nonprofit-logo img{display:block;width:120px;height:auto}.nonprofit-identity h3{margin:0 0 12px}.nonprofit-identity p{margin:0}.nonprofit-identity>div{min-width:0;overflow-wrap:anywhere}
+@media(max-width:650px){.nonprofit-identity{flex-direction:column;align-items:flex-start;padding:18px;gap:18px}.nonprofit-logo{flex-basis:auto}.nonprofit-logo img{width:96px}}

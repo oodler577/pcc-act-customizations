@@ -57,10 +57,19 @@ sub home_proxy_config {
         location = /conference { return 301 /$is_args$args; }
         location = /conference/ { return 301 /$is_args$args; }
         location = /conference/index.html { return 301 /$is_args$args; }
-        location ~ ^/conference/(conduct|past-talks|impacts|donate|sponsors|speak)\.html$ {
+        location = /conference/donate.html {
+            proxy_pass http://127.0.0.1:5000;
+        }
+        location ~ ^/(?:[a-zA-Z0-9_-]+/)?donate\.html$ {
+            return 301 /conference/donate.html$is_args$args;
+        }
+        location ~ ^/(?:[a-zA-Z0-9_-]+/)?sponsors\.html$ {
+            return 301 "/conference/donate.html$is_args$args#sponsor";
+        }
+        location ~ ^/conference/(conduct|past-talks|impacts|speak)\.html$ {
             return 301 /$1.html$is_args$args;
         }
-        location ~ ^/(conduct|past-talks|impacts|donate|sponsors|speak)\.html$ {
+        location ~ ^/(conduct|past-talks|impacts|speak)\.html$ {
             rewrite ^/(.*)$ /conference/$1 break;
             proxy_pass http://127.0.0.1:5000;
         }

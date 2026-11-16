@@ -35,6 +35,14 @@ like($new,qr{return 308 https://conference.perlcommunity.org\$request_uri;},'sci
 unlike($new,qr{location = / \{ return 302 /conference/;},'old root redirect removed');
 is(()=$new=~/PCC ROOT HOME BEGIN/g,1,'one managed routing block');
 is(home_proxy_config($new,'conference.perlcommunity.org'),$new,'reapplication is idempotent');
+
+# Migrate the earlier managed configuration without keeping donation redirects
+# that would send the new canonical URL back to the old root alias.
+my $legacy=$new;
+$legacy=~s{        location = /conference/donate\.html \{.*?(?=        location ~ \^/conference/)}{}s;
+$legacy=~s{conduct\|past-talks\|impacts\|speak}{conduct|past-talks|impacts|donate|sponsors|speak}g;
+is(home_proxy_config($legacy,'conference.perlcommunity.org'),$new,'earlier root donation aliases migrate to one canonical page');
+
 eval {home_proxy_config($config,'missing.example')};like($@,qr/exactly one/,'missing host rejected');
 my $custom=$config;$custom=~s{location = / \{ return 302 /conference/; \}}{location = / { proxy_pass http://custom.example; }};
 eval {home_proxy_config($custom,'conference.perlcommunity.org')};like($@,qr/Custom homepage handler/,'unknown homepage behavior requires review');

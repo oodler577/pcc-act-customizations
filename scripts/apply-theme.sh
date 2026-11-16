@@ -33,11 +33,21 @@ cp "$repo"/theme/actdocs/templates/core/user/* "$target/actdocs/templates/core/u
 chmod 755 "$target/actdocs/templates/core" "$target/actdocs/templates/core/user"
 find "$target/actdocs/templates/user" -type d -exec chmod 755 {} +
 find "$target/actdocs/templates/user" "$target/actdocs/templates/core/user" -type f -exec chmod 644 {} +
-cp "$repo"/theme/actdocs/static/*.html "$target/actdocs/static/"
-for page in "$repo/editions/$conf/"*.html; do
-  [[ -f "$page" ]] || continue
+# Only the general conference owns the donation page. Older edition URLs
+# redirect there through the managed home proxy configuration.
+for page in "$repo"/theme/actdocs/static/*.html; do
+  [[ "$conf" != conference && "${page##*/}" == donate.html ]] && continue
   cp "$page" "$target/actdocs/static/"
 done
+for page in "$repo/editions/$conf/"*.html; do
+  [[ -f "$page" ]] || continue
+  [[ "$conf" != conference && "${page##*/}" == donate.html ]] && continue
+  cp "$page" "$target/actdocs/static/"
+done
+
+if [[ "$conf" != conference ]]; then
+  rm -f -- "$target/actdocs/static/donate.html"
+fi
 
 chmod 644 "$target"/actdocs/static/*.html
 mkdir -p "$target/wwwdocs/css"
@@ -45,8 +55,8 @@ cp "$repo/theme/wwwdocs/css/style.css" "$target/wwwdocs/css/style.css"
 chmod 644 "$target/actdocs/templates/ui" "$target/actdocs/static/index.html" "$target/wwwdocs/css/style.css"
 mkdir -p "$target/wwwdocs/images"
 chmod 755 "$target/wwwdocs/images"
-cp "$repo"/theme/wwwdocs/images/*.jpg "$repo"/theme/wwwdocs/images/*.webp "$target/wwwdocs/images/"
-chmod 644 "$target"/wwwdocs/images/*.jpg "$target"/wwwdocs/images/*.webp
+cp "$repo"/theme/wwwdocs/images/*.jpg "$repo"/theme/wwwdocs/images/*.webp "$repo"/theme/wwwdocs/images/*.png "$target/wwwdocs/images/"
+chmod 644 "$target"/wwwdocs/images/*.jpg "$target"/wwwdocs/images/*.webp "$target"/wwwdocs/images/*.png
 mkdir -p "$target/wwwdocs/fonts"
 chmod 755 "$target/wwwdocs/fonts"
 cp "$repo"/theme/wwwdocs/fonts/*.woff2 "$repo/theme/wwwdocs/fonts/OFL.txt" "$target/wwwdocs/fonts/"
